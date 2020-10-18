@@ -1,0 +1,32 @@
+{
+  "name": "rezepte",
+  "version": "1.0.0",
+  "description": "Sammlung an Rezepten",
+  "main": "",
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Firefox ESR",
+    "ie 9-11"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8.1.6",
+    "postcss-cli": "^8.2.0",
+    "postcss-loader": "^4.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiliavir/rezepte.git"
+  },
+  "author": "tiliavir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tiliavir/rezepte/issues"
+  },
+  "homepage": "https://github.com/Tiliavir/rezepte#readme"
+}
