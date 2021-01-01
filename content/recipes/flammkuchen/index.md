@@ -9,6 +9,7 @@ cuisine: Deutsch
 tags:
   - Schnell
   - Einfach
+  - Zwiebelwaie
 
 yield: 2
 prepTime: 15

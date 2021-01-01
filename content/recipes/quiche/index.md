@@ -41,3 +41,5 @@ directions:
 ---
 
 Beim Gemüse frei Schnauze. Wir mischen meist Brokkoli, Karotten, Champignons und Lauch.
+
+![](quiche.jpg)

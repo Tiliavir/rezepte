@@ -10,6 +10,15 @@ Sammlung an Rezepten. Das Resultat ist [auf GitHub Pages](https://tiliavir.githu
 # Rezepte beisteuern
 ## Allgemein
 Pull Requests sind immer herzlich willkommen. Im Gegensatz zu meinen anderen Repositories ist der Inhalt dieses Repositories auf deutsch. Folglich sollen auch alle Rezepte deutsch erfasst werden.
+
 ## Best Practices
 ### Bilder hinzufügen
-- `mogrify -resize 2000x2000 **/*.jpg` um Bildgrösse zu verringern.
+Um Bildgrösse zu verringern:
+```bash
+$ mogrify -resize 2000x2000 **/*.jpg
+```
+
+### Rezept hinzufügen
+```bash
+$ hugo new --kind recipe-bundle recipes/rezeptname
+```

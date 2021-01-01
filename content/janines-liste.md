@@ -6,7 +6,6 @@ date: 2020-11-08T19:45:48+01:00
 ## Kartoffeln
 - Rösti
 - Kartoffelquiche
-- Bratkartoffeln mit Bohnen und Dip
 - Rosmarinkartoffeln
 
 ## Samosa
@@ -39,7 +38,6 @@ date: 2020-11-08T19:45:48+01:00
 - Tomaten-Mozzarella-Salat
 
 ## Suppen
-- Herbsteintopf
 - Kürbis-Wirsing-Eintopf
 - Thai-Erdnuss-Nudelsuppe
 - Tom-Kha

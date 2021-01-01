@@ -36,7 +36,6 @@ date: 2020-11-08T19:55:05+01:00
 
 ## Sonstiges
 - Spargel mit Salzkartoffeln, Schinken und Sauce Hollandaise
-- Zwiebelwaie
 - Maultaschen mit Sauerkraut
 - Schupfnudeln mit Sauerkraut und Speck
 - Warmer Gurkensalat
@@ -46,5 +45,4 @@ date: 2020-11-08T19:55:05+01:00
 - Pizza
 - Tomaten-Mozzarella Salat
 - Chili con Carne
-- Ofengemüse
 - Toast Hawaii
