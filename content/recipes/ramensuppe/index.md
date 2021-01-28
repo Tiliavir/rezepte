@@ -6,6 +6,7 @@ title: "Ramensuppe"
 image: ramen-1.jpg
 
 authorName: Lynn Hoefer
+authorURL: https://de.heavenlynnhealthy.com/ueber-mich/
 sourceName: Thai Erdnuss Nudelsuppe
 sourceURL: https://de.heavenlynnhealthy.com/besser-als-lieferservice-thai-erdnuss-nudelsuppe/
 

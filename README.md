@@ -13,7 +13,7 @@ Pull Requests sind immer herzlich willkommen. Im Gegensatz zu meinen anderen Rep
 
 ## Best Practices
 ### Bilder hinzufügen
-Um Bildgrösse zu verringern:
+Um Bildgröße zu verringern:
 ```bash
 $ mogrify -resize 2000x2000 **/*.jpg
 ```

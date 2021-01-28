@@ -1,6 +1,5 @@
 ---
-title: "Markus Liste"
-date: 2020-11-08T19:55:05+01:00
+title: Markus Liste
 ---
 
 ## Auflauf

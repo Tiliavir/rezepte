@@ -1,6 +1,5 @@
 ---
-title: "Janines Liste"
-date: 2020-11-08T19:45:48+01:00
+title: Janines Liste
 ---
 
 ## Kartoffeln

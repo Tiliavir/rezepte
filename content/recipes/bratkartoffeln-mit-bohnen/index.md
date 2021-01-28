@@ -15,7 +15,7 @@ cookTime: 45
 
 ingredients:
 - 800g Kartoffeln
-- 1 grosse rote Zwiebel gehackt
+- 1 große rote Zwiebel gehackt
 
 - 400g Bohnen
 
