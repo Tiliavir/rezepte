@@ -1,0 +1,28 @@
+.navigation {
+  background-color: #666;
+  background-image: none;
+}
+
+a {
+  overflow: hidden;
+}
+
+a .image {
+  transition: .3s ease all;
+  opacity: 1;
+}
+
+a:hover .image {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.bg-blue {
+  background-color: #666;
+  position: relative;
+}
+
+.sell {
+  /*hide gochowdown credits*/
+  display: none;
+}
