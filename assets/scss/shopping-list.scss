@@ -1,0 +1,25 @@
+.shopping-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shopping-list > div {
+  display: inline-block;
+  width: calc(50% - 10px);
+}
+
+.unstyled-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+@media screen and (max-width: 750px) {
+  .shopping-list {
+    display: block;
+  }
+
+  .shopping-list > div {
+    display: block;
+    width: 100%;
+  }
+}
