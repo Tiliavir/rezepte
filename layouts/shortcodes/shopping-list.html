@@ -1,0 +1,129 @@
+<div class="shopping-list">
+  <div class="recipes">
+    <h3>Rezepte</h3>
+    {{ range where .Site.Pages "Section" "recipes" }}
+    <ul class="unstyled-list">
+      {{ range .Pages.ByWeight.ByTitle }}
+        <li>
+          <input type="checkbox" id="{{.File.ContentBaseName}}" />
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+
+  <div class="ingredients">
+    <h3>Zutaten</h3>
+  </div>
+</div>
+
+<style>
+  .shopping-list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .shopping-list > div {
+    display: inline-block;
+    width: calc(50% - 10px);
+  }
+
+  .unstyled-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  @media screen and (max-width: 750px) {
+    .shopping-list {
+      display: block;
+    }
+
+    .shopping-list > div {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>
+
+<script type="text/javascript">
+  window.document.body["ingredients"] = {
+  {{ range where .Site.Pages "Section" "recipes" -}}
+    {{ range .Pages.ByWeight.ByTitle -}}
+      "{{.File.ContentBaseName}}": [
+        {{ range .Params.Components -}}
+          {{ range where $.Site.Pages "Title" . -}}
+            {{ range .Params.ingredients -}}
+              "{{ . }}",
+            {{ end }}
+          {{- end }}
+        {{- else -}}
+          {{ range .Params.ingredients -}}
+          "{{ . }}",
+          {{ end }}
+        {{- end}}
+      ],
+    {{- end}}
+  {{- end}}
+  };
+
+  function prep(ingredients) {
+    const regex = /^([\d\/\.,]+)?\s*(?:(EL|TL|ml|dl|l|g|kg|Prise|Bund)\s+)?(.+)$/;
+    let splitted = [];
+    for (let ingredient of ingredients) {
+      let matches = ingredient.match(regex);
+      splitted.push({amount: matches[1], unit: matches[2] || "count", name: matches[3]});
+    }
+    const ingredientsGrouped = [];
+    for (let value of splitted) {
+      if (!ingredientsGrouped[value.name]) {
+        ingredientsGrouped[value.name] = [];
+      }
+      if (value.amount) {
+        if (!ingredientsGrouped[value.name][value.unit]) {
+          ingredientsGrouped[value.name][value.unit] = value.amount;
+        } else {
+          ingredientsGrouped[value.name][value.unit] += value.amount;
+        }
+      }
+    }
+    return ingredientsGrouped;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let shoppingList = document.querySelector(".shopping-list");
+    let ingredients = shoppingList.querySelector(".ingredients");
+
+    shoppingList.querySelectorAll("input")
+                .forEach((el) => {
+                  el.addEventListener("click", function () {
+                    el.classList.toggle("active");
+
+                    let ingr = [];
+                    shoppingList.querySelectorAll("input:checked")
+                                .forEach((e) => {
+                                   ingr.push(...document.body["ingredients"][e.id]);
+                                });
+
+                    let ingrFormatted = [];
+                    let ingredientsByUnitsAndAmount = prep(ingr);
+                    for (let ingredient in ingredientsByUnitsAndAmount) {
+                      let amounts = "";
+                      for (let unit in ingredientsByUnitsAndAmount[ingredient]) {
+                        let amount = ingredientsByUnitsAndAmount[ingredient][unit];
+                        if (amount) {
+                          amounts += amount + "" + (unit == "count" ? "" : unit);
+                        }
+                      }
+                      ingrFormatted.push(ingredient + (amounts ? ": " + amounts : ""));
+                    }
+
+                    ingredients.innerHTML = "<h3>Zutaten</h3><ul>";
+                    for (let entry of ingrFormatted.sort()) {
+                      ingredients.innerHTML += "<li>" + entry + "</li>";
+                    }
+                    ingredients.innerHTML += "</ul>";
+                  })
+                });
+  });
+</script>

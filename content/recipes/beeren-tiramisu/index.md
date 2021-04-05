@@ -32,7 +32,7 @@ ingredients:
 - 60g Zucker
 - 1 Päckchen Vanille Zucker
 - 1EL Zitronensaft
-- 1/2 TL Zimt
+- 0.5 TL Zimt
 - 150g Gewürzspekulatius
 
 directions:

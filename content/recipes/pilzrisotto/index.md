@@ -19,7 +19,7 @@ ingredients:
 - 450g Pilze, gemischt (Champignons, Pfifferlinge, Steinpilze) 
 - 300g Risottoreis
 - 3 Schalotte(n) 
-- 1 1/2 Bund Petersilie
+- 1.5 Bund Petersilie
 - 2 Zehe/n Knoblauch
 - 60g Butter
 - 150ml Wein, weiß

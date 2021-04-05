@@ -1,0 +1,5 @@
+---
+title: Einkaufsliste
+---
+
+{{< shopping-list >}}

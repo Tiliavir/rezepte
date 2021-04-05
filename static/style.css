@@ -26,3 +26,10 @@ a:hover .image {
   /*hide gochowdown credits*/
   display: none;
 }
+
+img {
+  display: block;
+  max-height: 80vh;
+  width: auto;
+  margin: auto;
+}

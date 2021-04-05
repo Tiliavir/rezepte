@@ -29,7 +29,7 @@ ingredients:
 - 1 TL Tomatenmark
 - 30g gemahlene Haferflocken
 - 60g gehackte Walnusskerne
-- 1/2 Bund Petersilie
+- 0.5 Bund Petersilie
 - 250g Kidneybohnen (Abtropfgewicht)
 - Salz
 - Pfeffer

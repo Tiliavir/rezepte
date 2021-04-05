@@ -20,7 +20,7 @@ ingredients:
 - Philadelphia
 - Rucola
 - Kirschtomaten
-- Avocado
+- Avocados
 - Kräutersalz und Pfeffer
 
 directions:

@@ -1,28 +1,34 @@
 baseURL: https://tiliavir.github.io/rezepte/
-languageCode: de-de
 title: Die Gute-Sachen Liste
 theme: gochowdown
+
+languageCode: de-de
 defaultcontentlanguage: de
+languages: de
+
 paginate: 20
 canonifyurls: true
 pygmentsstyle: monokai
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
 pygmentsOptions: "linenos=table"
+
 permalinks:
   posts: /posts/:year/:month/:title
+
 params:
   author: Tiliavir
   description:
   keywords: 'recipes'
-  favicon_32: /images/favicon-32x32.png
-  favicon_16: /images/favicon-16x16.png
+  favicon_32: favicon-32x32.png
+  favicon_16: favicon-16x16.png
   footercontent:
   hidecredits: false
   hidecopyright: true
   showNavTitle: true
   custom_css:
     - style.css
+
 menu:
   main:
     - name: Kategorie
@@ -40,7 +46,14 @@ menu:
     - name: Markus
       weight: 5
       url: /markus-liste/
+    - name: Einkaufsliste
+      weight: 6
+      url: /einkaufsliste/
+
 taxonomies:
   category: category
   cusine: cuisine
   tag: tags
+
+disableKinds:
+  - "RSS"

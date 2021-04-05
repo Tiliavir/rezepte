@@ -22,3 +22,9 @@ $ mogrify -resize 2000x2000 **/*.jpg
 ```bash
 $ hugo new --kind recipe-bundle recipes/rezeptname
 ```
+
+### Update GoChowDown
+```bash
+$ cd themes/gochowdown
+$ git submodule update --remote
+```

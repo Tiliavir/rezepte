@@ -25,11 +25,11 @@ ingredients:
 - 150g Naturjoghurt
 - 120g ungezuckerte Cornflakes
 - 12 Kirschtomaten
-- 1/2 Schalotte
-- 1/2 Knoblauchzehe
-- 1/2 Zitrone
-- 1/4 Bund Schnittlauch 
-- halber Bund Rucola
+- 0.5 Schalotte
+- 0.5 Knoblauchzehe
+- 0.5 Zitrone
+- 0.25 Bund Schnittlauch 
+- 0.5 Bund Rucola
 - Salz und Pfeffer
 - Chiliflocken
 
