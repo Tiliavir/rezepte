@@ -16,10 +16,11 @@ prepTime: 15
 cookTime: 45
 
 ingredients:
-- 400g Mehl
-- 4 EL Olivenöl
-- 250ml Wasser
-- 2 TL, gestr. Salz
+- 150g Vollkorn Dinkelmehl
+- 150g Dinkelmehl, Typ 630
+- 3 EL Olivenöl
+- 150ml Wasser
+- 0.5 TL Salz
 
 - 400g Crème Fraîche (oder 50/50 mit Schmand)
 - 3 Zwiebeln
