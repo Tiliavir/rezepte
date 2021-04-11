@@ -42,26 +42,30 @@ export class ShoppingList {
               ingr.push(...ingredientsByRecipe[e.id]);
             });
 
-          let ingrFormatted: string[] = [];
           let ingredientsByUnitsAndAmount = ShoppingList.prep(ingr);
-          for (let ingredient in ingredientsByUnitsAndAmount) {
-            let amounts = "";
-            for (let unit in ingredientsByUnitsAndAmount[ingredient]) {
-              let amount = ingredientsByUnitsAndAmount[ingredient][unit];
-              if (amount) {
-                amounts += amount + "" + (unit == "count" ? "" : unit);
-              }
-            }
-            ingrFormatted.push(ingredient + (amounts ? ": " + amounts : ""));
-          }
-
           ingredients.innerHTML = "<h3>Zutaten</h3><ul>";
-          for (let entry of ingrFormatted.sort()) {
+          let sortedIngredients = ShoppingList.getFormattedIngredientStrings(ingredientsByUnitsAndAmount);
+          for (let entry of sortedIngredients) {
             ingredients.innerHTML += "<li>" + entry + "</li>";
           }
           ingredients.innerHTML += "</ul>";
         })
       });
+  }
+
+  private static getFormattedIngredientStrings(ingredientsByUnitsAndAmount: Aggregated): string[] {
+    let ingrFormatted: string[] = [];
+    for (let ingredient in ingredientsByUnitsAndAmount) {
+      let amounts = "";
+      for (let unit in ingredientsByUnitsAndAmount[ingredient]) {
+        let amount = ingredientsByUnitsAndAmount[ingredient][unit];
+        if (amount) {
+          amounts += amount + "" + (unit == "count" ? "" : unit);
+        }
+      }
+      ingrFormatted.push(ingredient + (amounts ? ": " + amounts : ""));
+    }
+    return ingrFormatted.sort();
   }
 }
 
