@@ -17,7 +17,7 @@ ingredients:
 - 400ml Wasser
 - 1EL Gemüsebrühepaste
 - 2 Msp. Zucker
-- 400g Spargel (150 g küchenfertig)
+- 400g Spargel (300 g küchenfertig)
 - 1 EL Butter
 - 2 EL feines Weizenvollkornmehl
 - 2 EL süße Sahne
