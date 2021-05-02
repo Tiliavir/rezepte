@@ -9,7 +9,7 @@ authorURL: https://kochkarussell.com/author/mia-kochkarussell/
 sourceName: Schnelles und einfaches 30 Minuten Pho
 sourceURL: https://kochkarussell.com/30-minuten-pho/
 
-category: Hauptgerich
+category: Hauptgericht
 cuisine: Vietnamesisch
 tags:
   - Suppe
