@@ -12,7 +12,7 @@ tags:
   - Apfel
   - Kuchen
 
-yield: 6
+yield:
 prepTime: 30
 cookTime: 90
 
@@ -49,4 +49,3 @@ directions:
 - 90 bis 95 Minuten backen
 - Abkühlen lassen, und mit Puderzucker bestäuben
 ---
-

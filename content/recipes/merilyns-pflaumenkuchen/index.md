@@ -12,7 +12,7 @@ tags:
   - Pflaumen
   - Kuchen
 
-yield: 6
+yield:
 prepTime: 30
 cookTime: 30
 
@@ -39,4 +39,3 @@ directions:
 - Zwetschgen und Streusel auf den Teig geben
 - 30 Minuten backen
 ---
-
