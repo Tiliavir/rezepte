@@ -5,7 +5,7 @@ date: 2021-05-03T13:35:24+02:00
 title: Gefüllte Forelle
 
 category: Hauptgericht
-cuisine: Deutschland
+cuisine: Deutsch
 tags:
   - Fisch
   - einfach

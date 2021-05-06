@@ -2,16 +2,14 @@
 layout: recipe
 date: 2021-01-01T13:52:17+01:00
 
-title: "Süsskartoffelpüree"
-image: 
-imagecredit:
+title: Süsskartoffelpüree
 
 category: Beilage
-cuisine: Deutschland
+cuisine: Deutsch
 tags:
-  - Süsskartoffel
-  - Püree
-  - Kartoffelstock
+- Süsskartoffel
+- Püree
+- Kartoffelstock
 
 yield: 2
 prepTime: 5
