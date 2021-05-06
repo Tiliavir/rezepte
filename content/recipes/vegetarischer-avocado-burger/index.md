@@ -6,10 +6,10 @@ title: Vegetarischer Avocado Burger
 
 category: Hauptgericht
 cuisine: Vegetarisch
-
 tags:
-  - Burger
-  - Vegetarisch
+- Burger
+- Vegetarisch
+
 yield: 5
 prepTime: 30
 cookTime: 10

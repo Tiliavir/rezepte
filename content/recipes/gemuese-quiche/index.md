@@ -3,11 +3,12 @@ layout: recipe
 date: 2020-11-02T22:22:24+01:00
 
 title: Gemüse-Quiche
+
 category: Hauptgericht
 cuisine: Französisch
 tags: 
-  - Einfach
-  - Schnell
+- Einfach
+- Schnell
 
 yield: 2
 prepTime: 25

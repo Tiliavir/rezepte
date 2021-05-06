@@ -1,15 +1,16 @@
 ---
 layout: recipe
 date: 2020-10-31T22:46:56+01:00
-title: Flammkuchen
 
+title: Flammkuchen
 image: flammkuchen-5.jpg
+
 category: Hauptgericht
 cuisine: Deutsch
 tags:
-  - Schnell
-  - Einfach
-  - Zwiebelwaie
+- Schnell
+- Einfach
+- Zwiebelwaie
 
 yield: 2
 prepTime: 15

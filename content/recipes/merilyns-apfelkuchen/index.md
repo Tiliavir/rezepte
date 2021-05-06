@@ -1,6 +1,7 @@
 ---
 layout: recipe
 date: 2020-10-31T22:46:56+01:00
+
 title: Merilyns Apfelkuchen Deutscher Art
 
 authorName: Merilyn
@@ -9,8 +10,8 @@ sourceName: German Style Apple Cake
 category: Kuchen
 cuisine: Deutsch
 tags:
-  - Apfel
-  - Kuchen
+- Apfel
+- Kuchen
 
 yield:
 prepTime: 30

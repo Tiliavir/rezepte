@@ -2,20 +2,18 @@
 layout: recipe
 date: 2021-01-12T16:53:25+01:00
 
-title:  "Zucchini Joghurt Dip"
-image:
+title: Zucchini Joghurt Dip
 
-authorName: "Jan Schümann"
-authorURL: "https://eatsmarter.de/experten/jan-schuemann"
-sourceName: "Kidneybohnen-Frikadellen mit Joghurtdip"
-sourceURL: "https://eatsmarter.de/rezepte/kidneybohnen-frikadellen-mit-joghurtdip"
+authorName: Jan Schümann
+authorURL: https://eatsmarter.de/experten/jan-schuemann
+sourceName: Kidneybohnen-Frikadellen mit Joghurtdip
+sourceURL: https://eatsmarter.de/rezepte/kidneybohnen-frikadellen-mit-joghurtdip
 
 category: Dip
 cuisine: Deutsch
-
 tags:
-  - Dip
-  - Soße
+- Dip
+- Soße
 
 yield: 2
 prepTime: 15

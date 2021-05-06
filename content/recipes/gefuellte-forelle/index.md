@@ -7,8 +7,8 @@ title: Gefüllte Forelle
 category: Hauptgericht
 cuisine: Deutsch
 tags:
-  - Fisch
-  - einfach
+- Fisch
+- einfach
 
 yield: 2
 prepTime: 15

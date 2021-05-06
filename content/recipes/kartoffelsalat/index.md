@@ -7,8 +7,8 @@ title: Kartoffelsalat
 category: Beilage
 cuisine: Deutsch
 tags:
-  - Kartoffeln
-  - Salat
+- Kartoffeln
+- Salat
 
 yield: 5
 prepTime: 30
@@ -28,7 +28,7 @@ ingredients:
 - 1 TL Salz
 
 directions:
-- Kartoffeln mit Schale koschen (15 - 20 Minuten), abkühlen und pellen
+- Kartoffeln mit Schale kochen (15 - 20 Minuten), abkühlen und pellen
 - Eier hart kochen (7 Minuten) und abschrecken
 - Zwiebeln fein schneiden und optional andünsten
 - Gurke, Eier und Lyoner schneiden

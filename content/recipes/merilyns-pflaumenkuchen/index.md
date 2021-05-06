@@ -1,6 +1,7 @@
 ---
 layout: recipe
 date: 2020-10-31T22:46:56+01:00
+
 title: Merilyns Zwetschgen Kuchen Deutscher Art
 
 authorName: Merilyn
@@ -12,7 +13,6 @@ tags:
   - Pflaumen
   - Kuchen
 
-yield:
 prepTime: 30
 cookTime: 30
 

@@ -1,14 +1,15 @@
 ---
 layout: recipe
 date: 2020-10-31T21:53:28+01:00
-title:  "Ofengemüse"
 
+title:  "Ofengemüse"
 image: ofengemuese.png
+
 category: Hauptgericht
 cuisine: Deutsch
 tags: 
-  - Schnell
-  - Einfach
+- Schnell
+- Einfach
 
 yield: 4
 prepTime: 20
@@ -24,7 +25,7 @@ ingredients:
 - Lauch
 - Brokkoli
 - Salz, Paprikapulver, Pfeffer
-- Soyasosse
+- Sojasosse
 - Olivenöl
 
 directions:

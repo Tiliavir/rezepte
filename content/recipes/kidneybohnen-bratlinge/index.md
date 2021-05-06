@@ -3,19 +3,18 @@ layout: recipe
 date: 2021-01-12T12:34:15+01:00
 
 title: Kidneybohnen Bratlinge
-image:
 
-authorName: "Jan Schümann"
-authorURL: "https://eatsmarter.de/experten/jan-schuemann"
-sourceName: "Kidneybohnen-Frikadellen mit Joghurtdip"
-sourceURL: "https://eatsmarter.de/rezepte/kidneybohnen-frikadellen-mit-joghurtdip"
+authorName: Jan Schümann
+authorURL: https://eatsmarter.de/experten/jan-schuemann
+sourceName: Kidneybohnen-Frikadellen mit Joghurtdip
+sourceURL: https://eatsmarter.de/rezepte/kidneybohnen-frikadellen-mit-joghurtdip
 
 category: Beilage
 cuisine: Vegetarisch
 
 tags:
-  - Frikadellen
-  - Paddies
+- Frikadellen
+- Paddies
 
 yield: 2
 prepTime: 30

@@ -2,14 +2,14 @@
 layout: recipe
 date: 2020-11-07T19:52:15+01:00
 
+title: "Spargelsuppe"
 image: spargelsuppe.jpg
 
-title: "Spargelsuppe"
 category: Vorspeise
 cuisine: Deutsch
 tags:
-  - Suppe
-  - Spargel
+- Suppe
+- Spargel
 
 yield: 2
 prepTime: 15

@@ -10,7 +10,7 @@ authorName: Marcel Bauwens
 category: Hauptgericht
 cuisine: Deutsch
 tags:
-  - Wohlfühlessen
+- Wohlfühlessen
 
 yield: 2
 prepTime: 20

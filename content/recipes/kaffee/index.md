@@ -3,15 +3,12 @@ layout: recipe
 date: 2020-11-07T17:25:49+01:00
 
 title: Kaffee
-image: 
-imagecredit: 
 
 authorName: Arno Burkhart
 
 category: Getränke
-cuisine: 
-tags: 
-  - Kaffee
+tags:
+- Kaffee
 
 yield: 2
 prepTime: 5

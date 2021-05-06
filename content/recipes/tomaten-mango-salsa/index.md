@@ -12,8 +12,8 @@ sourceURL: https://www.edeka.de/rezepte/rezept/jackfruit-wrap-mit-tomaten-mango-
 category: Beilage
 cuisine: Vegetarisch
 tags:
-  - Salsa
-  - Dip
+- Salsa
+- Dip
 
 yield: 2
 prepTime: 15

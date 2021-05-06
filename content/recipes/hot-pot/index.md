@@ -1,18 +1,19 @@
 ---
 layout: recipe
 date: 2021-02-21T20:23:01+01:00
+
 title: "Szechuan Hot Pot"
-image: 
-imagecredit:
+
 authorName: Simi & Stefan
-authorURL: 
 sourceName: Chinesisches Fondue - Szechuan Stil - Sichuan Hot Pot (Si Chuan Huo Guo)
 sourceURL: https://asiastreetfood.com/rezepte/chinesisches-fondue-szechuan-stil-rezept/#
+
 category: Hauptgericht
 cuisine: chinesisch
 tags: 
-  - Fondue
-  - Festessen
+- Fondue
+- Festessen
+
 yield: 4
 prepTime: 30
 cookTime: 30

@@ -12,7 +12,7 @@ sourceURL: https://kochkarussell.com/30-minuten-pho/
 category: Hauptgericht
 cuisine: Vietnamesisch
 tags:
-  - Suppe
+- Suppe
 
 yield: 2
 prepTime: 15

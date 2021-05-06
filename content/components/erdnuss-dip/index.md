@@ -4,8 +4,6 @@ date: 2021-01-12T20:24:08+01:00
 
 title: Erdnuss-Dip
 
-image:
-
 authorName: Lynn Hoefer
 authorURL: https://de.heavenlynnhealthy.com/ueber-mich/
 sourceName: Thai Sommerrollen mit Erdnuss-Dip

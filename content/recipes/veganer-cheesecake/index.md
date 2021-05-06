@@ -5,15 +5,14 @@ date: 2021-05-03T14:05:18+02:00
 title: Veganer Cheesecake
 
 authorName: Michele Rosen
-authorURL: 
 sourceName: Key Lime Paleo + Vegan Cheesecake Tart {No-Bake}
 sourceURL: https://www.paleorunningmomma.com/key-lime-paleo-vegan-cheesecake/
 
 category: Kuchen
 cuisine: American
 tags:
-  - Yummy
-  - Dessert
+- Yummy
+- Dessert
 
 yield:
 prepTime: 10

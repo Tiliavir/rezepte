@@ -4,8 +4,6 @@ date: 2021-01-13T20:52:06+01:00
 
 title:  "Lachs in Kokos-Limetten Soße"
 
-image:
-
 authorName: Nagi
 authorURL: https://www.recipetineats.com/nagi-recipetin-eats/
 sourceName: Porched Salmon in Coconut Sauce
@@ -13,10 +11,9 @@ sourceURL: https://www.recipetineats.com/poached-salmon-in-coconut-lime-sauce/
 
 category: Hauptgericht
 cuisine: Thailändisch
-
 tags:
-  - Leicht
-  - Fisch
+- Leicht
+- Fisch
 
 yield: 2
 prepTime: 10

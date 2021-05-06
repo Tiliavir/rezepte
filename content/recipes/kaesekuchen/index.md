@@ -7,7 +7,7 @@ title: Käsekuchen
 category: Kuchen
 cuisine: Deutsch
 tags:
-  - Kuchen
+- Kuchen
 
 yield: 5
 prepTime: 15

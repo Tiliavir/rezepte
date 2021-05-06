@@ -2,7 +2,7 @@
 layout: recipe
 date: 2020-12-24T14:49:25+01:00
 
-title: "Ramensuppe"
+title: Ramensuppe
 image: ramen-1.jpg
 
 authorName: Lynn Hoefer

@@ -1,12 +1,13 @@
 ---
 layout: recipe
 date: 2020-10-31T22:46:56+01:00
+
 title: Russischer Zupfkuchen
 
 category: Kuchen
 cuisine: Deutsch
 tags:
-  - Käsekuchen
+- Käsekuchen
 
 yield:
 prepTime: 15

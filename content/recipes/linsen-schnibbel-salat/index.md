@@ -3,7 +3,6 @@ layout: recipe
 date: 2021-04-14T21:23:37+01:00
 
 title: Linsen Schnibbel Salat
-image: 
 
 sourceName: Linsen-Schnibbel-Salat
 sourceURL: https://www.lecker.de/lecker-lustiger-konfettisalat-79634.html

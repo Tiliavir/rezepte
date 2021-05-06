@@ -2,7 +2,7 @@
 layout: recipe
 date: 2020-11-01T13:15:03+01:00
 
-title:  "Wildreis Herbst Suppe"
+title: Wildreis Herbst Suppe
 image: wildreis.jpg
 
 authorName: Ali
@@ -11,11 +11,11 @@ sourceName: Cozy Autumn Wild Rice Soup
 sourceURL: https://www.gimmesomeoven.com/cozy-autumn-wild-rice-soup/
 
 category: Hauptgericht
-cuisine: 
+cuisine: Winter
 tags: 
-  - Herbst
-  - Suppe
-  - Vegetarisch
+- Herbst
+- Suppe
+- Vegetarisch
 
 yield: 8
 prepTime: 15

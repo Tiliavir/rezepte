@@ -2,11 +2,12 @@
 layout: recipe
 date: 2020-10-31T17:57:53+01:00
 
-title:  Kartoffelpuffer
+title: Kartoffelpuffer
+
 category: Hauptgericht
 cuisine: Deutsch
 tags:
-  - Einfach
+- Einfach
 
 yield: 3
 prepTime: 15

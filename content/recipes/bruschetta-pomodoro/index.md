@@ -1,14 +1,15 @@
 ---
 layout: recipe
 date: 2020-10-31T13:29:16+01:00
+
 title:  Bruschetta Pomodoro
 
 category: Vorspeise
 cuisine: italienisch
 tags:
-  - einfach
-  - schnell
-  - italienisch
+- einfach
+- schnell
+- italienisch
 
 yield: 2
 prepTime: 10

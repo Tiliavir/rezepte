@@ -10,8 +10,8 @@ authorName: Walfried
 category: Gebäck
 cuisine: Deutsch
 tags: 
-  - Weihnachten
-  - Plätzchen
+- Weihnachten
+- Plätzchen
 
 yield: 2
 prepTime: 12h+

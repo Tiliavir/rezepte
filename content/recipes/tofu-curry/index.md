@@ -2,13 +2,14 @@
 layout: recipe
 date: 2020-11-07T20:10:21+01:00
 
-title: "Tofu Curry"
+title: Tofu Curry
+
 category: Hauptgericht
 cuisine: Indisch
 tags: 
-  - Reis
-  - Tofu
-  - Curry
+- Reis
+- Tofu
+- Curry
 
 yield: 2
 prepTime: 15

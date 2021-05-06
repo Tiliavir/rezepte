@@ -12,8 +12,8 @@ sourceURL: https://www.toblerone.ch/kreationen/mousse-au-chocolat-noir-toblerone
 category: Dessert
 cuisine: Schweiz
 tags:
-  - Mousse
-  - Schokolade
+- Mousse
+- Schokolade
 
 yield: 6-8
 prepTime: 40

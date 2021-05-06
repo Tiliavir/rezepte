@@ -4,15 +4,11 @@ date: 2021-04-18T17:54:59+02:00
 
 title: Tzatziki
 
-authorName: 
-authorURL: 
-sourceName: 
-sourceURL: 
-
 category: Beilage
 cuisine: Griechisch
 tags:
-  - Dip
+- Dip
+
 yield: 8
 prepTime: 15
 

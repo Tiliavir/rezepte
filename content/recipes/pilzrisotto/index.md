@@ -3,13 +3,14 @@ layout: recipe
 date: 2020-11-01T13:36:09+01:00
 
 title:  Pilzrisotto
+
 category: Hauptgericht
 cuisine: Italienisch
 tags:
-  - Risotto
-  - Reis
-  - Pilze
-  - Herbst
+- Risotto
+- Reis
+- Pilze
+- Herbst
 
 yield: 2
 prepTime: 20

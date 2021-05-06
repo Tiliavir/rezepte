@@ -3,6 +3,7 @@ layout: recipe
 date: 2021-05-04T21:48:29+02:00
 
 title: Gefüllte Zucchini
+
 authorName: Julia Keuthen
 authorURL: https://www.springlane.de/magazin/julia-keuthen/
 sourceName: Gefüllte Zucchini mit Quinoa – Greek Style

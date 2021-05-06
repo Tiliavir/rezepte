@@ -11,8 +11,8 @@ sourceName: Veggie Fast Food
 category: Hauptgericht
 cuisine: Italienisch / Amerikanisch
 tags:
-  - Vegetarisch
-  - Burger
+- Vegetarisch
+- Burger
 
 yield: 2
 prepTime: 15

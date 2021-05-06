@@ -1,6 +1,7 @@
 ---
 layout: recipe
 date: 2020-10-31T16:22:44+01:00
+
 title: Glasnudelsalat
 
 image: glasnudelsalat-1.jpg
@@ -11,8 +12,8 @@ sourceURL: https://www.madamecuisine.de/glasnudelsalat-mit-buntem-gemuese/
 category: Salat
 cuisine: Asiatisch
 tags: 
-  - Salat
-  - Asia
+- Salat
+- Asia
 
 yield: 2
 prepTime: 15

@@ -3,7 +3,6 @@ layout: recipe
 date: 2020-12-28T20:05:15+01:00
 
 title: "Beeren Tiramisu"
-image: 
 
 sourceName: Advents-Tiramisu
 sourceURL: https://www.gernekochen.de/rezepte/desserts-nachtisch-eiscreme/advents-tiramisu-weihnachtlicher-nachtisch/
@@ -11,8 +10,8 @@ sourceURL: https://www.gernekochen.de/rezepte/desserts-nachtisch-eiscreme/advent
 category: Dessert
 cuisine: Deutsch
 tags:
-  - Beeren
-  - Creme
+- Beeren
+- Creme
 
 yield: 2
 prepTime: 30

@@ -7,7 +7,7 @@ title: Frikadellen
 category: Hauptgericht
 cuisine: Deutsch
 tags:
-  - Fleisch
+- Fleisch
 
 yield: 5
 prepTime: 15

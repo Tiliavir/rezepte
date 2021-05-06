@@ -7,9 +7,9 @@ title: Basler Leckerli
 category: Gebäck
 cuisine: Schweiz
 tags:
-  - Knabberei
-  - Lokale Spezialität
-  - Kaffee
+- Knabberei
+- Lokale Spezialität
+- Kaffee
 
 yield:
 prepTime: 15

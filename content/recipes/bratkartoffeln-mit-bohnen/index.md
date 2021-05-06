@@ -3,12 +3,13 @@ layout: recipe
 date: 2020-11-01T09:48:38+01:00
 
 title:  "Bratkartoffeln mit Bohnen und Dip"
+
 category: Hauptgericht
 cuisine: Deutsch
-
 tags:
-  - Kartoffeln
-  - Bohnen
+- Kartoffeln
+- Bohnen
+
 yield: 2
 prepTime: 15
 cookTime: 45
@@ -16,9 +17,7 @@ cookTime: 45
 ingredients:
 - 800g Kartoffeln
 - 1 große rote Zwiebel gehackt
-
 - 400g Bohnen
-
 - Körniger Frischkäse oder Saure Sahne
 - Naturjoghurt
 - 2 TL gefr. Schnittlauch

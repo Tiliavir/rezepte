@@ -5,15 +5,13 @@ date: 2021-05-03T13:35:24+02:00
 title: Lachs-Spinat One Pot Pasta
 
 authorName: EDEKA Zeitschrift
-authorURL: 
 sourceName: One Pot Pasta mit Lachs!
-sourceURL: 
 
 category: Hauptgericht
 cuisine: Italienisch
 tags:
-  - Nudeln
-  - Fisch
+- Nudeln
+- Fisch
 
 yield: 3
 prepTime: 10
