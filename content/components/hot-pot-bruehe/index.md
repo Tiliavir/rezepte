@@ -1,7 +1,7 @@
 ---
 layout: recipe
 date: 2021-02-21T20:23:01+01:00
-title: "Szechuan Hot Pot - Brühe"
+title: Szechuan Hot Pot - Brühe
 
 authorName: Simi & Stefan
 
@@ -22,7 +22,7 @@ ingredients:
 - 1cm Ingwer
 - 1EL getrocknete kleine rote Chili
 - 120ml Sonnenblumenöl
-- 120g Chili-Bohnenpaste
+- 80g Chili-Bohnenpaste
 - 4EL schwarze Bohnensauce
 - 2L Hühnerbrühe
 - 80ml Shaoxing Reiswein

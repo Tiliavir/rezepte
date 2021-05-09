@@ -2,7 +2,7 @@
 layout: recipe
 date: 2021-02-21T20:23:01+01:00
 
-title: "Szechuan Hot Pot"
+title: Szechuan Hot Pot
 
 authorName: Simi & Stefan
 sourceName: Chinesisches Fondue - Szechuan Stil - Sichuan Hot Pot (Si Chuan Huo Guo)
@@ -26,7 +26,7 @@ components:
 - Szechuan Hot Pot - Dip
 ---
 
-*Die originale Hot-Pot Brühe ist wesentlich schärfer, wir haben sie nach unserem Geschmack angepasst.*
+*Die originale Szechuan Hot-Pot Brühe ist wesentlich schärfer, wir haben sie unserem Geschmack entsprechend modifiziert.*
 
 ## Rund um den Hot Pot
 - Fondue Chinoise Rind Platte
