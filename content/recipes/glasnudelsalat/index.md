@@ -31,12 +31,13 @@ ingredients:
 - 3 EL Sojasoße hell
 - 1/2 Limette ausgepresst
 - 1/2 TL Chiliflocken
+- Sesamöl (alternativ Kokosöl / Sonnenblumenöl)
 
 directions:
 - Glasnudeln nach Packungsanweisung kochen. In einem Sieb auffangen
+- Gemüse waschen / schälen und in dünne Streifen schneiden (MagiMix grobe Raspelscheibe)
+- Das Gemüse kurz in einer Pfanne in 1 EL Sesamöl andünsten
 - Für das Chili-Dressing die Fischsoße, Sojasoße, Limettensaft und Chiliflocken vermischen
-- Gemüse waschen / schälen und in feine sehr dünne Streifen schneiden
-- Das Gemüse kurz in einer Pfanne in 1 EL Sonnenblumenöl andünsten
 - Glasnudeln untermischen und mit dem Koriander, den Erdnüssen und dem Dressing garnieren
 ---
 

@@ -4,7 +4,7 @@ date: 2021-05-01T13:39:28+02:00
 
 title: Tomaten Mango Salsa
 
-authorName: Edeka 
+authorName: Edeka
 authorURL: https://www.edeka.de/
 sourceName: Jackfruit-Wrap mit Tomaten-Mango-Salsa
 sourceURL: https://www.edeka.de/rezepte/rezept/jackfruit-wrap-mit-tomaten-mango-salsa.jsp
