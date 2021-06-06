@@ -20,7 +20,7 @@ prepTime: 20
 cookTime: 25
 
 ingredients:
-// für den Quinoa
+# für den Quinoa
 - 1 kleine Tasse Quinoa, gewaschen
 - 2 kleine Tassen Wasser
 - 1 Dose Kichererbsen (abgetropft)
@@ -33,7 +33,7 @@ ingredients:
 - 0.5 TL Salz
 - schwarzer Pfeffer
 
-// mixins
+# mixins
 - 1 rote Paprika, gewürfelt
 - 1 Karotte, gerieben
 - 60g getrocknete Cranberries
@@ -41,7 +41,7 @@ ingredients:
 - 1 EL Koriander gefr. (frisch 50g, fein gehackt)
 - 1 TL Petersilie gefr. (frisch 50g, fein gehackt)
 
-// geröstete Ahorn-Cayenne Cashews
+# geröstete Ahorn-Cayenne Cashews
 - 100g Cashews
 - 1 TL Ahornsirup
 - 0.25 TL Cayenne Pfeffer
