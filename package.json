@@ -1,9 +1,8 @@
 {
   "name": "rezepte",
-  "version": "2021.05.03",
+  "version": "2021.06.06",
   "description": "Sammlung an Rezepten",
   "main": "",
-  "dependencies": {},
   "browserslist": [
     "> 1%",
     "last 2 versions",
@@ -11,10 +10,10 @@
     "ie 9-11"
   ],
   "devDependencies": {
-    "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.13",
-    "postcss-cli": "^8.3.1",
-    "postcss-loader": "^5.2.0"
+    "autoprefixer": "10.2.6",
+    "postcss": "8.3.0",
+    "postcss-cli": "8.3.1",
+    "postcss-loader": "5.3.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
