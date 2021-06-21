@@ -36,11 +36,10 @@
               "{{ . }}",
             {{ end }}
           {{- end }}
-        {{- else -}}
-          {{ range .Params.ingredients -}}
+        {{- end -}}
+        {{ range .Params.ingredients -}}
           "{{ . }}",
-          {{ end }}
-        {{- end}}
+        {{ end }}
       ],
     {{- end}}
   {{- end}}

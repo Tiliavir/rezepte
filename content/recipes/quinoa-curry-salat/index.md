@@ -23,10 +23,10 @@ ingredients:
 # für den Quinoa
 - 1 kleine Tasse Quinoa, gewaschen
 - 2 kleine Tassen Wasser
-- 1 Dose Kichererbsen (abgetropft)
+- 1 Dose Kichererbsen, abgetropft
 - 130g Erbsen
 - 1 EL Sesamöl (oder Olivenöl)
-- 1 TL frischer Ingwer
+- 1 TL Ingwer, frisch
 - 1 TL Currypulver
 - 0.25 TL Kurkuma
 - 0.25 TL Knoblauchpulver
@@ -34,7 +34,7 @@ ingredients:
 - schwarzer Pfeffer
 
 # mixins
-- 1 rote Paprika, gewürfelt
+- 1 Paprika, rot, gewürfelt
 - 1 Karotte, gerieben
 - 60g getrocknete Cranberries
 - 2 Frühlingszwiebel, fein geschnitten

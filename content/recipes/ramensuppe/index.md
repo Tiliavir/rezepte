@@ -26,13 +26,13 @@ ingredients:
 - 15g getr. Shiitake Pilze
 - 150g Champignons
 - 1 Zucchini
-- 1/2 Brokkoli
-- 1 rote Paprika
+- 0.5 Brokkoli
+- 1 Paprika, rot
 - 1 Knoblauchzehe
-- 1cm frischer Ingwer
+- 1cm Ingwer, frisch
 - 4 EL Tamari
 - 80g Erdnussmus
-- 2 EL rote Currypaste
+- 2 EL Currypaste, rot
 - 1 EL Kokosöl
 - 1 TL Honig
 - 1 Dose Kokosmilch

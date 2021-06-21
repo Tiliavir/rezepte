@@ -15,8 +15,8 @@ prepTime: 25
 cookTime: 35
 
 ingredients:
-- 1 rote Zwiebel
-- 2 Zehen Knoblauch
+- 1 Zwiebel, rot
+- 2 Knoblauchzehen
 - 450g Gemüse, gemischt
 - 200ml Sahne
 - 3 Eier

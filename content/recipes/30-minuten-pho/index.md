@@ -27,7 +27,7 @@ ingredients:
 - 1.2 l Rinderbrühe
 - 0.5 Limette
 - 3 EL Sojasauce
-- 2 Frühlingszwiebel
+- 2 Frühlingszwiebeln
 - Sprossen
 - Koriander und Minze
 

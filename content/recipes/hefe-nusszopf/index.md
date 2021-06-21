@@ -26,7 +26,7 @@ ingredients:
 - 30g frische Hefe
 - 60g Zucker
 - 100g Butter
-- 2 Eier (Grösse M)
+- 2 Eier
 - 5g Salz
 - Etwas Zitrone und Vanille
 

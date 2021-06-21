@@ -27,7 +27,7 @@ ingredients:
 - 200g Spaghetti
 - 50g Frischkäse, natur
 - 200ml Sahne
-- 1 EL Gemüsebrühe
+- 1 EL Gemüsebrühepaste
 - 500ml Wasser
 
 directions:

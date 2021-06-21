@@ -21,7 +21,7 @@ ingredients:
 - 300g Risottoreis
 - 3 Schalotte(n) 
 - 1.5 Bund Petersilie
-- 2 Zehe/n Knoblauch
+- 2 Knoblauchzehen
 - 60g Butter
 - 150ml Wein, weiß
 - 600ml Hühnerbrühe / Geflügelfond / Gemüsebrühe - je nach Geschmack mit Wein statt Wasser

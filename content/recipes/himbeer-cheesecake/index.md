@@ -27,11 +27,11 @@ ingredients:
 - 200g Sauerrahm
 - 2 Pck. Vanillezucker
 - 125g Zucker
-- 6 Eier, Grösse M
+- 6 Eier
 - 2 EL Speisestärke
 - 50ml Himbeersosse
 - 50g frische Himbeeren
-- 2-3 EL Puderzucker
+- 3 EL Puderzucker
 
 directions:
 - Limetten waschen, Schale einer Limette abreiben, beide Limetten auspressen

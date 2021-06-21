@@ -30,7 +30,7 @@ ingredients:
 - 1 Gurke
 - 300g Kirschtomaten
 - 1 Dose Kichererbsen (240g Abtropfgewicht)
-- 1 Paprika (gelb)
+- 1 Paprika, gelb
 - 1 Bund Rucola
 - zwei Hand Babyspinat
 - 1 Hand glatte Petersilie

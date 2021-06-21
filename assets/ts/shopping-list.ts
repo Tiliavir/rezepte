@@ -60,6 +60,8 @@ export class ShoppingList {
       for (let unit in ingredientsByUnitsAndAmount[ingredient]) {
         let amount = ingredientsByUnitsAndAmount[ingredient][unit];
         if (amount) {
+          // add separator if not first amount
+          amounts += amounts !== "" ? ", " : "";
           amounts += amount + "" + (unit == "count" ? "" : unit);
         }
       }

@@ -28,7 +28,7 @@ ingredients:
 - 2 Knoblauchzehen
 - 50g Gruyere
 - 5 Stile Basilikum
-- 1 Ei
+- 1 Eier
   
 - 0.5 TL Salz
 - 1 Prise Pfeffer

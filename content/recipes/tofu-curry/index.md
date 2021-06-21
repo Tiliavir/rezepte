@@ -19,7 +19,7 @@ ingredients:
 - 3 Karotten
 - 1/2 Brokkoli
 - 1 Paprika
-- 1 große rote Zwiebel
+- 1 Zwiebel, rot, gross
 - 2 EL Olivenöl
 - 1 kleine Tasse Reis
 - 1 Tofu

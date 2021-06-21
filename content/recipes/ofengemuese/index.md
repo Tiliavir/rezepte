@@ -16,7 +16,7 @@ prepTime: 20
 cookTime: 20
 
 ingredients:
-- 2 rote Zwiebeln
+- 2 Zwiebeln, rot
 - 5 Champignons
 - 15 Kirschtomaten
 - 1 Süsskartoffel

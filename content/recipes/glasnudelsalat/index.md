@@ -22,7 +22,7 @@ cookTime: 5
 ingredients:
 - 150 g Glasnudeln
 - 2 Karotten
-- 1 rote Paprika
+- 1 Paprika, rot
 - 1 Zucchini
 - 3 Frühlingszwiebeln
 - reichlich Koriander fein gehackt

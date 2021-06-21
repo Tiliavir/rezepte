@@ -16,7 +16,7 @@ cookTime: 45
 
 ingredients:
 - 800g Kartoffeln
-- 1 große rote Zwiebel gehackt
+- 1 Zwiebel, rot, groß, gehackt
 - 400g Bohnen
 - Körniger Frischkäse oder Saure Sahne
 - Naturjoghurt

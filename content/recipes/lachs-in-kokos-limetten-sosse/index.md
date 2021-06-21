@@ -24,7 +24,7 @@ ingredients:
 - 200ml Kokosmilch
 - 1/2 Zitronengras
 - 1 Knoblauchzehen
-- 1 TL frischer Ingwer
+- 1 TL Ingwer, frisch
 - 1/2 TL Thai Curry oder Chili Paste
 - 1/2 Limette (Saft und 1 TL Limettenabrieb)
 - 1/2 EL Fischsauce

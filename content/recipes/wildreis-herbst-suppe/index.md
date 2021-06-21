@@ -23,9 +23,9 @@ cookTime: 45
 
 ingredients:
 - 1.4l Gemüsebrühe
-- 200g / 1 Tasse Wildreis
-- 230g Champignon scheiben
-- 4 Zehen Knoblauch
+- 200g Wildreis, 1 Tasse
+- 230g Champignons, Scheiben
+- 4 Knoblauchzehen
 - 2 mittlere Karotten gewürfelt
 - 2 Stangen Sellerie oder 1/2 Knollensellerie, gewürfelt
 - 1 große / 500g Süßkartoffel, geschält, gewürfelt 

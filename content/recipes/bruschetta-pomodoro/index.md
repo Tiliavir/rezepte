@@ -18,10 +18,10 @@ cookTime: 5
 ingredients:
 - 5 Tomaten
 - 1 Baguette
-- 1 rote Zwiebel
-- 4 grosse Knoblauchzehen
+- 1 Zwiebel, rot
+- 4 Knoblauchzehen, gross
 - 2EL Olivenöl
-- frischer Basilikum
+- Basilikum, frisch
 - Salz und Pfeffer
 
 directions:

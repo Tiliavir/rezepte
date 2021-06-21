@@ -20,7 +20,7 @@ ingredients:
 - 300g Spinat
 - 2 Knoblauchzehen
 - 1 EL Olivenöl
-- 1 rote Zwiebel
+- 1 Zwiebel, rot
 - 250g geräuchertes Lachsfilet
 - 2 TL Zitronensaft
 - 200g Schmand

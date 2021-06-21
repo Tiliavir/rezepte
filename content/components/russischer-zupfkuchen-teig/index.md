@@ -19,7 +19,7 @@ ingredients:
 - 350g Mehl
 - 30g Kakaopulver
 - 1 Pck. Backpulver
-- 1 Ei
+- 1 Eier
 
 directions:
 - Zutaten zu einem Teig verarbeiten

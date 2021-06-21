@@ -14,7 +14,7 @@ prepTime: 10
 cookTime: 
 
 ingredients:
-- 500g Mehl (Typ 405)
+- 500g Mehl, Typ 405
 - 200ml Wasser
 - 50ml Milch
 - 2 EL Olivenöl

@@ -41,7 +41,6 @@ title: Markus Liste
 - Hähnchengeschnetzeltes
 - Curry
 - Raclette
-- Pizza
 - Tomaten-Mozzarella Salat
 - Chili con Carne
 - Toast Hawaii

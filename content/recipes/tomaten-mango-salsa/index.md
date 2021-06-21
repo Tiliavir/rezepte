@@ -22,7 +22,7 @@ cookTime:
 ingredients:
 - 4 Tomaten
 - 1 Mango
-- 1 rote Zwiebel
+- 1 Zwiebel, rot
 - 1 Limette
 - Koriander (opt.)
 - Olivenöl

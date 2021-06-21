@@ -22,12 +22,12 @@ cookTime: 0
 
 ingredients:
 - 15g gekochte Reisnudeln
-- 5-8 Blätter Reispapier
+- 8 Blätter Reispapier
 - 1 Karotte
-- 1 Avocado
+- 1 Avocados
 - 1/2 Gurke
 - 1/2 Paprika
-- 5-8 grüne Salatblätter
+- 8 grüne Salatblätter
 - 1 Handvoll Basilikum
 - 1 Handvoll Koriander
 

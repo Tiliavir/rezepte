@@ -23,7 +23,7 @@ ingredients:
 - 2 TL Senf
 - Paprika
 - Chili
-- Knoblauch
+- Knoblauchpulver
 - Salz und Pfeffer
 
 directions:

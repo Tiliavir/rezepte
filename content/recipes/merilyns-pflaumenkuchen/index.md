@@ -24,7 +24,7 @@ ingredients:
 - 2 TL Backpulver
 - 1.5 TL Salz
 - 100g Zucker
-- 1 Ei
+- 1 Eier
 - 180ml Milch
 - 60ml Öl
 - 25 Zwetschgen

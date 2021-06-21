@@ -25,7 +25,7 @@ ingredients:
 - 2TL Currypulver
 - 250g Pardina-Linsen
 - Salz und Pfeffer
-- 1 rote Paprika
+- 1 Paprika, rot
 - 1 Salatgurke
 - 50g getrocknete Cranberrys
 - 1 Bund Lauchzwiebeln

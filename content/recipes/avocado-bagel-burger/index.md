@@ -21,9 +21,9 @@ cookTime: 45
 ingredients:
 - 2 Avocados
 - 2 Bagels
-- 125g eingeweichte Cashewkerne
+- 125g Cashewkerne, eingeweicht
 - 150g Naturjoghurt
-- 120g ungezuckerte Cornflakes
+- 120g Cornflakes, ungezuckert
 - 12 Kirschtomaten
 - 0.5 Schalotte
 - 0.5 Knoblauchzehe
