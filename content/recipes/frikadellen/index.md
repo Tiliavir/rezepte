@@ -4,6 +4,8 @@ date: 2020-12-23T22:34:06+01:00
 
 title: Frikadellen
 
+authorName: Rita Bauwens
+
 category: Hauptgericht
 cuisine: Deutsch
 tags:

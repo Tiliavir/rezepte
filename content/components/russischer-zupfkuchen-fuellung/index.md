@@ -18,7 +18,7 @@ ingredients:
 - 200g Zucker
 - 4 Eier
 - 500g Magerquark
-- 1 Pck. Vanillinzucker
+- 1 Pck. Vanillezucker
 - 1 Pck. Vanillepuddingpulver
 
 directions:

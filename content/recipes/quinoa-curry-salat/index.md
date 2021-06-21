@@ -50,6 +50,6 @@ ingredients:
 directions:
 - Quinoa kochen
 - Gemüse schneiden
-- Quinoa, Kichererbsen, Erbsen, Paprika, Karotte, Cranberries, Frühlingszwibeln, Sesamöl, Ingwer, Koriander, Petersilie, Currypulver, Kurkuma, Knoblauchpulver, Salz und Pfeffer in Salatschülssel geben und vermengen
+- Quinoa, Kichererbsen, Erbsen, Paprika, Karotte, Cranberries, Frühlingszwiebeln, Sesamöl, Ingwer, Koriander, Petersilie, Currypulver, Kurkuma, Knoblauchpulver, Salz und Pfeffer in Salatschüssel geben und vermengen
 - Cashews in kleiner Pfanne für 4 bis 6 Minuten rösten, von der Hitze nehmen und direkt Ahornsirup, Cayennepfeffer und Salz hinzugeben und rühren bis Cashews bedeckt sind und auf den Salat geben
 ---

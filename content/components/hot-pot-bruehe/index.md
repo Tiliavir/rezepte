@@ -24,7 +24,7 @@ ingredients:
 - 120ml Sonnenblumenöl
 - 80g Chili-Bohnenpaste
 - 4EL schwarze Bohnensauce
-- 2L Hühnerbrühe
+- 2l Hühnerbrühe
 - 80ml Shaoxing Reiswein
 - 1EL Zucker
 - 1EL Szechuan Pfefferkörner

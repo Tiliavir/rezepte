@@ -2,12 +2,15 @@
 layout: recipe
 date: 2020-12-23T22:34:06+01:00
 
-title: Käsekuchen
+title: Mamas Käsekuchen
+
+authorName: Rita Bauwens
 
 category: Kuchen
 cuisine: Deutsch
 tags:
 - Kuchen
+- Cheesecake
 
 yield: 5
 prepTime: 15

@@ -28,7 +28,7 @@ ingredients:
 - 500g Naturjoghurt
 - 250g Mascarpone
 - 60g Zucker
-- 1 Päckchen Vanille Zucker
+- 1 Pck. Vanillezucker
 - 1EL Zitronensaft
 - 0.5 TL Zimt
 - 150g Gewürzspekulatius

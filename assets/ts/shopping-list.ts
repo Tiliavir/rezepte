@@ -3,7 +3,7 @@ type Aggregated = { [ingredient: string]: { [unit: string]: number } };
 
 export class ShoppingList {
   private static prep(ingredients: string[]): Aggregated {
-    const regex = /^([\d\/.,]+)?\s*(?:(EL|TL|ml|dl|l|g|kg|Prise|Dose|Bund|Pck.)\s+)?(.+)$/;
+    const regex = /^([\d\/.,]+)?\s*(?:(EL|TL|ml|dl|l|g|kg|cm|Prise|Dose|Bund|Pck.)\s+)?(.+)$/;
     let splitted: Splitted[] = [];
     for (let ingredient of ingredients) {
       let matches = ingredient.match(regex);
