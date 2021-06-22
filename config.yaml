@@ -17,9 +17,12 @@ permalinks:
   posts: /posts/:year/:month/:title
 
 params:
-  author: Tiliavir
-  description:
-  keywords: 'recipes'
+  author: Tiliavir & Eninba
+  description: Unsere Lieblingsrezepte an einem Ort gesammelt und so einfach wie möglich beschreiben. Abgesehen von Lynns Büchern, natürlich - die sind schon perfekt :-)
+  keywords:
+  - Rezepte
+  - Kochen
+  - Backen
   favicon_32: favicon-32x32.png
   favicon_16: favicon-16x16.png
   footercontent:
