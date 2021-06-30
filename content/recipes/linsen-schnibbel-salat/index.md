@@ -2,7 +2,7 @@
 layout: recipe
 date: 2021-04-14T21:23:37+01:00
 
-title: Linsen Schnibbel Salat
+title: Linsensalat
 
 sourceName: Linsen-Schnibbel-Salat
 sourceURL: https://www.lecker.de/lecker-lustiger-konfettisalat-79634.html
@@ -23,7 +23,7 @@ ingredients:
 - 2 Möhren
 - 7EL Olivenöl
 - 2TL Currypulver
-- 250g Pardina-Linsen
+- 250g Beluga-Linsen (od. Pardina-Linsen)
 - Salz und Pfeffer
 - 1 Paprika, rot
 - 1 Salatgurke

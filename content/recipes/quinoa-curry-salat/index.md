@@ -2,9 +2,9 @@
 layout: recipe
 date: 2021-06-06T17:42:44+01:00
 
-title: Quinoa Curry Salat
+title: Curry-Quinoa Salat
 
-image: 
+image: curry-quinoa.jpg
 authorName: Monique
 sourceName: Vibrant Curry Cashew Chickpea Quinoa Salad
 sourceURL: https://www.ambitiouskitchen.com/curry-cashew-chickpea-quinoa-salad/
@@ -27,8 +27,8 @@ ingredients:
 - 130g Erbsen
 - 1 EL Sesamöl (oder Olivenöl)
 - 1 TL Ingwer, frisch
-- 1 TL Currypulver
-- 0.25 TL Kurkuma
+- 3 TL Currypulver
+- 1 TL Kurkuma
 - 0.25 TL Knoblauchpulver
 - 0.5 TL Salz
 - schwarzer Pfeffer
@@ -43,7 +43,7 @@ ingredients:
 
 # geröstete Ahorn-Cayenne Cashews
 - 100g Cashews
-- 1 TL Ahornsirup
+- 1 EL Ahornsirup
 - 0.25 TL Cayenne Pfeffer
 - 0.5 TL Salz
 
