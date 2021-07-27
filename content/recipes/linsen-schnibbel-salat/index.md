@@ -19,7 +19,6 @@ prepTime: 50
 cookTime: 0
 
 ingredients:
-- 2 Zwiebeln
 - 2 Möhren
 - 7EL Olivenöl
 - 2TL Currypulver
