@@ -5,6 +5,11 @@ date: 2020-10-31T22:46:56+01:00
 title: Flammkuchen
 image: flammkuchen-5.jpg
 
+authorName: Lynn Hoefer
+authorURL: https://de.heavenlynnhealthy.com/ueber-mich/
+sourceName: Ein bunter Flammkuchen für den Herbst. Mit Kürbis, Feigen und rote Bete. Und einer mit Ziege und...
+sourceURL: https://de.heavenlynnhealthy.com/bunter-herbst-flammkuchen/
+
 category: Hauptgericht
 cuisine: Deutsch
 tags:

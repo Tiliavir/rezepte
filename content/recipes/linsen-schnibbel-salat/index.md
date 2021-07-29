@@ -21,16 +21,16 @@ cookTime: 0
 ingredients:
 - 2 Möhren
 - 7EL Olivenöl
-- 2TL Currypulver
+- 2EL Currypulver
 - 250g Beluga-Linsen (od. Pardina-Linsen)
 - Salz und Pfeffer
 - 1 Paprika, rot
 - 1 Salatgurke
 - 50g getrocknete Cranberrys
-- 1 Bund Lauchzwiebeln
-- 1EL gefrorene Petersilie
+- 2 Lauchzwiebeln
+- 1EL gefrorene Kräutermischung
 - 4EL Zitronensaft
-- 150ml Himbeeressig
+- 2EL Himbeeressig
 - 1TL Zucker
 
 directions:
