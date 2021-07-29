@@ -38,7 +38,7 @@ directions:
 - Zwiebeln in 2EL Öl glasig dünsten, mit Curry bestäuben, kurz anschwitzen
 - Linsen einrühren und mit 750 ml Wasser ablöschen
 - aufkochen und zugedeckt bei mittlerer Hitze ca. 15 Minuten köcheln
-- Möhren zufügen und ca. 10 Minuten weiterköcheln
+- Möhren zufügen und ca. 10 Minuten ohne Deckel weiterköcheln
 - Linsen abgießen, falls sie nicht die gesamte Flüssigkeit aufgenommen haben, und in eine Schüssel füllen
 - Linsen mit Salz und Pfeffer würzen und auskühlen lassen
 - Paprika und Gurke fein würfeln
