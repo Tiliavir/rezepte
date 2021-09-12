@@ -22,6 +22,7 @@ a:hover .image {
   position: relative;
 }
 
+footer,
 .sell {
   /*hide gochowdown credits*/
   display: none;
@@ -32,4 +33,11 @@ img {
   max-height: 80vh;
   width: auto;
   margin: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color:#111;
+    color: #eee;
+  }
 }
