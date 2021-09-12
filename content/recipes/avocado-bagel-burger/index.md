@@ -19,7 +19,7 @@ prepTime: 15
 cookTime: 45
 
 ingredients:
-- 1 Avocados
+- 1 Avocado
 - 2 Bagels
 - 125g Cashewkerne, eingeweicht
 - 150g Naturjoghurt
