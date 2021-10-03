@@ -1,6 +1,6 @@
 {
   "name": "rezepte",
-  "version": "2021.09.12",
+  "version": "2021.10.03",
   "description": "Sammlung an Rezepten",
   "main": "",
   "browserslist": [
@@ -10,13 +10,10 @@
     "ie 9-11"
   ],
   "devDependencies": {
-    "autoprefixer": "10.3.1",
-    "postcss": "8.3.6",
-    "postcss-cli": "8.3.1",
+    "autoprefixer": "10.3.6",
+    "postcss": "8.3.8",
+    "postcss-cli": "9.0.1",
     "postcss-loader": "6.1.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
