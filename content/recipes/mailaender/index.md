@@ -1,4 +1,4 @@
-__---
+---
 layout: recipe
 date: 2021-10-03T20:13:06+01:00
 
@@ -33,4 +33,4 @@ directions:
 - Marmelade auf dem Teig verteilen
 - Aus dem restlichen Teig ein kuchengitter wie bei einer Linzer herstellen und mit der Gabel andrücken
 - 40 bis 50 Minuten backen
----__
+---
