@@ -2,7 +2,7 @@
 layout: recipe
 date: 2020-12-28T20:05:15+01:00
 
-title: "Beeren Tiramisu"
+title: Beeren Tiramisu
 
 sourceName: Advents-Tiramisu
 sourceURL: https://www.gernekochen.de/rezepte/desserts-nachtisch-eiscreme/advents-tiramisu-weihnachtlicher-nachtisch/

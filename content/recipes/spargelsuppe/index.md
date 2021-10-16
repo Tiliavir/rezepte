@@ -2,7 +2,7 @@
 layout: recipe
 date: 2020-11-07T19:52:15+01:00
 
-title: "Spargelsuppe"
+title: Spargelsuppe
 image: spargelsuppe.jpg
 
 category: Vorspeise
