@@ -25,7 +25,7 @@ ingredients:
 - 250g Mascarpone
 - 150g Joghurt
 - 250g Erdbeeren
-- 2EL Erdbeermarmelade
+- 2EL Himbeermarmelade
 - 400g Blaubeeren
 - 1Pck. Cantuccini mit Mandeln
 - Agavendicksaft
@@ -35,7 +35,7 @@ directions:
 - Erdbeeren und Blaubeeren waschen
 - Erdbeeren in mundgerechte Stücke schneiden und mit der Marmelade vermengen
 - Cantuccini in einem Gefrierbeutel mit einem Nudelholz zerkleinern - nicht zu klein
-- 2 bis 3 Schichten: Creme, Erdbeeren, Blaubeeren, Cantuccini Krümel. Abschließen mit Creme und dem Rest der Cantuccini, falls gewünscht mit Beeren dekorieren
+- Schichten Creme, Erdbeeren, Blaubeeren, Cantuccini Krümel. Abschließen mit Creme und dem Rest der Cantuccini, falls gewünscht mit Beeren dekorieren
 - bis zum Servieren kalt stellen
 ---
 
