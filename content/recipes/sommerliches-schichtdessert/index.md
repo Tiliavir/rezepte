@@ -23,20 +23,20 @@ prepTime: 12
 ingredients:
 - 500g Magerquark
 - 250g Mascarpone
-- 150g Joghurt (3.5% Fett)
+- 150g Joghurt
 - 250g Erdbeeren
 - 2EL Erdbeermarmelade
 - 400g Blaubeeren
-- 200g Cantuccini mit Mandeln
-- 60g Agavendicksaft oder Zucker
+- 1Pck. Cantuccini mit Mandeln
+- Agavendicksaft
 
 directions:
-- Quark, Mascarpone und Joghurt vermengen mit einem Esslöffel glattrühren und nach Wunsch Zucker süssen
+- Quark, Mascarpone und Joghurt vermengen mit einem Esslöffel glattrühren und nach Wunsch süßen
 - Erdbeeren und Blaubeeren waschen
 - Erdbeeren in mundgerechte Stücke schneiden und mit der Marmelade vermengen
 - Cantuccini in einem Gefrierbeutel mit einem Nudelholz zerkleinern - nicht zu klein
-- Schichten: zuerst Hälfte der Creme, Erdbeeren, Blaubeeren und die Hälfte der Cantuccini Krümel, Zweite Hälfte der Creme und zum Schluss den Rest der Cantuccini
-- Falls gewünscht mit Beeren dekorieren und bis zum Servieren kalt stellen
+- 2 bis 3 Schichten: Creme, Erdbeeren, Blaubeeren, Cantuccini Krümel. Abschließen mit Creme und dem Rest der Cantuccini, falls gewünscht mit Beeren dekorieren
+- bis zum Servieren kalt stellen
 ---
 
 ![](schichtdessert_2.jpg)
