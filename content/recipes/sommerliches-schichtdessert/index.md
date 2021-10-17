@@ -35,7 +35,7 @@ directions:
 - Erdbeeren und Blaubeeren waschen
 - Erdbeeren in mundgerechte Stücke schneiden und mit der Marmelade vermengen
 - Cantuccini in einem Gefrierbeutel mit einem Nudelholz zerkleinern - nicht zu klein
-- Schichten Creme, Erdbeeren, Blaubeeren, Cantuccini Krümel. Abschließen mit Creme und dem Rest der Cantuccini, falls gewünscht mit Beeren dekorieren
+- Schichten mit Creme, Erdbeeren, Blaubeeren, Cantuccini Krümel. Abschließen mit Creme und dem Rest der Cantuccini, falls gewünscht mit Beeren dekorieren
 - bis zum Servieren kalt stellen
 ---
 
