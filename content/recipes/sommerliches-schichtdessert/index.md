@@ -27,7 +27,7 @@ ingredients:
 - 250g Erdbeeren
 - 2EL Erdbeermarmelade
 - 400g Blaubeeren
-- 200g Cantuccini mit Schokolade
+- 200g Cantuccini mit Mandeln
 - 60g Agavendicksaft oder Zucker
 
 directions:
@@ -40,5 +40,4 @@ directions:
 ---
 
 ![](schichtdessert_2.jpg)
-![](schichtdessert_3.jpg)
 ![](schichtdessert_4.jpg)
