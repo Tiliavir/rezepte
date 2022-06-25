@@ -16,7 +16,7 @@ tags:
   - Beeren
   - Sommerlich
   - Leicht
-  - Dessert
+
 yield: 8
 prepTime: 12
 
