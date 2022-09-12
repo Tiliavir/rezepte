@@ -32,14 +32,16 @@ ingredients:
 - 3 Zwiebeln
 - Speck
 
+# Janine weiss noch nicht genau, welche Konfiguration für krossen Teig sorgt und will es nochmal ausprobieren
+
 directions:
-- Ofen auf 200°C Ober- Unterhitze vorheizen
+- Ofen auf 180°C Ober- Unterhitze vorheizen
 - Mehl, Olivenöl, Wasser und Salz verrühren und kneten
 - Teig etwas stehen lassen
 - Zwiebeln in Halbringe schneiden
 - Teig halbieren und auswalen
 - Je mit etwa 200g Crème Fraîche bestreichen und mit Zwiebeln und Speck belegen
-- etwa 15 bis 20min in den Ofen
+- etwa 15 Minuten auf dem Rost in den Ofen
 ---
 
 ## Alternativen

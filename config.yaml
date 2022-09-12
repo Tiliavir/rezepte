@@ -4,7 +4,9 @@ theme: gochowdown
 
 languageCode: de-de
 defaultcontentlanguage: de
-languages: de
+languages:
+  de:
+    laguagedirection: ltr
 
 paginate: 20
 canonifyurls: true
@@ -55,7 +57,7 @@ menu:
 
 taxonomies:
   category: category
-  cusine: cuisine
+  cuisine: cuisine
   tag: tags
 
 disableKinds:
