@@ -3,6 +3,7 @@ layout: recipe
 date: 2020-11-02T22:22:24+01:00
 
 title: Gemüse-Quiche
+image: quiche-2.jpg
 
 category: Hauptgericht
 cuisine: Französisch
@@ -38,3 +39,5 @@ components:
 ---
 
 Beim Gemüse frei Schnauze. Wir mischen meist Brokkoli, Karotten, Champignons und Lauch.
+
+![](quiche-1.jpg)

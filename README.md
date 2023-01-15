@@ -15,7 +15,7 @@ Pull Requests sind immer herzlich willkommen. Im Gegensatz zu meinen anderen Rep
 ### Bilder hinzufügen
 Um Bildgröße zu verringern:
 ```bash
-$ mogrify -resize 2000x2000 **/*.jpg
+$ mogrify -strip -resize 2000x2000 **/*.jpg
 ```
 
 ### Rezept hinzufügen
