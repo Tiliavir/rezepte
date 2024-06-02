@@ -2,7 +2,7 @@
 layout: recipe
 date: 2021-10-03T20:13:06+01:00
 
-title: Linzer
+title: Linzertorte (Lindenmann)
 
 authorName: Heidi Lindenmann
 
