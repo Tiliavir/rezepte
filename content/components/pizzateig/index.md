@@ -4,15 +4,6 @@ date: 2020-10-31T23:01:35+01:00
 
 title: Pizzateig
 
-category: Teig
-cuisine: Italienisch
-tags: 
-- Pizza
-
-yield: 2
-prepTime: 10
-cookTime: 
-
 ingredients:
 - 500g Mehl, Typ 405
 - 200ml Wasser
