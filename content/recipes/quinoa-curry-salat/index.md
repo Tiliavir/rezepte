@@ -25,13 +25,15 @@ ingredients:
 - 2 kleine Tassen Wasser
 - 1 Dose Kichererbsen, abgetropft
 - 130g Erbsen
-- 1 EL Sesamöl (oder Olivenöl)
+- 2 EL Sesamöl (oder Olivenöl)
 - 1 TL Ingwer, frisch
-- 3 TL Currypulver
-- 1 TL Kurkuma
+- 2 EL Currypulver
+- 1 EL Kurkuma
+- 1 TL Paprika rosenscharf
 - 0.25 TL Knoblauchpulver
 - 0.5 TL Salz
 - schwarzer Pfeffer
+- Apfelessig (nach Geschmack)
 
 # mixins
 - 1 Paprika, rot, gewürfelt
