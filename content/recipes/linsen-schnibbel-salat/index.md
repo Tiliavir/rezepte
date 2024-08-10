@@ -27,6 +27,7 @@ ingredients:
 - 1 Paprika, rot
 - 1 Salatgurke
 - 50g getrocknete Cranberrys
+- 2 Zwiebeln
 - 2 Lauchzwiebeln
 - 1EL gefrorene Kräutermischung
 - 4EL Zitronensaft
