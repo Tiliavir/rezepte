@@ -41,7 +41,7 @@ directions:
   - Kirschen abgießen, Kirschwasser auffangen.
   - Eiweiß mit einer Prise Salz steif schlagen und bei Seite stellen.
   - Butter mit Zucker und Vanillezucker schaumig schlagen. Eigelb nacheinander dazugeben. Rum untermischen.
-  - Haselnüsse, Zimt und Mehl miteinander vermischen. nacheinander mit dem aufgefangen Kirschwasser zu den flüssigen Zutaten geben bis ein semiger Teig entsteht.
+  - Haselnüsse, Zimt, Backpulver und Mehl miteinander vermischen. nacheinander mit dem aufgefangen Kirschwasser zu den flüssigen Zutaten geben bis ein semiger Teig entsteht.
   - Schokoraspeln unterheben. Dann steifes Eiweiß vorsichtig unterheben.
   - Teig in eine gefettete Springform (26 cm) einfüllen. Abgetropfte Kirschen gleichmäßig auf dem Teig verteilen und etwas hineindrücken. Für sichtbare Kirschen, diese erst nach 10 Minuten Backzeit hinzufügen.
   - Bei 160°C ca. 50 Minuten backen.
