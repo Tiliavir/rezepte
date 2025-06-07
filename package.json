@@ -1,6 +1,6 @@
 {
   "name": "rezepte",
-  "version": "2024.05.27",
+  "version": "2025.06.07",
   "description": "Sammlung an Rezepten",
   "main": "",
   "browserslist": [
@@ -10,9 +10,9 @@
     "ie 9-11"
   ],
   "devDependencies": {
-    "autoprefixer": "10.4.19",
-    "postcss": "8.4.38",
-    "postcss-cli": "11.0.0",
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.4",
+    "postcss-cli": "11.0.1",
     "postcss-loader": "8.1.1"
   },
   "repository": {
