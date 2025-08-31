@@ -24,7 +24,7 @@ directions:
   - Mürbeteig in eine Springform geben.
   - Belag auf den Mürbeteig verteilen.
   - Streusel über die Kirschmasse geben.
-  - Im heißen Backofen bei 175 °C Ober-/Unterhitze (Heißluft: 155 °C) ca. 50 - 60 Minuten backen.
+  - "Im heißen Backofen bei 175 °C Ober-/Unterhitze (Heißluft: 155 °C) ca. 50 - 60 Minuten backen."
   - Gut auskühlen lassen.
   - Sahnehaube auf den Kuchen streichen und mit Kakaopulver bestäuben.
 
