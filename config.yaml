@@ -8,7 +8,8 @@ languages:
   de:
     laguagedirection: ltr
 
-paginate: 20
+pagination:
+  pagerSize: 20
 canonifyurls: true
 pygmentsstyle: monokai
 pygmentscodefences: true

@@ -34,9 +34,9 @@ ingredients:
 
 directions:
 - Honig, Zucker und Gewürze unter Rühren aufkochen, dann in eine Schüssel geben und abkühlen lassen
-- Orangeat und Zitronat feinhacken, zusammen mit den Mandeln, der Zitronenschale und dem Kirschwasser unter die Honigmischung rühren. Das mit Backpulver vermischte Mehl unterkneten. Den Teig mit Küchentuch bedeckt über Nacht ruhen lassen.
+- Orangeat und Zitronat fein hacken, zusammen mit den Mandeln, der Zitronenschale und dem Kirschwasser unter die Honigmischung rühren. Das mit Backpulver vermischte Mehl unterkneten. Den Teig mit Küchentuch bedeckt über Nacht ruhen lassen.
 - Am nächsten Tag den Ofen vorheizen auf 180°C, den Teig 1cm dick ausrollen und auf ein mit Backpapier ausgelegtes Blech legen.
 - 25 Minuten auf mittlerer Schiene backen.
-- Für die Glasur: Puderzucker mit Kirschwasser glattrühren und auf den Teig streichen. _Oder:_ 100g Zucker mit 3-4 EL Wasser unter Rühren kochen bis es schäumt, dann nicht mehr rühren und weiter kochen, bis der Sirup in langen Tropfen vom Löffel fällt. Dann zügig auf Kuchenplatte streichen.
+- "Für die Glasur: Puderzucker mit Kirschwasser glattrühren und auf den Teig streichen. _Oder:_ 100g Zucker mit 3-4 EL Wasser unter Rühren kochen bis es schäumt, dann nicht mehr rühren und weiter kochen, bis der Sirup in langen Tropfen vom Löffel fällt. Dann zügig auf Kuchenplatte streichen."
 - Anschliessend in 3cm² grosse Stücke schneiden.
 ---
