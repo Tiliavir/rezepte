@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recipe-normalizer"
+version = "0.1.0"
+description = "Convert any recipe into a standardised German Markdown file."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "typer>=0.12",
+    "requests>=2.31",
+    "readability-lxml>=0.8",
+    "beautifulsoup4>=4.12",
+    "python-slugify>=8.0",
+    # Optional but recommended:
+    # "pytesseract>=0.3",
+    # "Pillow>=10",
+    # "pdfplumber>=0.11",
+    # "pdf2image>=1.16",
+    # "google-generativeai>=0.7",
+    # "google-auth>=2.29",
+]
+
+[project.optional-dependencies]
+ocr = [
+    "pytesseract>=0.3",
+    "Pillow>=10",
+    "pdfplumber>=0.11",
+    "pdf2image>=1.16",
+]
+gemini = [
+    "google-generativeai>=0.7",
+    "google-auth>=2.29",
+]
+all = [
+    "recipe-normalizer[ocr]",
+    "recipe-normalizer[gemini]",
+]
+
+[project.scripts]
+recipe-normalizer = "main:cli"
+
+[tool.setuptools]
+py-modules = [
+    "main",
+    "input_handler",
+    "html_extractor",
+    "ocr",
+    "llm_client",
+    "markdown_writer",
+    "slug",
+]
