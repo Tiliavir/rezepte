@@ -1,2 +1,0 @@
-[console_scripts]
-recipe-normalizer = main:cli
