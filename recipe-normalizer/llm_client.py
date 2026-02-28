@@ -5,7 +5,9 @@ from __future__ import annotations
 import json
 import logging
 import os
+import shutil
 import subprocess
+import urllib.parse
 import urllib.request
 from typing import Literal
 
@@ -85,6 +87,12 @@ def _call_gemini(raw_text: str) -> str:
 
 def _call_openai(raw_text: str) -> str:
     """Call OpenAI via the locally installed `openai` CLI."""
+    openai_exe = shutil.which("openai")
+    if openai_exe is None:
+        raise RuntimeError(
+            "'openai' CLI not found on PATH. "
+            "Install it with: pip install openai"
+        )
     payload = json.dumps(
         {
             "model": "gpt-4o",
@@ -95,7 +103,7 @@ def _call_openai(raw_text: str) -> str:
         }
     )
     result = subprocess.run(  # noqa: S603
-        ["openai", "api", "chat.completions.create", "--json"],
+        [openai_exe, "api", "chat.completions.create", "--json"],
         input=payload,
         capture_output=True,
         text=True,
@@ -127,6 +135,11 @@ def _call_rest(raw_text: str) -> str:
             "RECIPE_NORMALIZER_API_KEY environment variable must be set for the 'rest' provider."
         )
 
+    parsed = urllib.parse.urlparse(base_url)
+    if parsed.scheme not in ("http", "https"):
+        raise ValueError(
+            f"RECIPE_NORMALIZER_API_URL must use http or https, got scheme: {parsed.scheme!r}"
+        )
     payload = json.dumps(
         {
             "model": model,

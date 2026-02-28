@@ -1,6 +1,7 @@
 """Input detection and raw-text extraction for various file/URL types."""
 
 import logging
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -67,6 +68,9 @@ def load_raw_text(source: str) -> str:
 
 def _load_url(url: str) -> str:
     """Download a URL and extract readable text from its HTML."""
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme not in ("http", "https"):
+        raise ValueError(f"Only http/https URLs are supported, got scheme: {parsed.scheme!r}")
     logger.info("Downloading %s", url)
     req = urllib.request.Request(
         url,
