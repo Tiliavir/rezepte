@@ -41,11 +41,11 @@ def test_is_url_https():
 
 
 def test_is_url_http():
-    assert is_url("http://example.com/recipe") is True
+    assert is_url("http://example.com/recipe") is True  # NOSONAR python:S5332
 
 
 def test_is_url_file_path():
-    assert is_url("/tmp/recipe.txt") is False
+    assert is_url("/home/user/recipe.txt") is False
 
 
 def test_is_url_relative_path():
@@ -184,7 +184,7 @@ def test_write_component_recipe(tmp_path):
 
 def test_write_dry_run(tmp_path, capsys):
     recipes = parse_llm_output(SIMPLE_LLM_RESPONSE)
-    written = write_recipes(recipes, tmp_path, dry_run=True)
+    write_recipes(recipes, tmp_path, dry_run=True)
     captured = capsys.readouterr()
     assert "Pasta al Pomodoro" in captured.out
     # No files should actually be written

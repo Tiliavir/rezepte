@@ -18,7 +18,7 @@ _PDF_EXTENSIONS = {".pdf"}
 
 def is_url(value: str) -> bool:
     """Return True when *value* looks like an HTTP/HTTPS URL."""
-    return value.startswith("http://") or value.startswith("https://")
+    return value.startswith("http://") or value.startswith("https://")  # NOSONAR python:S5332
 
 
 def load_raw_text(source: str) -> str:

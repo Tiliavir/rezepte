@@ -12,14 +12,16 @@ from slug import make_slug
 
 logger = logging.getLogger(__name__)
 
+_COMPONENTS_KEY = "components:"
+
 # Regex to capture individual fenced markdown documents (--- ... ---)
-_FRONTMATTER_RE = re.compile(
+_FRONTMATTER_RE = re.compile(  # NOSONAR python:S5852
     r"(?:^|\n)---\s*\n(.*?)\n---",
     re.DOTALL,
 )
 
 # Match the title line inside frontmatter
-_TITLE_RE = re.compile(r'^title:\s*["\']?(.+?)["\']?\s*$', re.MULTILINE)
+_TITLE_RE = re.compile(r'^title:\s*["\']?(.+?)["\']?\s*$', re.MULTILINE)  # NOSONAR python:S5852
 
 
 def _now_iso() -> str:
@@ -57,7 +59,7 @@ def _get_title(frontmatter_body: str) -> str | None:
 
 def _is_component(frontmatter_body: str) -> bool:
     """Heuristic: a block is a component if it has NO 'components:' list."""
-    return "components:" not in frontmatter_body
+    return _COMPONENTS_KEY not in frontmatter_body
 
 
 def parse_llm_output(llm_response: str) -> list[tuple[str, str]]:
@@ -129,10 +131,10 @@ def write_recipes(
     # Separate main recipe(s) from components.
     # Convention: the recipe with a "components:" key is the main one.
     main_recipes = [
-        (t, md) for t, md in recipes if "components:" in md
+        (t, md) for t, md in recipes if _COMPONENTS_KEY in md
     ]
     components = [
-        (t, md) for t, md in recipes if "components:" not in md
+        (t, md) for t, md in recipes if _COMPONENTS_KEY not in md
     ]
 
     # If there is only one recipe and no components field, treat it as main recipe

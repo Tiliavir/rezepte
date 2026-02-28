@@ -1,8 +1,8 @@
 type Splitted = { amount: number, unit: string, name: string };
 type Aggregated = { [ingredient: string]: { [unit: string]: number } };
 
-const UNITS = ['EL', 'TL', 'ml', 'dl', 'l', 'g', 'kg', 'cm', 'Prise', 'Dose', 'Bund', 'Pck\\.'];
-const INGREDIENT_REGEX = new RegExp(`^([\\d/.,]+)?\\s*(?:(${UNITS.join('|')})\\s+)?(.+)$`);
+const UNITS = ['EL', 'TL', 'ml', 'dl', 'l', 'g', 'kg', 'cm', 'Prise', 'Dose', 'Bund', String.raw`Pck\.`];
+const INGREDIENT_REGEX = new RegExp(String.raw`^([\d/.,]+)?\s*(?:(${UNITS.join('|')})\s+)?(.+)$`);
 
 export class ShoppingList {
   private static prep(ingredients: string[]): Aggregated {
