@@ -1,25 +1,21 @@
 type Splitted = { amount: number, unit: string, name: string };
 type Aggregated = { [ingredient: string]: { [unit: string]: number } };
 
+const UNITS = ['EL', 'TL', 'ml', 'dl', 'l', 'g', 'kg', 'cm', 'Prise', 'Dose', 'Bund', 'Pck\\.'];
+const INGREDIENT_REGEX = new RegExp(`^([\\d/.,]+)?\\s*(?:(${UNITS.join('|')})\\s+)?(.+)$`);
+
 export class ShoppingList {
   private static prep(ingredients: string[]): Aggregated {
-    const regex = /^([\d\/.,]+)?\s*(?:(EL|TL|ml|dl|l|g|kg|cm|Prise|Dose|Bund|Pck.)\s+)?(.+)$/;
     let splitted: Splitted[] = [];
     for (let ingredient of ingredients) {
-      let matches = ingredient.match(regex);
+      let matches = INGREDIENT_REGEX.exec(ingredient);
       splitted.push({amount: +matches[1], unit: matches[2] || "count", name: matches[3]});
     }
     const ingredientsGrouped: Aggregated = {};
     for (let value of splitted) {
-      if (!ingredientsGrouped[value.name]) {
-        ingredientsGrouped[value.name] = {};
-      }
+      ingredientsGrouped[value.name] ??= {};
       if (value.amount) {
-        if (!ingredientsGrouped[value.name][value.unit]) {
-          ingredientsGrouped[value.name][value.unit] = value.amount;
-        } else {
-          ingredientsGrouped[value.name][value.unit] += value.amount;
-        }
+        ingredientsGrouped[value.name][value.unit] = (ingredientsGrouped[value.name][value.unit] ?? 0) + value.amount;
       }
     }
     return ingredientsGrouped;
@@ -53,21 +49,20 @@ export class ShoppingList {
       });
   }
 
+  private static formatAmounts(units: { [unit: string]: number }): string {
+    return Object.entries(units)
+      .filter(([, amount]) => amount)
+      .map(([unit, amount]) => amount + (unit === "count" ? "" : unit))
+      .join(", ");
+  }
+
   private static getFormattedIngredientStrings(ingredientsByUnitsAndAmount: Aggregated): string[] {
     let ingrFormatted: string[] = [];
     for (let ingredient in ingredientsByUnitsAndAmount) {
-      let amounts = "";
-      for (let unit in ingredientsByUnitsAndAmount[ingredient]) {
-        let amount = ingredientsByUnitsAndAmount[ingredient][unit];
-        if (amount) {
-          // add separator if not first amount
-          amounts += amounts !== "" ? ", " : "";
-          amounts += amount + "" + (unit == "count" ? "" : unit);
-        }
-      }
+      const amounts = ShoppingList.formatAmounts(ingredientsByUnitsAndAmount[ingredient]);
       ingrFormatted.push(ingredient + (amounts ? ": " + amounts : ""));
     }
-    return ingrFormatted.sort();
+    return ingrFormatted.sort((a, b) => a.localeCompare(b));
   }
 }
 
