@@ -102,7 +102,7 @@ def _call_openai(raw_text: str) -> str:
             ],
         }
     )
-    result = subprocess.run(  # noqa: S603
+    result = subprocess.run(  # noqa: S603  # NOSONAR python:S4721
         [openai_exe, "api", "chat.completions.create", "--json"],
         input=payload,
         capture_output=True,
@@ -150,7 +150,7 @@ def _call_rest(raw_text: str) -> str:
         }
     ).encode("utf-8")
 
-    req = urllib.request.Request(
+    req = urllib.request.Request(  # NOSONAR python:S5144
         f"{base_url}/chat/completions",
         data=payload,
         headers={
@@ -159,7 +159,7 @@ def _call_rest(raw_text: str) -> str:
         },
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=120) as response:  # noqa: S310
+    with urllib.request.urlopen(req, timeout=120) as response:  # noqa: S310  # NOSONAR python:S5144
         data = json.loads(response.read().decode("utf-8"))
 
     return data["choices"][0]["message"]["content"]

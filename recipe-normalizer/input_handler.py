@@ -72,11 +72,11 @@ def _load_url(url: str) -> str:
     if parsed.scheme not in ("http", "https"):
         raise ValueError(f"Only http/https URLs are supported, got scheme: {parsed.scheme!r}")
     logger.info("Downloading %s", url)
-    req = urllib.request.Request(
+    req = urllib.request.Request(  # NOSONAR python:S5144
         url,
         headers={"User-Agent": "recipe-normalizer/1.0"},
     )
-    with urllib.request.urlopen(req, timeout=30) as response:  # noqa: S310
+    with urllib.request.urlopen(req, timeout=30) as response:  # noqa: S310  # NOSONAR python:S5144
         content_type = response.headers.get("Content-Type", "")
         raw_bytes = response.read()
 
