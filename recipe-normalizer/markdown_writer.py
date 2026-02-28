@@ -15,8 +15,8 @@ logger = logging.getLogger(__name__)
 _COMPONENTS_KEY = "components:"
 
 # Regex to capture individual fenced markdown documents (--- ... ---)
-_FRONTMATTER_RE = re.compile(  # NOSONAR python:S5852
-    r"(?:^|\n)---\s*\n(.*?)\n---",
+_FRONTMATTER_RE = re.compile(
+    r"(?:^|\n)---\s*\n(.*?)\n---",  # NOSONAR python:S5852
     re.DOTALL,
 )
 
