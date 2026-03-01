@@ -9,6 +9,7 @@ Usage
 from __future__ import annotations
 
 import logging
+import os
 import sys
 from pathlib import Path
 from typing import Optional
@@ -30,6 +31,24 @@ def _setup_logging(level: str) -> None:
         level=numeric,
         stream=sys.stderr,
     )
+
+
+def _load_env_file() -> None:
+    """Load environment variables from a local .env file if present."""
+    env_path = Path.cwd() / ".env"
+    if not env_path.exists() or not env_path.is_file():
+        return
+
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or "=" not in stripped:
+            continue
+        key, value = stripped.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key:
+            # Keep existing shell values as highest priority.
+            os.environ.setdefault(key, value)
 
 
 @app.command()
@@ -66,6 +85,7 @@ def main(
     ),
 ) -> None:
     """Convert *INPUT* into standardised German Markdown recipe files."""
+    _load_env_file()
     _setup_logging(log_level)
     logger = logging.getLogger(__name__)
 

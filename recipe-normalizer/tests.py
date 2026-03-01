@@ -13,6 +13,7 @@ from pathlib import Path
 from slug import make_slug
 from markdown_writer import parse_llm_output, write_recipes
 from input_handler import is_url, load_raw_text
+from llm_client import call_llm, get_available_providers
 
 
 # ---------------------------------------------------------------------------
@@ -132,6 +133,63 @@ directions:
 ---
 """
 
+PLAIN_MARKDOWN_RESPONSE = """\
+# Spaghetti Carbonara
+
+## Zutaten
+- 340 g Spaghetti
+- 170 g Guanciale
+
+## Zubereitung
+1. Nudeln kochen
+2. Guanciale anbraten
+"""
+
+PLAIN_MARKDOWN_ODD_HEADINGS = """\
+# Kartoffelgericht
+
+## Einkauf
+- 500 g Kartoffeln
+- Salz
+
+## Schritte
+1. Kartoffeln schälen
+2. Kartoffeln kochen
+"""
+
+NESTED_FRONTMATTER_RESPONSE = """\
+---
+layout: recipe
+title: Spaghetti Carbonara (Klassisch Römisch)
+yield:
+    servings: 4
+ingredients:
+    - item: Spaghetti
+        quantity: 340
+        unit: g
+    - item: Guanciale
+        quantity: 170
+        unit: g
+instructions:
+    - Nudeln kochen
+    - Guanciale anbraten
+---
+"""
+
+YAML_LIKE_PLAIN_RESPONSE = """\
+title: Amerikanische Pizza
+yield:
+    servings: 3
+ingredients:
+    - item: Mehl
+        quantity: 500
+        unit: g
+directions:
+    - title: Pizzateig
+    - step: Teig kneten
+    - step: Pizza backen
+"""
+
 
 def test_parse_simple_recipe():
     recipes = parse_llm_output(SIMPLE_LLM_RESPONSE)
@@ -158,6 +216,90 @@ def test_parse_empty_response():
 def test_parse_no_frontmatter():
     recipes = parse_llm_output("Just some plain text without frontmatter.")
     assert recipes == []
+
+
+def test_parse_plain_markdown_recipe():
+    recipes = parse_llm_output(PLAIN_MARKDOWN_RESPONSE)
+    assert len(recipes) == 1
+    title, md = recipes[0]
+    assert title == "Spaghetti Carbonara"
+    assert "layout: recipe" in md
+    assert "ingredients:" in md
+    assert "directions:" in md
+    assert "layout: recipe\\ndate:" not in md
+    assert "title: Spaghetti Carbonara" in md
+    assert "- 340 g Spaghetti" in md
+
+
+def test_parse_plain_markdown_with_odd_headings():
+    recipes = parse_llm_output(PLAIN_MARKDOWN_ODD_HEADINGS)
+    assert len(recipes) == 1
+    title, md = recipes[0]
+    assert title == "Kartoffelgericht"
+    assert "ingredients:" in md
+    assert "directions:" in md
+
+
+def test_parse_plain_markdown_extracts_yield():
+    response = """\
+# Tomatensuppe
+
+## Portionen
+- Portionen: 4
+
+## Zutaten
+- 1kg Tomaten
+
+## Zubereitung
+1. Kochen
+"""
+    recipes = parse_llm_output(response)
+    assert len(recipes) == 1
+    _, md = recipes[0]
+    assert "yield: 4" in md
+
+
+def test_parse_nested_frontmatter_normalises_schema():
+    recipes = parse_llm_output(NESTED_FRONTMATTER_RESPONSE)
+    assert len(recipes) == 1
+    title, md = recipes[0]
+    assert title == "Spaghetti Carbonara (Klassisch Römisch)"
+    assert "yield: 4" in md
+    assert "instructions:" not in md
+    assert "directions:" in md
+    assert "- 340 g Spaghetti" in md
+    assert "- 170 g Guanciale" in md
+
+
+def test_parse_frontmatter_with_asterisk_bullet_does_not_crash():
+        response = """\
+---
+layout: recipe
+title: Carbonara
+ingredients:
+    - 340 g Spaghetti
+directions:
+    - **Textur-Leitfaden:**
+    - Bei Bedarf Wasser zugeben
+---
+"""
+        recipes = parse_llm_output(response)
+        assert len(recipes) == 1
+        _, md = recipes[0]
+        assert "title: Carbonara" in md
+        assert "directions:" in md
+
+
+    def test_parse_yaml_like_plain_response_normalises_schema():
+        recipes = parse_llm_output(YAML_LIKE_PLAIN_RESPONSE)
+        assert len(recipes) == 1
+        title, md = recipes[0]
+        assert title == "Amerikanische Pizza"
+        assert "yield: 3" in md
+        assert "- 500 g Mehl" in md
+        assert "- Teig kneten" in md
+        assert "title: Pizzateig" not in md
+        assert "step:" not in md
 
 
 # ---------------------------------------------------------------------------
@@ -196,3 +338,42 @@ def test_write_creates_parent_dirs(tmp_path):
     deep_dir = tmp_path / "a" / "b" / "c"
     written = write_recipes(recipes, deep_dir)
     assert written[0].exists()
+
+
+# ---------------------------------------------------------------------------
+# LLM provider selection tests (no network)
+# ---------------------------------------------------------------------------
+
+
+def test_get_available_providers(monkeypatch):
+    monkeypatch.delenv("GOOGLE_API_KEY", raising=False)
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.delenv("RECIPE_NORMALIZER_API_URL", raising=False)
+    monkeypatch.delenv("RECIPE_NORMALIZER_API_KEY", raising=False)
+
+    monkeypatch.setattr("llm_client.importlib.util.find_spec", lambda _name: None)
+    monkeypatch.setattr("llm_client.shutil.which", lambda _name: None)
+    assert get_available_providers() == []
+
+    monkeypatch.setenv("GOOGLE_API_KEY", "test-key")
+    monkeypatch.setattr("llm_client.importlib.util.find_spec", lambda _name: object())
+    monkeypatch.setattr("llm_client.shutil.which", lambda _name: "/usr/bin/openai")
+    monkeypatch.setenv("RECIPE_NORMALIZER_API_URL", "https://example.com/v1")
+    monkeypatch.setenv("RECIPE_NORMALIZER_API_KEY", "test-rest-key")
+
+    assert get_available_providers() == ["gemini", "openai", "rest"]
+
+
+def test_call_llm_falls_back_from_gemini_to_openai(monkeypatch):
+    def configured(provider: str) -> bool:
+        return provider == "openai"
+
+    monkeypatch.setattr("llm_client._is_provider_configured", configured)
+
+    def fail_gemini(_raw_text: str) -> str:
+        raise RuntimeError("Gemini auth missing")
+
+    monkeypatch.setattr("llm_client._call_gemini", fail_gemini)
+    monkeypatch.setattr("llm_client._call_openai", lambda _raw_text: "ok")
+
+    assert call_llm("Zutaten", provider="gemini") == "ok"

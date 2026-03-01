@@ -13,8 +13,6 @@ cd recipe-normalizer
 pip install -e .
 # With OCR support:
 pip install -e ".[ocr]"
-# With Google Gemini support:
-pip install -e ".[gemini]"
 # All extras:
 pip install -e ".[all]"
 ```
@@ -84,12 +82,29 @@ recipe-normalizer recipe.txt --log-level DEBUG
 
 ### Gemini (default)
 
-Uses `gcloud auth application-default login` — no API key in code.
+Uses API-key auth via `GOOGLE_API_KEY` (or `GEMINI_API_KEY`).
+Default model is `gemini-2.5-pro` with fallback to `gemini-2.5-flash`.
+You can override it with `RECIPE_NORMALIZER_GEMINI_MODEL`.
+Transient API errors (including 429/rate-limit) are retried automatically,
+then the CLI falls back to the next Gemini model.
+If Gemini is unavailable, the CLI automatically falls back to `openai`, then `rest`
+when those providers are configured.
 
 ```bash
-gcloud auth application-default login
+export GOOGLE_API_KEY=your_api_key_here
+export RECIPE_NORMALIZER_GEMINI_MODEL=gemini-2.5-pro  # optional
 recipe-normalizer recipe.txt --provider gemini
 ```
+
+You can also create a local `.env` file in `recipe-normalizer/`:
+
+```bash
+GOOGLE_API_KEY=your_api_key_here
+RECIPE_NORMALIZER_GEMINI_MODEL=gemini-2.5-pro
+RECIPE_NORMALIZER_GEMINI_RETRIES=2
+```
+
+The CLI loads this file automatically.
 
 ### OpenAI
 
