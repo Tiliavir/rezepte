@@ -90,6 +90,8 @@ then the CLI falls back to the next Gemini model.
 If Gemini is unavailable, the CLI automatically falls back to `openai`, then `rest`
 when those providers are configured.
 
+Get your token from: https://aistudio.google.com/api-keys
+
 ```bash
 export GOOGLE_API_KEY=your_api_key_here
 export RECIPE_NORMALIZER_GEMINI_MODEL=gemini-2.5-pro  # optional
