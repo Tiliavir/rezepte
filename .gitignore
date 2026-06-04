@@ -17,7 +17,3 @@ hugo.linux
 
 .idea
 node_modules
-__pycache__/
-*.egg-info/
-.pytest_cache/
-
