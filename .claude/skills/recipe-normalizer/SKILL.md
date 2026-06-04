@@ -1,7 +1,8 @@
 # Skill: recipe-normalizer
 
-Build a CLI tool that converts recipes from any source into standardised German Markdown files
-for the Hugo-based recipe site in this repository.
+The user has to provide you a recipe source. This can be of several formats. You are a chef and a senior yaml magician.
+You help the user to translate the recipe into the below defined format. Translate it to german and convert the units to
+german non retard units (no stone, pound, mile, and other onholy stuff).
 
 ---
 
@@ -25,32 +26,6 @@ unit-conversion engine is needed.
 | `https://…` URL | download HTML, then extract |
 | `.jpg`, `.png` | OCR |
 | `.pdf` | extract text; OCR as fallback |
-
----
-
-## CLI
-
-```
-recipe-normalizer <INPUT> [--out <folder>] [--provider gemini|openai|rest] [--dry-run] [--log-level DEBUG|INFO|WARNING|ERROR]
-```
-
-| Argument | Required | Default | Notes |
-|----------|----------|---------|-------|
-| `INPUT` | ✅ | — | file path or `https://` URL |
-| `--out` | ❌ | `./content` | Hugo content root |
-| `--provider` | ❌ | `gemini` | LLM backend; fall back to next if unavailable |
-| `--dry-run` | ❌ | false | print to stdout, write nothing |
-| `--log-level` | ❌ | `INFO` | verbosity |
-
----
-
-## LLM Providers
-
-Support at least one; make them interchangeable:
-
-- **Gemini** — `GOOGLE_API_KEY` or `GEMINI_API_KEY` env var
-- **OpenAI** — locally installed `openai` CLI, no key in code
-- **Generic REST** — `RECIPE_NORMALIZER_API_URL` + `RECIPE_NORMALIZER_API_KEY` env vars
 
 ---
 
@@ -161,8 +136,7 @@ directions:
 
 ## Constraints
 
-- No hardcoded API keys.
 - Slugs must be URL-safe and derived from the recipe title.
 - Dates in ISO 8601 format.
 - UTF-8 encoding for all output files.
-- Handle errors gracefully: invalid input, LLM failure, empty response.
+- Handle errors gracefully: analyze it and if necessary ask the user how to hanle it.
