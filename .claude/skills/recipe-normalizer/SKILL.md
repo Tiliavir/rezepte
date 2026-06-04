@@ -1,103 +1,60 @@
 # Skill: recipe-normalizer
 
-Implement the `recipe-normalizer` Python CLI tool under `recipe-normalizer/` in this repository.
-The tool converts recipes from arbitrary sources into standardised German Markdown files
-compatible with the Hugo-based recipe site in this repo.
+Build a CLI tool that converts recipes from any source into standardised German Markdown files
+for the Hugo-based recipe site in this repository.
 
 ---
 
 ## Goal
 
-Create a Python 3.11+ CLI that:
+Accept a recipe as **text, Markdown, HTML, URL, image, or PDF**, extract the recipe text,
+send it to an LLM with the prompt below, and write the result as YAML front-matter Markdown
+under `content/recipes/`.
 
-1. Accepts a recipe as text, HTML, image, PDF, or URL
-2. Extracts plain text (OCR when needed)
-3. Sends the text to an LLM to normalise it into German Markdown
-4. Writes the result as YAML front-matter Markdown files under `content/`
-
-No custom NLP, no unit-conversion engine, no GUI — all semantic transformation is done by the LLM.
+All normalisation (language, units, structure) is delegated to the LLM — no custom NLP or
+unit-conversion engine is needed.
 
 ---
 
-## Directory Layout to Create
+## Supported Inputs
 
-Place all files inside `recipe-normalizer/`:
+| Input | How to handle |
+|-------|---------------|
+| `.txt`, `.md` | read directly |
+| `.html` | extract main article text (e.g. readability) |
+| `https://…` URL | download HTML, then extract |
+| `.jpg`, `.png` | OCR |
+| `.pdf` | extract text; OCR as fallback |
+
+---
+
+## CLI
 
 ```
-recipe-normalizer/
-  pyproject.toml       # package metadata and entry-point
-  slug.py              # URL slug generation
-  html_extractor.py    # HTML → plain text
-  ocr.py               # OCR for images and PDFs
-  input_handler.py     # detect input type, return raw text
-  llm_client.py        # LLM provider abstraction
-  markdown_writer.py   # parse LLM output, write .md files
-  main.py              # typer CLI entry-point
-  tests.py             # pytest unit tests
+recipe-normalizer <INPUT> [--out <folder>] [--provider gemini|openai|rest] [--dry-run] [--log-level DEBUG|INFO|WARNING|ERROR]
 ```
 
-Copy each file from this skill directory verbatim — they are production-ready:
-
-| File | Reference |
-|------|-----------|
-| `pyproject.toml` | [pyproject.toml](pyproject.toml) |
-| `slug.py` | [slug.py](slug.py) |
-| `html_extractor.py` | [html_extractor.py](html_extractor.py) |
-| `ocr.py` | [ocr.py](ocr.py) |
-| `input_handler.py` | [input_handler.py](input_handler.py) |
-| `llm_client.py` | [llm_client.py](llm_client.py) |
-| `markdown_writer.py` | [markdown_writer.py](markdown_writer.py) |
-| `main.py` | [main.py](main.py) |
-| `tests.py` | [tests.py](tests.py) |
+| Argument | Required | Default | Notes |
+|----------|----------|---------|-------|
+| `INPUT` | ✅ | — | file path or `https://` URL |
+| `--out` | ❌ | `./content` | Hugo content root |
+| `--provider` | ❌ | `gemini` | LLM backend; fall back to next if unavailable |
+| `--dry-run` | ❌ | false | print to stdout, write nothing |
+| `--log-level` | ❌ | `INFO` | verbosity |
 
 ---
 
-## Output Format
+## LLM Providers
 
-### Simple recipe → `content/recipes/<slug>/index.md`
+Support at least one; make them interchangeable:
 
-```yaml
----
-layout: recipe
-date: <ISO-8601 timestamp>
-title: "Titel"
-category: <optional>
-cuisine: <optional>
-tags:
-  - tag
-yield: 4
-prepTime: 10
-cookTime: 30
-ingredients:
-  - 200g Mehl
-  - 2 EL Zucker
-directions:
-  - Mehl sieben.
-  - Teig kneten.
----
-```
-
-### Component recipe
-
-Components are placed in `content/components/<slug>/index.md`.
-The main recipe references them by title:
-
-```yaml
----
-layout: recipe
-date: <ISO-8601 timestamp>
-title: "Hauptrezept"
-components:
-  - "Tomatensauce"
-  - "Basilikum-Pesto"
-directions:
-  - Komponenten zubereiten und kombinieren.
----
-```
+- **Gemini** — `GOOGLE_API_KEY` or `GEMINI_API_KEY` env var
+- **OpenAI** — locally installed `openai` CLI, no key in code
+- **Generic REST** — `RECIPE_NORMALIZER_API_URL` + `RECIPE_NORMALIZER_API_KEY` env vars
 
 ---
 
-## LLM System Prompt (fixed — do not modify)
+## LLM System Prompt (use verbatim)
 
 ```
 Du bist ein Rezept-Normalisierer.
@@ -130,71 +87,82 @@ Regeln:
 
 ---
 
-## CLI Flags
+## Output Format
 
-| Flag | Default | Description |
-|------|---------|-------------|
-| `INPUT` | (required) | file path (`.txt .md .html .jpg .png .pdf`) or `https://` URL |
-| `--out PATH` | `./content` | target Hugo content directory |
-| `--provider` | `gemini` | LLM backend: `gemini` \| `openai` \| `rest` |
-| `--dry-run` | false | print Markdown to stdout, do not write files |
-| `--log-level` | `INFO` | `DEBUG` \| `INFO` \| `WARNING` \| `ERROR` |
+### Simple recipe
 
+Path: `content/recipes/<slug>/index.md`
+
+```yaml
 ---
-
-## LLM Providers
-
-### Gemini (default)
-
-Requires `GOOGLE_API_KEY` or `GEMINI_API_KEY` environment variable.
-Optional env overrides: `RECIPE_NORMALIZER_GEMINI_MODEL`, `RECIPE_NORMALIZER_GEMINI_RETRIES`.
-API key source: <https://aistudio.google.com/api-keys>
-
-### OpenAI
-
-Uses the locally installed `openai` CLI binary (resolved via `shutil.which`).
-No API key in code.
-
-### Generic REST (OpenAI-compatible)
-
-Requires `RECIPE_NORMALIZER_API_URL` and `RECIPE_NORMALIZER_API_KEY`.
-Optional: `RECIPE_NORMALIZER_MODEL` (default `gpt-4o`).
-
-### Provider fallback
-
-When `--provider gemini` is specified and Gemini fails, the client automatically falls back
-to `openai` then `rest` if those are configured.
-
+layout: recipe
+date: 2024-01-15T10:30:00Z
+title: "Schokoladenkuchen"
+category: Kuchen          # optional
+cuisine: Deutsch          # optional
+tags:                     # optional
+  - Backen
+  - Schokolade
+yield: 12                 # optional – number of servings
+prepTime: 20              # optional – minutes
+cookTime: 45              # optional – minutes
+ingredients:
+  - 200g Mehl
+  - 150g Zucker
+  - 3 Eier
+  - 100g Butter
+  - 2 EL Kakao
+directions:
+  - Ofen auf 180°C vorheizen.
+  - Mehl, Zucker und Kakao mischen.
+  - Eier und geschmolzene Butter unterrühren.
+  - 45 Minuten backen.
 ---
-
-## `.gitignore` additions required
-
-Add to the root `.gitignore`:
-
-```
-__pycache__/
-*.egg-info/
-.pytest_cache/
 ```
 
+### Component recipe
+
+Use when a recipe has clearly separate parts (sauce, dough, topping, etc.).
+
+**Component** → `content/recipes/<slug-component>/index.md`
+
+```yaml
+---
+layout: recipe
+date: 2024-01-15T10:30:00Z
+title: "Tomatensauce"
+ingredients:
+  - 400g Tomaten (gehackt)
+  - 1 Zwiebel
+  - 2 EL Olivenöl
+  - Salz, Pfeffer
+directions:
+  - Zwiebel in Öl anschwitzen.
+  - Tomaten dazugeben, 20 Minuten köcheln.
+---
+```
+
+**Main recipe** → `content/recipes/<slug>/index.md`
+
+```yaml
+---
+layout: recipe
+date: 2024-01-15T10:30:00Z
+title: "Pasta mit Tomatensauce"
+components:
+  - "Tomatensauce"
+directions:
+  - Pasta nach Packungsanleitung kochen.
+  - Mit Tomatensauce servieren.
+---
+```
+
 ---
 
-## Security requirements
+## Constraints
 
 - No hardcoded API keys.
-- Validate URL scheme (`http`/`https` only) before any `urlopen` call.
-- Resolve subprocess executables with `shutil.which` — never pass a bare binary name.
-- Mark intentional SonarCloud false-positives with `# NOSONAR <rule-id>` on the flagged line.
-
----
-
-## Tests
-
-Run with pytest from inside the skill directory:
-
-```
-pip install -e ".[all]"
-pytest tests.py -v
-```
-
-All 20 tests should pass without network access.
+- Slugs must be URL-safe and derived from the recipe title.
+- Dates in ISO 8601 format.
+- UTF-8 encoding for all output files.
+- Handle errors gracefully: invalid input, LLM failure, empty response.
