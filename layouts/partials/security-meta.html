@@ -1,0 +1,22 @@
+{{- /*
+  Security policy as <meta> because GitHub Pages cannot send custom response headers.
+  Must stay directly after <meta charset>: a meta CSP only applies to content that follows it.
+  __CSP_SCRIPT_HASHES__ is replaced per page by csp-hashes.mjs during "npm run build".
+  style-src: normalize.css and Pure CSS come from unpkg.com (pinned versions with SRI).
+  style-src/font-src: the gochowdown theme @imports the Inter font from rsms.me (themes/gochowdown/assets/scss/_base.scss).
+  Not possible via <meta>: frame-ancestors/X-Frame-Options, HSTS, X-Content-Type-Options, Permissions-Policy.
+*/ -}}
+{{- $u := urls.Parse site.BaseURL -}}
+{{- $self := printf "'self' %s://%s" $u.Scheme $u.Host -}}
+{{- $csp := slice
+  (printf "default-src %s" $self)
+  (printf "script-src %s __CSP_SCRIPT_HASHES__" $self)
+  (printf "style-src %s https://unpkg.com https://rsms.me 'unsafe-inline'" $self)
+  (printf "font-src %s https://rsms.me" $self)
+  "object-src 'none'"
+  (printf "base-uri %s" $self)
+  (printf "form-action %s" $self)
+  "upgrade-insecure-requests"
+-}}
+{{ printf "<meta http-equiv=\"Content-Security-Policy\" content=\"%s\">" (delimit $csp "; ") | safeHTML }}
+    <meta name="referrer" content="no-referrer">
