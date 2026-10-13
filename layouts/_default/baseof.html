@@ -2,6 +2,7 @@
 <html lang="{{ .Site.LanguageCode }}">
   <head>
     <meta charset="utf-8">
+    {{ partial "security-meta.html" . }}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}

@@ -3,6 +3,9 @@
   "version": "2025.08.30",
   "description": "Sammlung an Rezepten",
   "main": "",
+  "scripts": {
+    "build": "hugo --minify && node csp-hashes.mjs public"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",

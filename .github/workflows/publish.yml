@@ -24,7 +24,7 @@ jobs:
           hugo-version: '0.139.0'
           extended: true
       - name: Build
-        run: hugo --minify
+        run: npm run build
       - name: Upload
         uses: actions/upload-artifact@v7
         with:
