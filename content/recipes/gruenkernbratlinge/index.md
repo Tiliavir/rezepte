@@ -8,7 +8,7 @@ authorName: Erdbeerqueen
 sourceName: Grünkernbratlinge Rezept
 sourceURL: https://naschenmitdererdbeerqueen.de/2019/04/14/gruenkernbratlinge-rezept/
 
-category: Hauptgang
+category: Hauptgericht
 cuisine: Deutsch
 tags:
   - Vegetarisch
