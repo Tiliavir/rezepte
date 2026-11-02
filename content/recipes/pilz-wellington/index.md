@@ -8,7 +8,7 @@ authorName: Georgie
 sourceName: Best Ever Mushroom Wellington
 sourceURL: https://georgieeats.co.uk/mushroom-wellington/
 
-category: Hauptgang
+category: Hauptgericht
 cuisine: Vegan
 tags:
 - Vegan

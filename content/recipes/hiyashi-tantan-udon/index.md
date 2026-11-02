@@ -9,7 +9,7 @@ authorName: Marc Matsumoto
 sourceName: Cold Sesame Noodles (Hiyashi Tantan Udon)
 sourceURL: https://norecipes.com/wprm_print/cold-sesame-noodles-hiyashi-tantan-udon
 
-category: Hauptgang
+category: Hauptgericht
 cuisine: Japanisch
 tags:
   - Japanisch

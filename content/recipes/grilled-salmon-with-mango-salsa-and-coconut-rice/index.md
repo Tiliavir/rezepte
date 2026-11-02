@@ -9,7 +9,7 @@ authorURL: https://www.cookingclassy.com/about/
 sourceName: Grilled Lime Salmon with Avocado-Mango Salsa and Coconut Rice
 sourceURL: https://www.cookingclassy.com/grilled-lime-salmon-avocado-mango-salsa-coconut-rice/
 
-category: Hauptgang
+category: Hauptgericht
 cuisine: Amerikanisch
 tags:
   - Lachs

@@ -8,7 +8,7 @@ authorName: Katja
 sourceName: Vegane Bao Buns
 sourceURL: https://www.zuckerjagdwurst.com/de/rezepte/vegane-bao-buns
 
-category: Hauptgang
+category: Hauptgericht
 cuisine: Asiatisch
 tags:
  - Vegan
