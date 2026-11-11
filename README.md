@@ -18,7 +18,12 @@ npm run lint       # Biome + TypeScript
 npm run build      # Hugo → CSP-Hashes → Suchindex → HTML-Validierung
 ```
 
-Veröffentlicht wird wie bisher bei einem Versions-Tag; die CI deployt dann nach GitHub Pages.
+## Veröffentlichen
+
+In einem Pull Request die Version setzen (`npm version --no-git-tag-version JJJJ.M.T`) und in
+[CHANGELOG.md](CHANGELOG.md) einen Abschnitt `## [JJJJ.M.T] - JJJJ-MM-TT` ergänzen, dann mergen.
+Der Release-Workflow sieht die neue Version, baut und prüft alles, veröffentlicht auf GitHub Pages
+und legt Tag `vJJJJ.M.T` samt GitHub-Release an. Keine Tags von Hand pushen.
 
 ## Rezept hinzufügen
 
