@@ -1,0 +1,110 @@
+/* All movement lives here, so it only happens for people who did not ask the system for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .brand__mark,
+  .card__media img,
+  .card__media .ph,
+  .category-tile img,
+  .category-tile .ph {
+    transition: transform 0.5s var(--ease);
+  }
+
+  .brand:hover .brand__mark {
+    transform: rotate(-12deg) scale(1.06);
+  }
+
+  .button,
+  .icon-button {
+    transition:
+      background 0.2s,
+      border-color 0.2s,
+      color 0.2s,
+      box-shadow 0.2s,
+      transform 0.15s;
+  }
+
+  .button:not(:disabled):active {
+    transform: scale(0.97);
+  }
+
+  .icon-button:not(:disabled):active {
+    transform: scale(0.94);
+  }
+
+  .card__link,
+  .term,
+  .hero__stack li {
+    transition:
+      transform 0.35s var(--ease),
+      box-shadow 0.35s var(--ease),
+      border-color 0.2s;
+  }
+
+  .card__link:hover {
+    transform: translateY(-4px);
+  }
+
+  .card__link:hover .card__media img,
+  .card__link:hover .card__media .ph {
+    transform: scale(1.06);
+  }
+
+  .term:hover {
+    transform: translateY(-2px);
+  }
+
+  .category-tile:hover img,
+  .category-tile:hover .ph {
+    transform: scale(1.07);
+  }
+
+  .hero__stack li:hover {
+    transform: translateY(-10px) scale(1.04);
+  }
+
+  .pick__state {
+    transition:
+      background 0.2s,
+      color 0.2s,
+      rotate 0.3s var(--ease);
+  }
+
+  .ingredient-list input::after,
+  .step-list input::after,
+  .items input::after {
+    transition: scale 0.2s var(--ease);
+  }
+
+  .card {
+    animation: card-in 0.5s var(--ease) both;
+  }
+
+  .selected li,
+  .items li,
+  .steps__done {
+    animation: card-in 0.35s var(--ease);
+  }
+
+  .badge.is-bumped {
+    animation: bump 0.5s var(--ease);
+  }
+
+  body.is-cooking .recipe-actions [data-wake-lock] {
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+
+  .toast {
+    animation: toast 2.6s var(--ease) forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: toast-fade 2.6s step-end forwards;
+  }
+}
+
+@keyframes toast-fade {
+  to {
+    opacity: 0;
+  }
+}

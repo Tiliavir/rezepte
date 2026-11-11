@@ -1,0 +1,5 @@
+<ul class="ingredient-list">
+  {{- range . }}
+  <li><label><input type="checkbox"><span class="ingredient" data-ingredient>{{ . | markdownify }}</span></label></li>
+  {{- end }}
+</ul>

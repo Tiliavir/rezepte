@@ -1,0 +1,91 @@
+function words(list: string): string[] {
+  return list.split(" ");
+}
+
+interface Aisle {
+  name: string;
+  words: string[];
+}
+
+// keywords per aisle as plain word lists; the longest matching keyword wins
+const AISLES: Aisle[] = [
+  {
+    name: "Obst & Gemüse",
+    words: words(
+      "apfel äpfel aubergine avocado banane basilikum beere birne blumenkohl bohne brokkoli champignon chicorée chili dill erbse feige fenchel frühlingszwiebel gemüse gurke ingwer karotte kartoffel kirsch knoblauch kohl koriander kräuter kürbis lauch limette mais mango minze möhre orange paprika pastinake petersilie pflaume pilz porree radieschen rosmarin rote bete rucola salat schalotte schnittlauch sellerie spargel spinat süßkartoffel thymian tomate trauben zitrone zucchini zwiebel",
+    ),
+  },
+  {
+    name: "Kühlregal",
+    words: words(
+      "butter buttermilch crème creme ei eier feta frischkäse gouda halloumi hefe joghurt käse mascarpone milch mozzarella parmesan quark ricotta sahne schmand tofu schmant",
+    ),
+  },
+  {
+    name: "Fleisch & Fisch",
+    words: words(
+      "fleisch fisch forelle garnele hack hähnchen huhn lachs rind schinken schwein speck thunfisch wurst würstchen pute",
+    ),
+  },
+  {
+    name: "Backen & Süßes",
+    words: words(
+      "backpulver hirschhornsalz kakao keks mandel mehl natron nuss nüsse puderzucker rosine schokolade speisestärke stärke vanille zucker honig sirup marmelade haselnuss walnuss kuvertüre gelatine trockenhefe dicksaft pinienkern kerne",
+    ),
+  },
+  {
+    name: "Vorrat",
+    words: words(
+      "brühe bulgur couscous dose essig glasnudel gnocchi kichererbse kokosmilch linse nudel pasta quinoa reis sesam soße sauce sojasoße spaghetti tahin tomatenmark udon senf ketchup mayo brot bun wrap tortilla panko paniermehl wein sambal",
+    ),
+  },
+  {
+    name: "Gewürze & Öl",
+    words: words(
+      "anis cayenne curry gewürz kardamom kreuzkümmel kümmel lorbeer muskat nelke oregano öl olivenöl pflanzenöl rapsöl sesamöl sonnenblumenöl kokosöl chiliöl paprikapulver pfeffer salz sternanis zimt kurkuma chiliflocken ingwerpulver",
+    ),
+  },
+];
+
+export const OTHER = "Sonstiges";
+export const AISLE_ORDER = [...AISLES.map((a) => a.name), OTHER];
+const IGNORE = new Set(["wasser", "lauwarmes", "kaltes", "warmes"]);
+
+export class Aisles {
+  private static withoutParentheses(text: string): string {
+    let depth = 0;
+    let out = "";
+    for (const char of text) {
+      if (char === "(") {
+        depth++;
+      } else if (char === ")") {
+        depth = Math.max(0, depth - 1);
+      } else if (depth === 0) {
+        out += char;
+      }
+    }
+    return out;
+  }
+
+  public static of(name: string): string | null {
+    const words = Aisles.withoutParentheses(name.toLowerCase())
+      .split(/\P{L}+/u)
+      .filter(Boolean);
+    if (words.every((w) => IGNORE.has(w))) {
+      return null;
+    }
+    // the most specific match wins: compare by keyword length so "paprikapulver" beats "paprika"
+    let best: { aisle: string; length: number } | null = null;
+    for (const aisle of AISLES) {
+      for (const keyword of aisle.words) {
+        const hit = words.some(
+          (w) => w === keyword || (keyword.length > 3 && (w.startsWith(keyword) || w.endsWith(keyword))),
+        );
+        if (hit && (!best || keyword.length > best.length)) {
+          best = { aisle: aisle.name, length: keyword.length };
+        }
+      }
+    }
+    return best?.aisle ?? OTHER;
+  }
+}

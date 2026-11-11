@@ -1,0 +1,8 @@
+{{ define "main" }}
+<section class="listing">
+  {{ partial "page-header.html" (dict
+    "eyebrow" (printf "<a href=%q>Entdecken</a>" (site.GetPage "/entdecken").RelPermalink | safeHTML)
+    "title" (partial "taxonomy-name.html" .Data.Plural)) }}
+  {{ partial "term-cloud.html" .Data.Terms.ByCount }}
+</section>
+{{ end }}

@@ -1,0 +1,10 @@
+{{- if eq .Layout "recipe" -}}
+  {{- $parts := slice -}}
+  {{- with .Params.category }}{{ $parts = $parts | append . }}{{ end -}}
+  {{- with .Params.cuisine }}{{ $parts = $parts | append (printf "%s Küche" .) }}{{ end -}}
+  {{- with partial "recipe/total-time.html" . }}{{ $parts = $parts | append . }}{{ end -}}
+  {{- $lead := .Plain | plainify | truncate 140 -}}
+  {{- delimit (cond (ne $lead "") ($parts | append $lead) $parts) " · " -}}
+{{- else -}}
+  {{- .Description | default site.Params.description -}}
+{{- end -}}

@@ -1,0 +1,37 @@
+{{ define "main" }}
+<section class="listing">
+  {{ partial "page-header.html" (dict "eyebrow" "Stöbern" "title" .Title "lead" "Nach Gang, Küche oder Stichwort – such dir was aus.") }}
+
+  <h2 class="section-title">Kategorien</h2>
+  <ul class="category-grid">
+    {{- range site.Taxonomies.category.ByCount }}
+    {{- $img := false }}
+    {{- range .Pages.ByDate.Reverse }}{{ if not $img }}{{ with partial "recipe/image.html" . }}{{ $img = . }}{{ end }}{{ end }}{{ end }}
+    <li>
+      <a class="category-tile" href="{{ .Page.RelPermalink }}">
+        {{- with $img }}{{ $t := .Fill "560x420 webp Smart" }}<img src="{{ $t.RelPermalink }}" width="560" height="420" alt="" loading="lazy" decoding="async">
+        {{- else }}<div class="{{ partial "recipe/placeholder-class.html" (index .Pages 0) }}" aria-hidden="true"></div>{{ end }}
+        <span class="category-tile__name">{{ .Page.Title }}</span>
+        <span class="category-tile__count">{{ .Count }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+
+  <h2 class="section-title">Küchen</h2>
+  {{ partial "term-cloud.html" site.Taxonomies.cuisine.ByCount }}
+
+  <h2 class="section-title">Tags</h2>
+  <ul class="chips chips--cloud">
+    {{- range site.Taxonomies.tags.Alphabetical }}
+    <li><a class="chip" href="{{ .Page.RelPermalink }}">#{{ .Page.Title }} <span class="chip__count">{{ .Count }}</span></a></li>
+    {{- end }}
+  </ul>
+
+  {{ with site.GetPage "/components" }}{{ with .Pages }}
+  <h2 class="section-title">Komponenten</h2>
+  <p class="lead">Bausteine, die in mehreren Rezepten vorkommen.</p>
+  {{ partial "recipe/card-grid.html" (dict "pages" .ByTitle) }}
+  {{ end }}{{ end }}
+</section>
+{{ end }}

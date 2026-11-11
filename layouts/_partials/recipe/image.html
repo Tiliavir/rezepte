@@ -1,0 +1,12 @@
+{{- /* The recipe's lead image resource: front matter "image" (must exist in the bundle), else the first image. */ -}}
+{{- $img := false -}}
+{{- with .Params.image -}}
+  {{- with $.Resources.Get . -}}
+    {{- $img = . -}}
+  {{- else -}}
+    {{- errorf "%s: image %q not found in the page bundle" $.File.Path . -}}
+  {{- end -}}
+{{- else -}}
+  {{- with .Resources.ByType "image" }}{{ $img = index . 0 }}{{ end -}}
+{{- end -}}
+{{- return $img -}}

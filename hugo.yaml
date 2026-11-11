@@ -1,0 +1,78 @@
+baseURL: https://tiliavir.github.io/rezepte/
+title: Die Gute-Sachen Liste
+locale: de-DE
+defaultContentLanguage: de
+enableRobotsTXT: false
+
+disableKinds:
+  - rss
+  - sitemap
+
+params:
+  author: Tiliavir & Eninba
+  tagline: Unsere Lieblingsrezepte – gesammelt, nachgekocht und über die Zeit nach unserem Geschmack angepasst.
+  description: Unsere Lieblingsrezepte an einem Ort gesammelt und so einfach wie möglich beschrieben. Abgesehen von Lynns Büchern, natürlich – die sind schon perfekt :-)
+  keywords:
+    - Rezepte
+    - Kochen
+    - Backen
+
+menus:
+  main:
+    - name: Rezepte
+      pageRef: /
+      weight: 1
+      params:
+        icon: book
+    - name: Entdecken
+      pageRef: /entdecken
+      weight: 2
+      params:
+        icon: compass
+    - name: Janine
+      pageRef: /janines-liste
+      weight: 3
+      params:
+        icon: heart
+    - name: Markus
+      pageRef: /markus-liste
+      weight: 4
+      params:
+        icon: star
+    - name: Einkaufsliste
+      pageRef: /einkaufsliste
+      weight: 5
+      params:
+        icon: basket
+
+taxonomies:
+  category: category
+  cuisine: cuisine
+  tag: tags
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+
+imaging:
+  webp:
+    quality: 78
+  resampleFilter: Lanczos
+  anchor: Smart
+
+build:
+  buildStats:
+    enable: false
+
+related:
+  includeNewer: true
+  threshold: 60
+  toLower: true
+  indices:
+    - name: category
+      weight: 60
+    - name: tags
+      weight: 80
+    - name: cuisine
+      weight: 30

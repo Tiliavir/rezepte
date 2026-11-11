@@ -1,0 +1,7 @@
+{{- /* All ingredient lines of a recipe as plain text: components first, then the recipe's own. */ -}}
+{{- $out := slice -}}
+{{- range partial "recipe/components.html" . -}}
+  {{- range .ingredients }}{{ $out = $out | append (. | markdownify | plainify | htmlUnescape) }}{{ end -}}
+{{- end -}}
+{{- range .Params.ingredients }}{{ $out = $out | append (. | markdownify | plainify | htmlUnescape) }}{{ end -}}
+{{- return $out -}}

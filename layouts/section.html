@@ -1,0 +1,8 @@
+{{ define "main" }}
+<section class="listing">
+  {{ partial "page-header.html" (cond (eq .Section "components")
+    (dict "eyebrow" "Bausteine, die in mehreren Rezepten vorkommen" "title" "Komponenten")
+    (dict "eyebrow" "Sammlung" "title" .Title)) }}
+  {{ partial "recipe/card-grid.html" (dict "pages" .Pages.ByTitle "level" 2) }}
+</section>
+{{ end }}

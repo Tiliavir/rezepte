@@ -1,5 +1,6 @@
 ---
 title: Janines Liste
+description: Was Janine immer wieder gerne isst.
 ---
 
 ## Kartoffeln

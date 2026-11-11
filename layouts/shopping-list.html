@@ -1,0 +1,70 @@
+{{ define "bodyclass" }}page page--shopping{{ end }}
+{{ define "main" }}
+{{- $base := (urls.Parse site.BaseURL).Path -}}
+{{- $recipes := (where site.RegularPages "Section" "recipes").ByTitle -}}
+<section class="shopping" data-shopping>
+  <header class="page-header shopping__header">
+    <div>
+      <p class="eyebrow">Für den nächsten Einkauf</p>
+      <h1>{{ .Title }}</h1>
+    </div>
+    <div class="shopping__actions">
+      <a class="button button--primary shopping__jump" href="#rezepte-waehlen"><svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg><span>Rezepte</span></a>
+      <button class="button" type="button" data-share disabled><svg class="icon" aria-hidden="true"><use href="#i-share"></use></svg><span>Teilen</span></button>
+      <button class="button button--ghost" type="button" data-clear disabled><svg class="icon" aria-hidden="true"><use href="#i-trash"></use></svg><span>Leeren</span></button>
+    </div>
+  </header>
+
+  <noscript><p class="notice">Die Einkaufsliste braucht JavaScript.</p></noscript>
+
+  <div class="shopping__grid">
+    <section class="shopping-list panel" aria-labelledby="zu-kaufen">
+      <h2 id="zu-kaufen">Zu kaufen <span class="count" data-open-count></span></h2>
+      <ul class="selected" data-selected aria-label="Ausgewählte Rezepte"></ul>
+      <form class="add-item" data-add-item>
+        <label class="visually-hidden" for="extra">Eigener Eintrag</label>
+        <input id="extra" name="extra" type="text" placeholder="Eigener Eintrag, z.B. 1l Milch" autocomplete="off" enterkeyhint="done" required>
+        <button class="icon-button icon-button--filled" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg><span class="visually-hidden">Hinzufügen</span></button>
+      </form>
+      <div class="aisles" data-items></div>
+      <div class="empty-state" data-empty>
+        <svg class="empty-state__icon" aria-hidden="true"><use href="#i-basket"></use></svg>
+        <p>Noch nichts auf der Liste.<br>Wähl ein paar Rezepte aus oder trag selbst etwas ein.</p>
+      </div>
+      <details class="done" data-done-wrap hidden>
+        <summary>Erledigt <span data-done-count></span></summary>
+        <ul class="items items--done" data-done></ul>
+        <button class="button button--ghost button--small" type="button" data-clear-done>Erledigtes aufräumen</button>
+      </details>
+    </section>
+
+    <section class="picker panel" aria-labelledby="rezepte-waehlen">
+      <h2 id="rezepte-waehlen">Rezepte hinzufügen</h2>
+      <label class="visually-hidden" for="picker-filter">Rezepte filtern</label>
+      <div class="filter">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+        <input id="picker-filter" type="search" placeholder="Rezept filtern …" autocomplete="off" data-picker-filter>
+      </div>
+      <ul class="picker__list" data-picker>
+        {{- range $recipes }}
+        {{- $ref := strings.TrimPrefix $base .RelPermalink }}
+        <li data-ref="{{ $ref }}" data-title="{{ lower .Title }}">
+          <button class="pick" type="button" aria-pressed="false" data-pick>
+            {{- with partial "recipe/image.html" . }}{{ $t := .Fill "96x96 webp Smart" }}<img src="{{ $t.RelPermalink }}" width="48" height="48" alt="" loading="lazy" decoding="async">
+            {{- else }}<span class="{{ partial "recipe/placeholder-class.html" . }}" aria-hidden="true"><span>{{ substr .Title 0 1 }}</span></span>{{ end }}
+            <span class="pick__text"><span class="pick__title">{{ .Title }}</span>{{ with partial "recipe/yield.html" . }}<span class="pick__meta">{{ . }}</span>{{ end }}</span>
+            <svg class="icon pick__state" aria-hidden="true"><use href="#i-plus"></use></svg>
+          </button>
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+  </div>
+
+  {{- $data := slice }}
+  {{- range $recipes }}
+    {{- $data = $data | append (dict "ref" (strings.TrimPrefix $base .RelPermalink) "url" .RelPermalink "title" .Title "yield" (partial "recipe/yield.html" .) "ingredients" (partial "recipe/all-ingredients.html" .)) }}
+  {{- end }}
+  <script type="application/json" id="recipe-data">{{ $data | jsonify | safeJS }}</script>
+</section>
+{{ end }}

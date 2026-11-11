@@ -14,7 +14,7 @@ tags:
 - Plätzchen
 
 yield: 2
-prepTime: 12h+
+prepTime: 720
 cookTime: 15
 
 ingredients:

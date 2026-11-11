@@ -1,0 +1,4 @@
+/* Last file on purpose: same specificity as component rules, so the hidden attribute wins by order. */
+[hidden] {
+  display: none;
+}

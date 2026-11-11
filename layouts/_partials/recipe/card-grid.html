@@ -1,0 +1,9 @@
+{{- $level := .level | default 3 -}}
+{{- $base := (urls.Parse site.BaseURL).Path -}}
+<ul class="card-grid"{{ with .id }} id="{{ . }}"{{ end }}>
+  {{- range .pages }}
+  <li class="card" data-ref="{{ strings.TrimPrefix $base .RelPermalink }}" data-category="{{ .Params.category | default "" | urlize }}">
+    {{ partial "recipe/card.html" (dict "page" . "level" $level) }}
+  </li>
+  {{- end }}
+</ul>

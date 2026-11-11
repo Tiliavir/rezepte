@@ -1,0 +1,16 @@
+{{- $data := dict "@context" "https://schema.org" "@type" "Recipe" "name" .Title "inLanguage" "de" -}}
+{{- with .Date }}{{ if not .IsZero }}{{ $data = merge $data (dict "datePublished" (.Format "2006-01-02")) }}{{ end }}{{ end -}}
+{{- with .Params.category }}{{ $data = merge $data (dict "recipeCategory" .) }}{{ end -}}
+{{- with .Params.cuisine }}{{ $data = merge $data (dict "recipeCuisine" .) }}{{ end -}}
+{{- with partial "recipe/yield.html" . }}{{ $data = merge $data (dict "recipeYield" .) }}{{ end -}}
+{{- with .Params.prepTime }}{{ $data = merge $data (dict "prepTime" (printf "PT%dM" (int .))) }}{{ end -}}
+{{- with .Params.cookTime }}{{ $data = merge $data (dict "cookTime" (printf "PT%dM" (int .))) }}{{ end -}}
+{{- with .Params.tags }}{{ $data = merge $data (dict "keywords" (delimit . ", ")) }}{{ end -}}
+{{- with .Params.authorName }}{{ $data = merge $data (dict "author" (dict "@type" "Person" "name" .)) }}{{ end -}}
+{{- with partial "recipe/image.html" . }}{{ $data = merge $data (dict "image" (.Resize "1200x webp").Permalink) }}{{ end -}}
+{{- $data = merge $data (dict "recipeIngredient" (partial "recipe/all-ingredients.html" .)) -}}
+{{- $steps := slice -}}
+{{- range partial "recipe/components.html" . }}{{ range .directions }}{{ $steps = $steps | append (dict "@type" "HowToStep" "text" (. | markdownify | plainify | htmlUnescape)) }}{{ end }}{{ end -}}
+{{- range .Params.directions }}{{ $steps = $steps | append (dict "@type" "HowToStep" "text" (. | markdownify | plainify | htmlUnescape)) }}{{ end -}}
+{{- $data = merge $data (dict "recipeInstructions" $steps) -}}
+<script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>

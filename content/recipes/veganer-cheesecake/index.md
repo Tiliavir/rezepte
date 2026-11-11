@@ -19,8 +19,29 @@ prepTime: 10
 cookTime: 180
 
 components:
-- Veganer Cheesecake - Boden
-- Veganer Cheesecake - Füllung
+- title: "Boden"
+  ingredients:
+  - 170g Peka- oder Walnüsse
+  - 70g ungesüsste Kokosflocken
+  - 3TL Ahornsirup
+  - 0.25TL Salz
+  - 1.5TL Zitronenabrieb
+  - 0.5TL Vanilleextrakt
+  directions:
+  - Alle Zutaten in einen Food-Processor geben und verarbeiten, bis es eine leicht klebrige Konsistenz bekommt *(nicht zu lange, da es sonst fettig wird)*
+  - In eine 26cm Tortenform pressen, als Boden und Rand
+  - In den Gefrierschrank, während man die Füllung macht
+- title: "Füllung"
+  ingredients:
+  - 340g Ceshewkerne, mind. 1 Stunde in Wasser eingelegt
+  - 400ml Kokosmilch
+  - 150g Ahornsirup
+  - 3TL Zitronenabrieb
+  - 120ml Zitronensaft
+  - 2TL Kokosöl
+  - 1 Prise Salz
+  directions:
+  - Alle Zutaten in einen Food Processor geben und verarbeiten, bis es eine cremige Konsistenz annimmt
 
 directions:
 - Boden zubereiten

@@ -1,31 +1,33 @@
 {
   "name": "rezepte",
-  "version": "2025.08.30",
-  "description": "Sammlung an Rezepten",
-  "main": "",
-  "scripts": {
-    "build": "hugo --minify && node csp-hashes.mjs public"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "Firefox ESR",
-    "ie 9-11"
-  ],
-  "devDependencies": {
-    "autoprefixer": "10.6.2",
-    "postcss": "8.5.32",
-    "postcss-cli": "12.0.0",
-    "postcss-loader": "8.2.1"
-  },
+  "version": "2026.11.11",
+  "private": true,
+  "description": "Die Gute-Sachen Liste – unsere Rezeptsammlung",
+  "license": "MIT",
+  "author": "tiliavir",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tiliavir/rezepte.git"
   },
-  "author": "tiliavir",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Tiliavir/rezepte/issues"
+  "engines": {
+    "node": ">=22.12.0"
   },
-  "homepage": "https://github.com/Tiliavir/rezepte#readme"
+  "scripts": {
+    "start": "hugo server",
+    "lint": "biome check . && tsc -p tsconfig.typecheck.json",
+    "build": "hugo --minify && node csp-hashes.mjs public && npm run index && node validate.mjs",
+    "index": "mvw-search-index 'recipes/*/index.html' public/suche.json main --cwd public --language de --strip-index-html --exclude 'nav, footer, .recipe-actions, .related, .scaler'",
+    "format": "biome check --write ."
+  },
+  "dependencies": {
+    "lunr": "2.3.9",
+    "lunr-languages": "1.24.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.6",
+    "@types/lunr": "2.3.7",
+    "mvw-search-index": "3.0.3",
+    "typescript": "7.0.2",
+    "vnu-jar": "26.11.9"
+  }
 }

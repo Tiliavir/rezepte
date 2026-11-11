@@ -17,7 +17,14 @@ prepTime: 30
 cookTime: 30
 
 components:
-- Merilyns Streusel
+- title: "Merilyns Streusel"
+  ingredients:
+  - 65g Mehl
+  - 0.5 TL Zimt
+  - 100g Zucker
+  - 56g Butter
+  directions:
+  - Alles zu Streuseln verarbeiten
 
 ingredients:
 - 200g Mehl

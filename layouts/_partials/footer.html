@@ -1,0 +1,7 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__brand"><svg class="icon" aria-hidden="true"><use href="#i-mark"></use></svg> {{ site.Title }}</p>
+    <p>Gekocht, gegessen und aufgeschrieben von Janine &amp; Markus.</p>
+    <p class="site-footer__meta">{{ len (where site.RegularPages "Section" "recipes") }} Rezepte · Stand {{ now.Format "02.01.2006" }}</p>
+  </div>
+</footer>

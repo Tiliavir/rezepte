@@ -1,0 +1,42 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.6.6/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    // Only scripts and styles - Hugo templates, content and build output are not Biome's business
+    "includes": ["**/*.ts", "**/*.mjs", "**/*.css", "*.json", "*.jsonc", "!public", "!resources", "!static"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 120
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      // static-only classes are the code style of Markus' sites (see mvw-website)
+      "complexity": { "noStaticOnlyClass": "off" },
+      // CSS is organised per component, not by specificity
+      "style": { "noDescendingSpecificity": "off" }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}

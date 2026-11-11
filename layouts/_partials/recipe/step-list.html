@@ -1,0 +1,5 @@
+<ol class="step-list">
+  {{- range . }}
+  <li><label><input type="checkbox"><span class="step">{{ . | markdownify }}</span></label></li>
+  {{- end }}
+</ol>

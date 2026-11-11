@@ -1,0 +1,79 @@
+@media print {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+    padding: 0;
+  }
+
+  html
+    body
+    :is(.site-header, .site-footer, .main-nav, .recipe-actions, .scaler, .related, .chips, .skip-link, .steps__done) {
+    display: none;
+  }
+
+  main {
+    width: auto;
+    padding: 0;
+  }
+
+  .recipe-hero {
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 1.5rem;
+  }
+
+  .recipe-hero__media {
+    box-shadow: none;
+    aspect-ratio: 4 / 3;
+  }
+
+  .recipe-hero__media .ph {
+    display: none;
+  }
+
+  .recipe-title {
+    font-size: 24pt;
+  }
+
+  .facts > div,
+  .ingredients,
+  .note {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    background: none;
+  }
+
+  .recipe-body {
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+  }
+
+  .ingredients {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .step-list label {
+    padding-block: 0.3rem;
+  }
+
+  .step-list label::before {
+    top: 0.2rem;
+    border: 1px solid #999;
+    background: none;
+  }
+
+  .step {
+    font-size: 11pt;
+  }
+
+  .step-list li,
+  .ingredient-list li {
+    break-inside: avoid;
+  }
+}

@@ -32,7 +32,13 @@ ingredients:
 - Hagelzucker
 
 components:
-- Zimtbrötchen Füllung
+- title: "Füllung"
+  ingredients:
+  - 40g geschmolzene Butter
+  - 50g Zucker
+  - 1EL Zimt
+  directions:
+  - Butter, Zimt und Zucker vermengen
 
 directions:
 - Hefe in Lauwarmer Milch anrühren
