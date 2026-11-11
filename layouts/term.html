@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="listing">
+  <header class="page-header">
+    <p class="eyebrow"><a href="{{ .Parent.RelPermalink }}">{{ partial "taxonomy-name.html" .Data.Plural }}</a></p>
+    <h1>{{ .Title }}</h1>
+    <p class="lead">{{ len .Pages }} {{ cond (eq (len .Pages) 1) "Rezept" "Rezepte" }}</p>
+  </header>
+  {{ partial "recipe/card-grid.html" (dict "pages" .Pages.ByTitle "level" 2) }}
+</section>
+{{ end }}

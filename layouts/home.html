@@ -1,0 +1,51 @@
+{{ define "bodyclass" }}page page--home{{ end }}
+{{ define "head" }}
+  {{ $js := resources.Get "ts/search.ts" | js.Build (dict "target" "es2022" "format" "esm" "minify" true) | fingerprint }}
+  <script type="module" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+{{ end }}
+{{ define "main" }}
+{{- $recipes := (where site.RegularPages "Section" "recipes").ByTitle -}}
+<section class="hero">
+  <div class="hero__inner">
+    <p class="eyebrow">{{ len $recipes }} Rezepte von Janine &amp; Markus</p>
+    <h1 class="hero__title">Was kochen<br><em>wir heute?</em></h1>
+    <p class="hero__lead">{{ site.Params.tagline }}</p>
+    <form class="search" action="{{ site.Home.RelPermalink }}" method="get" role="search" data-search data-index="{{ "suche.json" | relURL }}">
+      <label class="visually-hidden" for="q">Rezepte durchsuchen</label>
+      <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+      <input id="q" type="search" name="q" placeholder="Zutat, Gericht, Küche …" autocomplete="off" enterkeyhint="search">
+      <kbd class="search__hint" aria-hidden="true">/</kbd>
+    </form>
+  </div>
+  {{- $recent := slice }}
+  {{- range $recipes.ByDate.Reverse }}{{ if and (lt (len $recent) 3) (partial "recipe/image.html" .) }}{{ $recent = $recent | append . }}{{ end }}{{ end }}
+  {{- with $recent }}
+  <ul class="hero__stack" aria-label="Zuletzt hinzugefügt">
+    {{- range . }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        {{- $t := (partial "recipe/image.html" .).Fill "480x600 webp Smart" }}
+        <img src="{{ $t.RelPermalink }}" width="240" height="300" alt="">
+        <span>{{ .Title }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</section>
+
+<section class="recipes" aria-labelledby="alle-rezepte">
+  <div class="recipes__head">
+    <h2 id="alle-rezepte" data-result-label>Alle Rezepte</h2>
+    {{- $cats := site.Taxonomies.category.ByCount }}
+    <ul class="chips chips--filter" aria-label="Nach Kategorie filtern">
+      <li><a class="chip" href="{{ site.Home.RelPermalink }}" data-filter="" aria-current="true">Alle</a></li>
+      {{- range $cats }}
+      <li><a class="chip" href="{{ .Page.RelPermalink }}" data-filter="{{ .Page.Title | urlize }}">{{ .Page.Title }} <span class="chip__count">{{ .Count }}</span></a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{ partial "recipe/card-grid.html" (dict "pages" $recipes "id" "rezepte") }}
+  <p class="empty" data-empty hidden>Nichts gefunden. Vielleicht mit einer anderen Zutat?</p>
+</section>
+{{ end }}

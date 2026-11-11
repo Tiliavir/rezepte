@@ -1,0 +1,9 @@
+{{- range $key := slice "prepTime" "cookTime" "totalTime" -}}
+  {{- with index $.Params (lower $key) -}}
+    {{- if not (findRE `^\d+$` (string .)) }}{{ errorf "%s: %s must be minutes as a number, got %q" $.File.Path $key (string .) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- $t := add (int (.Params.prepTime | default 0)) (int (.Params.cookTime | default 0)) -}}
+{{- with .Params.totalTime }}{{ $t = int . }}{{ end -}}
+{{- if gt $t 0 }}{{ return (partial "recipe/minutes.html" $t) }}{{ end -}}
+{{- return "" -}}

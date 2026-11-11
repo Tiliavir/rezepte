@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="listing">
+  <header class="page-header">
+    <p class="eyebrow"><a href="{{ (site.GetPage "/entdecken").RelPermalink }}">Entdecken</a></p>
+    <h1>{{ partial "taxonomy-name.html" .Data.Plural }}</h1>
+  </header>
+  {{ partial "term-cloud.html" .Data.Terms.ByCount }}
+</section>
+{{ end }}

@@ -1,0 +1,4 @@
+{{- $m := int . -}}
+{{- if lt $m 60 -}}{{ $m }} Min.
+{{- else -}}{{ div $m 60 }} Std.{{ with mod $m 60 }} {{ . }} Min.{{ end }}
+{{- end -}}

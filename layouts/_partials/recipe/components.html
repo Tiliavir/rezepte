@@ -1,0 +1,34 @@
+{{- /*
+  Normalizes .Params.components into a list of dicts {title, ingredients, directions, notes, page}.
+  An entry is either inline (a map with title, ingredients, directions, notes) or the title of a
+  shared component / recipe page. Anything else fails the build.
+*/ -}}
+{{- $out := slice -}}
+{{- $allowed := slice "title" "ingredients" "directions" "notes" -}}
+{{- range .Params.components -}}
+  {{- if reflect.IsMap . -}}
+    {{- range $k, $_ := . -}}
+      {{- if not (in $allowed $k) }}{{ errorf "%s: inline component has unknown key %q (allowed: %s)" $.File.Path $k (delimit $allowed ", ") }}{{ end -}}
+    {{- end -}}
+    {{- if not .title }}{{ errorf "%s: inline component without title" $.File.Path }}{{ end -}}
+    {{- if not (or .ingredients .directions) }}{{ errorf "%s: inline component %q has neither ingredients nor directions" $.File.Path .title }}{{ end -}}
+    {{- $out = $out | append (dict
+      "title" .title
+      "ingredients" (.ingredients | default slice)
+      "directions" (.directions | default slice)
+      "notes" (cond (isset . "notes") (.notes | markdownify) "")
+      "page" false) -}}
+  {{- else -}}
+    {{- $title := . -}}
+    {{- $matches := where site.Pages "Title" $title -}}
+    {{- if ne (len $matches) 1 }}{{ errorf "%s: component %q must match exactly one page by title, found %d" $.File.Path $title (len $matches) }}{{ end -}}
+    {{- $p := index $matches 0 -}}
+    {{- $out = $out | append (dict
+      "title" $p.Title
+      "ingredients" ($p.Params.ingredients | default slice)
+      "directions" ($p.Params.directions | default slice)
+      "notes" $p.Content
+      "page" $p) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

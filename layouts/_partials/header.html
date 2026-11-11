@@ -1,0 +1,37 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} – Startseite">
+      <svg class="brand__mark" aria-hidden="true"><use href="#i-mark"></use></svg>
+      <span class="brand__name">Die <em>Gute-Sachen</em> Liste</span>
+    </a>
+
+    {{ if not .IsHome }}
+    <form class="header-search" action="{{ site.Home.RelPermalink }}" method="get" role="search">
+      <label class="visually-hidden" for="header-q">Rezepte durchsuchen</label>
+      <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+      <input id="header-q" type="search" name="q" placeholder="Suchen…" autocomplete="off" enterkeyhint="search">
+    </form>
+    {{ end }}
+
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        {{ $page := . }}
+        {{ range site.Menus.main }}
+          {{ $active := or ($page.IsMenuCurrent "main" .) (and (eq .Name "Rezepte") (eq $page.Section "recipes") $page.IsPage) (and (eq .Name "Entdecken") (in (slice "taxonomy" "term") $page.Kind)) }}
+          <li>
+            <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}{{ if eq .Name "Einkaufsliste" }} class="nav-cart"{{ end }}>
+              <svg class="icon" aria-hidden="true"><use href="#i-{{ .Params.icon }}"></use></svg>
+              <span class="main-nav__label">{{ .Name }}</span>
+              {{ if eq .Name "Einkaufsliste" }}<span class="badge" data-cart-count hidden></span>{{ end }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <button class="icon-button theme-toggle" type="button" data-theme-toggle hidden>
+      <svg class="icon" aria-hidden="true"><use href="#i-contrast"></use></svg>
+      <span class="visually-hidden" data-theme-label>Farbschema</span>
+    </button>
+  </div>
+</header>

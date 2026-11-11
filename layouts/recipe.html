@@ -1,0 +1,114 @@
+{{ define "bodyclass" }}page page--recipe{{ end }}
+
+{{ define "head" }}{{ partial "recipe/jsonld.html" . }}{{ end }}
+
+{{ define "main" }}
+{{- $components := partial "recipe/components.html" . -}}
+{{- $img := partial "recipe/image.html" . -}}
+{{- $yield := partial "recipe/yield.html" . -}}
+{{- $base := (urls.Parse site.BaseURL).Path -}}
+<article class="recipe" data-recipe="{{ strings.TrimPrefix $base .RelPermalink }}">
+  <header class="recipe-hero{{ if $img }} recipe-hero--image{{ end }}">
+    <div class="recipe-hero__media">
+      {{- with $img }}
+        {{- $m := .Resize "900x webp" }}
+        {{- $l := .Resize "1600x webp" }}
+        <img src="{{ $m.RelPermalink }}" srcset="{{ $m.RelPermalink }} 900w, {{ $l.RelPermalink }} 1600w" sizes="(min-width: 64rem) 55vw, 100vw" width="{{ $m.Width }}" height="{{ $m.Height }}" alt="{{ $.Title }}" fetchpriority="high">
+      {{- else }}
+        <div class="{{ partial "recipe/placeholder-class.html" . }}" aria-hidden="true"><span>{{ substr .Title 0 1 }}</span></div>
+      {{- end }}
+    </div>
+    <div class="recipe-hero__text">
+      <p class="eyebrow">
+        {{- with .Params.category }}<a href="{{ (site.GetPage (printf "/category/%s" (urlize .))).RelPermalink }}">{{ . }}</a>{{ end -}}
+        {{- with .Params.cuisine }}<a href="{{ (site.GetPage (printf "/cuisine/%s" (urlize .))).RelPermalink }}">{{ . }}</a>{{ end -}}
+        {{- if and (not .Params.category) (eq .Section "components") }}<span>Komponente</span>{{ end -}}
+      </p>
+      <h1 class="recipe-title">{{ .Title }}</h1>
+      <dl class="facts">
+        {{ with .Params.prepTime }}<div><dt><svg class="icon" aria-hidden="true"><use href="#i-knife"></use></svg>Vorbereitung</dt><dd>{{ partial "recipe/minutes.html" . }}</dd></div>{{ end }}
+        {{ with .Params.cookTime }}<div><dt><svg class="icon" aria-hidden="true"><use href="#i-flame"></use></svg>Koch-/Backzeit</dt><dd>{{ partial "recipe/minutes.html" . }}</dd></div>{{ end }}
+        {{ with partial "recipe/total-time.html" . }}<div><dt><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>Gesamt</dt><dd>{{ . }}</dd></div>{{ end }}
+        {{ with $yield }}<div><dt><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>Ergibt</dt><dd data-yield-text>{{ . }}</dd></div>{{ end }}
+      </dl>
+      <div class="recipe-actions">
+        <button class="button button--primary" type="button" data-add-to-list hidden>
+          <svg class="icon" aria-hidden="true"><use href="#i-basket"></use></svg><span data-add-label>Auf die Einkaufsliste</span>
+        </button>
+        <button class="button" type="button" data-wake-lock hidden aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>Bildschirm anlassen</span>
+        </button>
+        <button class="button button--ghost" type="button" data-print hidden>
+          <svg class="icon" aria-hidden="true"><use href="#i-print"></use></svg><span>Drucken</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="recipe-body">
+    <aside class="ingredients" aria-labelledby="zutaten" data-scaler data-yield="{{ $yield }}">
+      <div class="ingredients__head">
+        <h2 id="zutaten">Zutaten</h2>
+        <div class="scaler" data-scaler-control hidden>
+          <button class="icon-button" type="button" data-scale="-1"><svg class="icon" aria-hidden="true"><use href="#i-minus"></use></svg><span class="visually-hidden">Weniger</span></button>
+          <output class="scaler__value" data-scale-output aria-live="polite" title="Menge anpassen">1×</output>
+          <button class="icon-button" type="button" data-scale="1"><svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg><span class="visually-hidden">Mehr</span></button>
+        </div>
+      </div>
+      {{- range $components }}{{ if .ingredients }}
+        <h3 class="ingredients__group">{{ .title }}{{ with .page }} <a class="group-link" href="{{ .RelPermalink }}" aria-label="{{ .Title }} als eigenes Rezept öffnen"><svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg></a>{{ end }}</h3>
+        {{ partial "recipe/ingredient-list.html" .ingredients }}
+      {{- end }}{{ end }}
+      {{- with .Params.ingredients }}
+        {{ if $components }}<h3 class="ingredients__group">{{ $.Title }}</h3>{{ end }}
+        {{ partial "recipe/ingredient-list.html" . }}
+      {{- end }}
+    </aside>
+
+    <section class="steps" aria-labelledby="zubereitung">
+      <h2 id="zubereitung">Zubereitung</h2>
+      {{- range $components }}{{ if .directions }}
+        <h3 class="steps__group">{{ .title }}</h3>
+        {{ partial "recipe/step-list.html" .directions }}
+      {{- end }}{{ with .notes }}<div class="note prose">{{ . }}</div>{{ end }}{{ end }}
+      {{- with .Params.directions }}
+        {{ if $components }}<h3 class="steps__group">{{ $.Title }}</h3>{{ end }}
+        {{ partial "recipe/step-list.html" . }}
+      {{- end }}
+      <p class="steps__done" data-steps-done hidden>Fertig – guten Appetit!</p>
+    </section>
+  </div>
+
+  {{- if or (.Content) .Params.sourceName .Params.authorName .Params.tags }}
+  <footer class="recipe-footer">
+    {{ with .Content }}
+    <section class="recipe-notes" aria-labelledby="notizen">
+      <h2 id="notizen">Notizen</h2>
+      <div class="prose">{{ . }}</div>
+    </section>
+    {{ end }}
+
+    {{ with .Params.tags }}
+    <ul class="chips" aria-label="Tags">
+      {{ range . }}<li><a class="chip" href="{{ (site.GetPage (printf "/tags/%s" (urlize .))).RelPermalink }}">#{{ . }}</a></li>{{ end }}
+    </ul>
+    {{ end }}
+
+    {{ if or .Params.sourceName .Params.authorName }}
+    <p class="source">
+      Inspiriert
+      {{- with .Params.sourceName }} durch {{ with $.Params.sourceURL }}<a href="{{ . }}" rel="noopener external">{{ $.Params.sourceName }}</a>{{ else }}<cite>{{ . }}</cite>{{ end }}{{ end -}}
+      {{- with .Params.authorName }} von {{ with $.Params.authorURL }}<a href="{{ . }}" rel="noopener external">{{ $.Params.authorName }}</a>{{ else }}{{ . }}{{ end }}{{ end -}}
+    </p>
+    {{ end }}
+  </footer>
+  {{- end }}
+
+  {{- with .Site.RegularPages.Related . | first 3 }}
+  <section class="related" aria-labelledby="mehr">
+    <h2 id="mehr">Passt auch</h2>
+    {{ partial "recipe/card-grid.html" (dict "pages" .) }}
+  </section>
+  {{- end }}
+</article>
+{{ end }}

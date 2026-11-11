@@ -1,0 +1,10 @@
+{{- $res := .Page.Resources.Get .Destination -}}
+{{- if $res -}}
+  {{- $m := $res.Resize "800x webp" -}}
+  {{- $l := $res.Resize "1400x webp" -}}
+  <img class="content-image" src="{{ $m.RelPermalink }}" srcset="{{ $m.RelPermalink }} 800w, {{ $l.RelPermalink }} 1400w" sizes="(min-width: 50rem) 46rem, 100vw" width="{{ $m.Width }}" height="{{ $m.Height }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- else if strings.HasPrefix .Destination "http" -}}
+  {{- errorf "%s: external image %q – store images in the page bundle (CSP allows only own images)" .Page.File.Path .Destination -}}
+{{- else -}}
+  {{- errorf "%s: image %q not found in the page bundle" .Page.File.Path .Destination -}}
+{{- end -}}

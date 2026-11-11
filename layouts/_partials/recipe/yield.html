@@ -1,0 +1,6 @@
+{{- with .Params.yield -}}
+  {{- $y := string . -}}
+  {{- if findRE `^\d+(-\d+)?$` $y }}{{ $y = printf "%s Portionen" $y }}{{ end -}}
+  {{- return $y -}}
+{{- end -}}
+{{- return "" -}}

@@ -1,0 +1,10 @@
+<ul class="term-grid">
+  {{- range . }}
+  <li>
+    <a class="term" href="{{ .Page.RelPermalink }}">
+      <span class="term__name">{{ .Page.Title }}</span>
+      <span class="term__count">{{ .Count }}</span>
+    </a>
+  </li>
+  {{- end }}
+</ul>

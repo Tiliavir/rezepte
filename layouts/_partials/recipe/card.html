@@ -1,0 +1,26 @@
+{{- $page := .page -}}{{- $level := .level | default 3 -}}
+{{- with $page -}}
+{{- $base := (urls.Parse site.BaseURL).Path -}}
+{{- $ref := strings.TrimPrefix $base .RelPermalink -}}
+<li class="card" data-ref="{{ $ref }}" data-category="{{ .Params.category | default "" | urlize }}">
+  <a class="card__link" href="{{ .RelPermalink }}">
+    <div class="card__media">
+      {{- with partial "recipe/image.html" . }}
+        {{- $s := .Fill "480x360 webp Smart" }}
+        {{- $l := .Fill "800x600 webp Smart" }}
+        <img src="{{ $s.RelPermalink }}" srcset="{{ $s.RelPermalink }} 480w, {{ $l.RelPermalink }} 800w" sizes="(min-width: 75rem) 22rem, (min-width: 40rem) 45vw, 92vw" width="480" height="360" alt="" loading="lazy" decoding="async">
+      {{- else }}
+        <div class="{{ partial "recipe/placeholder-class.html" . }}" aria-hidden="true"><span>{{ substr .Title 0 1 }}</span></div>
+      {{- end }}
+      {{ with .Params.category }}<span class="card__tag">{{ . }}</span>{{ end }}
+    </div>
+    <div class="card__body">
+      <h{{ $level }} class="card__title">{{ .Title }}</h{{ $level }}>
+      <p class="card__meta">
+        {{- with partial "recipe/total-time.html" . }}<span><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>{{ . }}</span>{{ end -}}
+        {{- with .Params.cuisine }}<span>{{ . }}</span>{{ end -}}
+      </p>
+    </div>
+  </a>
+</li>
+{{- end -}}

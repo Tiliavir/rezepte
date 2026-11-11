@@ -1,0 +1,3 @@
+<ul class="card-grid"{{ with .id }} id="{{ . }}"{{ end }}>
+  {{ $level := .level | default 3 }}{{ range .pages }}{{ partial "recipe/card.html" (dict "page" . "level" $level) }}{{ end }}
+</ul>
