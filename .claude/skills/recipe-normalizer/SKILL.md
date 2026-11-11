@@ -22,8 +22,8 @@ YAML muss gültig sein.
 2. **Duplikat prüfen**: In `content/recipes/` nach Titel und Hauptzutat suchen.
    Gibt es ein ähnliches Rezept, nachfragen, bevor eine Kopie entsteht.
 3. **Normalisieren** nach den Regeln unten.
-4. **Dateien schreiben** (eine pro Rezept bzw. Komponente).
-5. **YAML prüfen**: Jede Datei muss sich fehlerfrei parsen lassen.
+4. **Datei schreiben** (eine pro Rezept; geteilte Komponenten siehe unten).
+5. **Prüfen**: YAML muss sich fehlerfrei parsen lassen, `npm run build` muss grün sein.
 6. **Auf einem Branch committen und einen PR gegen `main` öffnen** – nicht direkt
    auf `main` pushen.
 
@@ -51,15 +51,27 @@ YAML muss gültig sein.
 ## Komponenten
 
 Hat ein Rezept klar getrennte Bestandteile mit eigenen Zutaten (Teig, Füllung,
-Sauce, Topping …), wird jeder Bestandteil ein eigenes Rezept:
+Sauce, Topping …), kommen sie **inline** unter `components` ins Hauptrezept:
 
-- **Titel**: `"<Hauptrezept>: <Bestandteil>"`, z.B. `"Kürbiskuchen: Frischkäse-Topping"`.
-  Wegen des Doppelpunkts **immer in Anführungszeichen**.
-- **Slug**: `<slug-hauptrezept>-<bestandteil>`, z.B. `kuerbiskuchen-frischkaese-topping`.
-- Das Hauptrezept referenziert die Komponenten unter `components` mit exakt
-  demselben Titel.
-- Komponenten haben nur `layout`, `date`, `title`, `ingredients`, `directions`.
-- Das `date` der Komponenten liegt eine Minute vor dem Hauptrezept.
+```yaml
+components:
+- title: "Frischkäse-Topping"
+  ingredients:
+  - 200g veganer Frischkäse
+  directions:
+  - Frischkäse mit Puderzucker cremig mixen.
+  notes: Optionaler kurzer Hinweis (Markdown).
+```
+
+- **Titel** kurz, ohne Namen des Hauptrezepts (`"Teig"`, nicht `"Kürbiskuchen: Teig"`),
+  immer in Anführungszeichen.
+- Erlaubte Schlüssel: `title`, `ingredients`, `directions`, `notes`. Andere brechen den Build.
+- Komponenten werden vor den eigenen `ingredients`/`directions` des Hauptrezepts angezeigt;
+  dessen `directions` beschreiben das Fertigstellen.
+- Nur wenn ein Bestandteil **in mehreren Rezepten** vorkommt (z.B. `Quiche Teig`), wird er eine
+  eigene Datei unter `content/components/<slug>/index.md` (nur `layout`, `date`, `title`,
+  `ingredients`, `directions`) und im Hauptrezept per exaktem Titel referenziert:
+  `- "Quiche Teig"`. Ein Verweis muss genau eine Seite treffen, sonst bricht der Build ab.
 
 Nicht aufteilen, wenn ein „Bestandteil“ nur aus Zutaten besteht, die im selben
 Arbeitsschritt verarbeitet werden.
@@ -89,10 +101,10 @@ Pfad: `content/recipes/<slug>/index.md`
 | `cuisine` | optional | Landesküche, z.B. `Deutsch`, `Italienisch`, `Japanisch` |
 | `tags` | optional | Hauptzutat, Anlass, Saison, Ernährungsform |
 | `yield` | ja | mit Einheit: `4 Portionen`, `12 Stück`, `1 Kuchen` |
-| `prepTime` | optional | Minuten, nur Zahl |
+| `prepTime` | optional | Minuten, nur Zahl (sonst bricht der Build ab) |
 | `cookTime` | optional | Minuten, nur Zahl |
 | `ingredients` | ja* | *entfällt, wenn alles in Komponenten steckt |
-| `components` | optional | Titel der Komponenten |
+| `components` | optional | inline-Komponenten oder Titel geteilter Komponenten |
 | `directions` | ja | |
 
 **Erlaubte Kategorien**: `Hauptgericht`, `Beilage`, `Vorspeise`, `Salat`, `Suppe`,
@@ -141,32 +153,19 @@ ingredients:
 - 100ml Öl
 
 components:
-- "Kürbiskuchen: Frischkäse-Topping"
+- title: "Frischkäse-Topping"
+  ingredients:
+  - 200g veganer Frischkäse
+  - 50g Puderzucker
+  directions:
+  - Frischkäse mit Puderzucker cremig mixen.
 
 directions:
 - Ofen auf 180°C Ober-/Unterhitze vorheizen, eine 20cm Backform vorbereiten.
 - Kürbis mit Schale fein raspeln.
 - Teig in die Form füllen und ca. 50 Minuten backen.
-- Topping zubereiten und auf dem ausgekühlten Kuchen verteilen.
+- Topping auf dem ausgekühlten Kuchen verteilen.
 ---
 
 Hokkaido muss nicht geschält werden, andere Kürbissorten schon.
-```
-
-`content/recipes/kuerbiskuchen-frischkaese-topping/index.md`
-
-```yaml
----
-layout: recipe
-date: 2026-11-02T21:06:00+01:00
-
-title: "Kürbiskuchen: Frischkäse-Topping"
-
-ingredients:
-- 200g veganer Frischkäse
-- 50g Puderzucker
-
-directions:
-- Frischkäse mit Puderzucker cremig mixen.
----
 ```

@@ -17,19 +17,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-        with:
-          submodules: true
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
       - name: Install Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 22.x
-      - name: Install npm
-        run: npm ci
+          node-version: 24.x
+      - name: npm ci
+        run: npm ci --ignore-scripts
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.139.0'
+          hugo-version: '0.169.0'
           extended: true
       - name: Build
         run: npm run build
