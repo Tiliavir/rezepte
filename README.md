@@ -47,5 +47,5 @@ Geteilte Komponenten liegen unter `content/components/` – nur für Bausteine, 
 ## Aufbau
 
 Kein externes Theme: `layouts/` (Hugo-Templates), `assets/css/` (reines CSS, nach Dateiname zusammengefügt),
-`assets/ts/` (TypeScript, gebündelt von Hugo). Schrift (Fraunces, OFL) liegt unter `static/fonts/`;
+`assets/ts/` (TypeScript, gebündelt von Hugo). Schrift (Instrument Serif, OFL) liegt unter `static/fonts/`;
 die Seite lädt nichts von fremden Servern.

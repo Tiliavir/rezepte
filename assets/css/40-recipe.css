@@ -32,9 +32,8 @@
 }
 
 .recipe-title {
-  font-size: clamp(2.3rem, 5.5vw, 3.8rem);
-  font-weight: 650;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.8rem, 6.5vw, 4.8rem);
+  letter-spacing: -0.01em;
   line-height: 1.02;
   margin-bottom: 1.5rem;
 }
@@ -73,8 +72,7 @@
 .facts dd {
   margin: 0.1rem 0 0;
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.35rem;
 }
 
 .recipe-actions {
@@ -152,13 +150,13 @@
   align-items: center;
   gap: 0.4rem;
   margin: 1.4rem 0 0.4rem;
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   color: var(--accent-strong);
 }
 
 .steps__group {
   margin-top: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 }
 
 .group-link {
@@ -284,7 +282,7 @@
   border-radius: 50%;
   background: var(--accent-soft);
   color: var(--accent-strong);
-  font: 600 1.05rem / 1 var(--font-display);
+  font: 400 1.25rem / 1 var(--font-display);
   transition:
     background 0.2s,
     color 0.2s;
@@ -327,8 +325,7 @@
   background: var(--herb-soft);
   color: var(--herb);
   font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.45rem;
   text-align: center;
 }
 
@@ -405,6 +402,6 @@
   }
 
   .facts dd {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
   }
 }

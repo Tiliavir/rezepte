@@ -14,7 +14,7 @@
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
-  <link rel="preload" href="{{ "fonts/fraunces.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ "fonts/instrument-serif.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   {{ $css := resources.Match "css/*.css" | resources.Concat "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ $js := resources.Get "ts/main.ts" | js.Build (dict "target" "es2022" "format" "esm" "minify" true) | fingerprint }}
