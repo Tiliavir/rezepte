@@ -1,5 +1,4 @@
 ---
 title: Einkaufsliste
+layout: shopping-list
 ---
-
-{{< shopping-list >}}
