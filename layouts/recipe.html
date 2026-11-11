@@ -20,8 +20,8 @@
     </div>
     <div class="recipe-hero__text">
       <p class="eyebrow">
-        {{- with .Params.category }}<a href="{{ (site.GetPage (printf "/category/%s" (urlize .))).RelPermalink }}">{{ . }}</a>{{ end -}}
-        {{- with .Params.cuisine }}<a href="{{ (site.GetPage (printf "/cuisine/%s" (urlize .))).RelPermalink }}">{{ . }}</a>{{ end -}}
+        {{- with .Params.category }}<a href="{{ (site.GetPage (printf "/category/%s" (urlize .))).RelPermalink }}" aria-label="Kategorie {{ . }}">{{ . }}</a>{{ end -}}
+        {{- with .Params.cuisine }}<a href="{{ (site.GetPage (printf "/cuisine/%s" (urlize .))).RelPermalink }}" aria-label="Küche {{ . }}">{{ . }}</a>{{ end -}}
         {{- if and (not .Params.category) (eq .Section "components") }}<span>Komponente</span>{{ end -}}
       </p>
       <h1 class="recipe-title">{{ .Title }}</h1>

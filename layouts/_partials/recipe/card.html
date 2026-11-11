@@ -1,8 +1,5 @@
 {{- $page := .page -}}{{- $level := .level | default 3 -}}
 {{- with $page -}}
-{{- $base := (urls.Parse site.BaseURL).Path -}}
-{{- $ref := strings.TrimPrefix $base .RelPermalink -}}
-<li class="card" data-ref="{{ $ref }}" data-category="{{ .Params.category | default "" | urlize }}">
   <a class="card__link" href="{{ .RelPermalink }}">
     <div class="card__media">
       {{- with partial "recipe/image.html" . }}
@@ -22,5 +19,4 @@
       </p>
     </div>
   </a>
-</li>
 {{- end -}}

@@ -1,9 +1,8 @@
 {{ define "main" }}
 <section class="listing">
-  <header class="page-header">
-    <p class="eyebrow">{{ if eq .Section "components" }}Bausteine, die in mehreren Rezepten vorkommen{{ else }}Sammlung{{ end }}</p>
-    <h1>{{ if eq .Section "components" }}Komponenten{{ else }}{{ .Title }}{{ end }}</h1>
-  </header>
+  {{ partial "page-header.html" (cond (eq .Section "components")
+    (dict "eyebrow" "Bausteine, die in mehreren Rezepten vorkommen" "title" "Komponenten")
+    (dict "eyebrow" "Sammlung" "title" .Title)) }}
   {{ partial "recipe/card-grid.html" (dict "pages" .Pages.ByTitle "level" 2) }}
 </section>
 {{ end }}

@@ -27,6 +27,7 @@ class App {
     }
     const order: Theme[] = ["system", "light", "dark"];
     const names: Record<Theme, string> = { system: "wie System", light: "hell", dark: "dunkel" };
+    const icons: Record<Theme, string> = { system: "#i-contrast", light: "#i-sun", dark: "#i-moon" };
     const current = (): Theme => {
       const t = document.documentElement.dataset.theme;
       return t === "light" || t === "dark" ? t : "system";
@@ -35,9 +36,7 @@ class App {
       const theme = current();
       label.textContent = `Farbschema: ${names[theme]}`;
       button.title = `Farbschema: ${names[theme]}`;
-      button
-        .querySelector("use")
-        ?.setAttribute("href", theme === "light" ? "#i-sun" : theme === "dark" ? "#i-moon" : "#i-contrast");
+      button.querySelector("use")?.setAttribute("href", icons[theme]);
     };
     button.addEventListener("click", () => {
       const next = order[(order.indexOf(current()) + 1) % order.length];
@@ -78,8 +77,7 @@ class App {
       badge.hidden = count === 0;
       if (last >= 0 && count > last) {
         badge.classList.remove("is-bumped");
-        void badge.offsetWidth;
-        badge.classList.add("is-bumped");
+        requestAnimationFrame(() => requestAnimationFrame(() => badge.classList.add("is-bumped")));
       }
       last = count;
     };

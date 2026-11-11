@@ -11,6 +11,6 @@ export class Toast {
 
   public static error(error: unknown): void {
     console.error(error);
-    Toast.show(error instanceof Error ? error.message : String(error));
+    Toast.show(error instanceof Error ? error.message : "Unerwarteter Fehler – Details in der Konsole.");
   }
 }

@@ -10,17 +10,10 @@
     padding: 0;
   }
 
-  .site-header,
-  .site-footer,
-  .main-nav,
-  .recipe-actions,
-  .scaler,
-  .related,
-  .chips,
-  .skip-link,
-  .steps__done {
-    /* biome-ignore lint/complexity/noImportantStyles: print hides interactive parts regardless of their display rules */
-    display: none !important;
+  html
+    body
+    :is(.site-header, .site-footer, .main-nav, .recipe-actions, .scaler, .related, .chips, .skip-link, .steps__done) {
+    display: none;
   }
 
   main {

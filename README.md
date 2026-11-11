@@ -1,8 +1,6 @@
 *In contrast to my other repositories this one is in German, since the recipes are German.*
 
-[![Build State](https://github.com/Tiliavir/rezepte/workflows/Build%20on%20Push/badge.svg)](https://github.com/Tiliavir/rezepte/actions?query=workflow%3A%22Build+on+Push%22)
-&nbsp;
-[![Publish State](https://github.com/Tiliavir/rezepte/workflows/Publish%20to%20GH%20Pages%20on%20Tag/badge.svg)](https://github.com/Tiliavir/rezepte/actions?query=workflow%3A%22Publish+to+GH+Pages+on+Tag%22)
+[![CI](https://github.com/Tiliavir/rezepte/actions/workflows/ci.yml/badge.svg)](https://github.com/Tiliavir/rezepte/actions/workflows/ci.yml)
 
 # Die Gute-Sachen Liste
 
@@ -11,7 +9,7 @@ Mit Suche, Portionsrechner und Einkaufsliste.
 
 ## Lokal starten
 
-Voraussetzungen: [Hugo extended](https://gohugo.io/installation/) 0.169+, Node.js 22.12+, Java (für die HTML-Validierung).
+Voraussetzungen: [Hugo extended](https://gohugo.io/installation/) 0.169+, Node.js 22.12+, Java mit gesetztem `JAVA_HOME` (für die HTML-Validierung).
 
 ```bash
 npm ci
@@ -19,6 +17,8 @@ npm start          # hugo server, ohne Suchindex
 npm run lint       # Biome + TypeScript
 npm run build      # Hugo → CSP-Hashes → Suchindex → HTML-Validierung
 ```
+
+Veröffentlicht wird wie bisher bei einem Versions-Tag; die CI deployt dann nach GitHub Pages.
 
 ## Rezept hinzufügen
 

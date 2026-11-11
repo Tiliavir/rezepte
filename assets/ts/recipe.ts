@@ -18,7 +18,7 @@ interface WakeLockSentinelLike {
 const FACTORS = [0.25, 0.5, 1, 1.5, 2, 3, 4, 6, 8];
 
 export class Recipe {
-  private static lines: ScaledLine[] = [];
+  private static readonly lines: ScaledLine[] = [];
   private static factor = 1;
   private static ref = "";
   private static wakeLock: WakeLockSentinelLike | null = null;
@@ -78,10 +78,7 @@ export class Recipe {
         yieldTarget.textContent = Quantity.scaleText(yieldText, Recipe.factor);
       }
       for (const line of Recipe.lines) {
-        line.element.textContent =
-          Recipe.factor === 1
-            ? line.original
-            : `${line.prefix ? `${line.prefix} ` : ""}${Quantity.formatAmount(Quantity.scale(line.amount, Recipe.factor), line.unit)}`;
+        line.element.textContent = Recipe.factor === 1 ? line.original : Recipe.scaled(line);
         line.element.classList.toggle("is-scaled", Recipe.factor !== 1);
       }
     };
@@ -102,6 +99,11 @@ export class Recipe {
     }
     control.hidden = false;
     render();
+  }
+
+  private static scaled(line: ScaledLine): string {
+    const amount = Quantity.formatAmount(Quantity.scale(line.amount, Recipe.factor), line.unit);
+    return line.prefix ? `${line.prefix} ${amount}` : amount;
   }
 
   private static syncStoredFactor(): void {

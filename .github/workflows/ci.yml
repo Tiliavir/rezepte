@@ -1,10 +1,19 @@
-name: Build on Push
+name: CI
 
-on: [push, pull_request]
+# Every push and PR is linted and built; a version tag additionally publishes to GitHub Pages.
+on:
+  push:
+    branches: ['**']
+    tags: ['[0-9]*.[0-9]*.[0-9]*']
+  pull_request:
 
 permissions:
   pull-requests: write
   contents: write
+
+concurrency:
+  group: ${{ startsWith(github.ref, 'refs/tags/') && 'pages' || github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -26,11 +35,21 @@ jobs:
           extended: true
       - name: Build
         run: npm run build
+      - name: Upload
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/upload-artifact@v7
+        with:
+          name: rezepte
+          path: public
+      - name: Deploy
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
       - name: Dependabot Auto Merge
         if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-          gh pr merge --auto --merge "$PR_URL"
+        run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GH_ACTION_MERGER_TOKEN }}

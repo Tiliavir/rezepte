@@ -1,10 +1,6 @@
 {{ define "main" }}
 <section class="listing">
-  <header class="page-header">
-    <p class="eyebrow">Stöbern</p>
-    <h1>Entdecken</h1>
-    <p class="lead">Nach Gang, Küche oder Stichwort – such dir was aus.</p>
-  </header>
+  {{ partial "page-header.html" (dict "eyebrow" "Stöbern" "title" .Title "lead" "Nach Gang, Küche oder Stichwort – such dir was aus.") }}
 
   <h2 class="section-title">Kategorien</h2>
   <ul class="category-grid">

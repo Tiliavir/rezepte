@@ -1,6 +1,6 @@
-import { AISLE_ORDER, Aisles } from "./lib/aisles";
+import { AISLE_ORDER, Aisles, OTHER } from "./lib/aisles";
 import { type Amount, Quantity } from "./lib/quantity";
-import { type ShoppingState, Store } from "./lib/store";
+import { type Extra, type ShoppingState, Store } from "./lib/store";
 import { Toast } from "./lib/toast";
 
 interface RecipeData {
@@ -21,7 +21,7 @@ interface Item {
 }
 
 export class ShoppingList {
-  private static recipes = new Map<string, RecipeData>();
+  private static readonly recipes = new Map<string, RecipeData>();
   private static root: HTMLElement;
 
   public static initialize(root: HTMLElement): void {
@@ -231,64 +231,55 @@ export class ShoppingList {
     const items = new Map<string, Item>();
     for (const [ref, factor] of Object.entries(state.recipes)) {
       const recipe = ShoppingList.recipes.get(ref);
-      if (!recipe) {
-        continue;
-      }
-      for (const line of recipe.ingredients) {
-        const parsed = Quantity.parse(line);
-        if (!parsed.name) {
-          continue;
-        }
-        const aisle = Aisles.of(parsed.name);
-        if (aisle === null) {
-          continue;
-        }
-        const key = ShoppingList.keyOf(parsed.name);
-        const item = items.get(key) ?? {
-          key,
-          aisle,
-          name: parsed.name.split(",")[0].trim(),
-          amounts: new Map(),
-          sources: new Set<string>(),
-        };
-        const display = parsed.name.split(",")[0].trim();
-        if (display.length > item.name.length) {
-          item.name = display;
-        }
-        item.sources.add(recipe.title);
-        if (parsed.amount) {
-          const info = Quantity.unitInfo(parsed.unit);
-          const unitKey = info?.base ?? info?.canonical ?? "";
-          const scaled = Quantity.scale(parsed.amount, factor * (info?.factor ?? 1));
-          const existing = item.amounts.get(unitKey);
-          item.amounts.set(unitKey, {
-            amount: existing
-              ? { min: existing.amount.min + scaled.min, max: existing.amount.max + scaled.max }
-              : scaled,
-            unit: unitKey || undefined,
-          });
-        }
-        items.set(key, item);
+      for (const line of recipe?.ingredients ?? []) {
+        ShoppingList.addLine(items, line, factor, recipe?.title ?? ref);
       }
     }
     const sorted = [...items.values()].sort((a, b) => a.name.localeCompare(b.name, "de"));
-    const extras: Item[] = state.extras.map((x) => {
-      const parsed = Quantity.parse(x.text);
-      const amounts = new Map<string, { amount: Amount; unit?: string }>();
-      if (parsed.amount && parsed.name) {
-        amounts.set("", { amount: parsed.amount, unit: parsed.unit });
-      }
-      const name = amounts.size ? parsed.name : x.text;
-      return {
-        key: `x:${x.id}`,
-        aisle: Aisles.of(name) ?? "Sonstiges",
-        name,
-        amounts,
-        sources: new Set(["Eigener Eintrag"]),
-        extraId: x.id,
-      };
-    });
-    return [...extras, ...sorted];
+    return [...state.extras.map((x) => ShoppingList.extraItem(x)), ...sorted];
+  }
+
+  private static addLine(items: Map<string, Item>, line: string, factor: number, source: string): void {
+    const parsed = Quantity.parse(line);
+    const aisle = parsed.name ? Aisles.of(parsed.name) : null;
+    if (aisle === null) {
+      return;
+    }
+    const key = ShoppingList.keyOf(parsed.name);
+    const display = parsed.name.split(",")[0].trim();
+    const item = items.get(key) ?? { key, aisle, name: display, amounts: new Map(), sources: new Set<string>() };
+    if (display.length > item.name.length) {
+      item.name = display;
+    }
+    item.sources.add(source);
+    if (parsed.amount) {
+      const info = Quantity.unitInfo(parsed.unit);
+      const unitKey = info?.base ?? info?.canonical ?? "";
+      const scaled = Quantity.scale(parsed.amount, factor * (info?.factor ?? 1));
+      const existing = item.amounts.get(unitKey)?.amount ?? { min: 0, max: 0 };
+      item.amounts.set(unitKey, {
+        amount: { min: existing.min + scaled.min, max: existing.max + scaled.max },
+        unit: unitKey || undefined,
+      });
+    }
+    items.set(key, item);
+  }
+
+  private static extraItem(extra: Extra): Item {
+    const parsed = Quantity.parse(extra.text);
+    const amounts = new Map<string, { amount: Amount; unit?: string }>();
+    if (parsed.amount && parsed.name) {
+      amounts.set("", { amount: parsed.amount, unit: parsed.unit });
+    }
+    const name = amounts.size ? parsed.name : extra.text;
+    return {
+      key: `x:${extra.id}`,
+      aisle: Aisles.of(name) ?? OTHER,
+      name,
+      amounts,
+      sources: new Set(["Eigener Eintrag"]),
+      extraId: extra.id,
+    };
   }
 
   private static amountText(item: Item): string {

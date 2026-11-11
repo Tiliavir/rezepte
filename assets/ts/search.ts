@@ -111,6 +111,23 @@ class Search {
 
   private static update(): void {
     const text = Search.input.value.trim();
+    Search.syncUrl(text);
+    if (text && !Search.index) {
+      Search.load()
+        .then(() => Search.update())
+        .catch(Toast.error);
+      return;
+    }
+    const visible = Search.matches(text);
+    const shown = new Set(visible);
+    for (const card of Search.cards) {
+      card.hidden = !shown.has(card);
+    }
+    Search.grid.append(...visible, ...Search.cards.filter((c) => !shown.has(c)));
+    Search.renderLabel(text, visible.length);
+  }
+
+  private static syncUrl(text: string): void {
     const url = new URL(window.location.href);
     if (text) {
       url.searchParams.set("q", text);
@@ -118,42 +135,30 @@ class Search {
       url.searchParams.delete("q");
     }
     window.history.replaceState(null, "", url);
+  }
 
-    if (text && !Search.index) {
-      Search.load()
-        .then(() => Search.update())
-        .catch(Toast.error);
-      return;
-    }
-
+  private static matches(text: string): HTMLLIElement[] {
     const inCategory = (card: HTMLLIElement): boolean => !Search.category || card.dataset.category === Search.category;
-    let visible: HTMLLIElement[];
-    if (text) {
-      const byRef = new Map(Search.cards.map((c) => [decodeURI(c.dataset.ref ?? ""), c]));
-      visible = Search.query(text)
-        .map((ref) => byRef.get(ref))
-        .filter((c): c is HTMLLIElement => c !== undefined && inCategory(c));
-    } else {
-      visible = Search.cards.filter(inCategory);
+    if (!text) {
+      return Search.cards.filter(inCategory);
     }
+    const byRef = new Map(Search.cards.map((c) => [decodeURI(c.dataset.ref ?? ""), c]));
+    return Search.query(text)
+      .map((ref) => byRef.get(ref))
+      .filter((c): c is HTMLLIElement => c !== undefined && inCategory(c));
+  }
 
-    const shown = new Set(visible);
-    for (const card of Search.cards) {
-      card.hidden = !shown.has(card);
-    }
-    Search.grid.append(...visible, ...Search.cards.filter((c) => !shown.has(c)));
-
+  private static renderLabel(text: string, count: number): void {
     const label = document.querySelector<HTMLElement>("[data-result-label]");
     if (label) {
       const chip = document.querySelector<HTMLElement>(`[data-filter="${CSS.escape(Search.category)}"]`);
       const scope = Search.category ? (chip?.firstChild?.textContent?.trim() ?? "") : "";
-      label.textContent = text
-        ? `${visible.length} Treffer für „${text}“${scope ? ` in ${scope}` : ""}`
-        : scope || "Alle Rezepte";
+      const where = scope ? ` in ${scope}` : "";
+      label.textContent = text ? `${count} Treffer für „${text}“${where}` : scope || "Alle Rezepte";
     }
     const empty = document.querySelector<HTMLElement>("[data-empty]");
     if (empty) {
-      empty.hidden = visible.length > 0;
+      empty.hidden = count > 0;
     }
   }
 }

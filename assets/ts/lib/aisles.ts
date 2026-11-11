@@ -224,16 +224,16 @@ const AISLES: Aisle[] = [
 
 export const OTHER = "Sonstiges";
 export const AISLE_ORDER = [...AISLES.map((a) => a.name), OTHER];
-const IGNORE = ["wasser"];
+const IGNORE = new Set(["wasser", "lauwarmes", "kaltes", "warmes"]);
 
 export class Aisles {
   public static of(name: string): string | null {
     const words = name
       .toLowerCase()
-      .replace(/\(.*?\)/g, "")
+      .replace(/\([^)]*\)/g, "")
       .split(/[^\p{L}]+/u)
       .filter(Boolean);
-    if (words.length === 0 || words.every((w) => IGNORE.includes(w) || w === "lauwarmes" || w === "kaltes")) {
+    if (words.every((w) => IGNORE.has(w))) {
       return null;
     }
     // the most specific match wins: compare by keyword length so "paprikapulver" beats "paprika"

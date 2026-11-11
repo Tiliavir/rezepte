@@ -143,11 +143,6 @@ input {
   top: 1rem;
 }
 
-[hidden] {
-  /* biome-ignore lint/complexity/noImportantStyles: hidden must win over component display rules */
-  display: none !important;
-}
-
 .eyebrow {
   display: flex;
   flex-wrap: wrap;

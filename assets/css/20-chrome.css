@@ -34,11 +34,6 @@
   width: 2rem;
   height: 2rem;
   color: var(--accent);
-  transition: transform 0.4s var(--ease);
-}
-
-.brand:hover .brand__mark {
-  transform: rotate(-12deg) scale(1.06);
 }
 
 .brand__name {
@@ -141,10 +136,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-.badge.is-bumped {
-  animation: bump 0.5s var(--ease);
-}
-
 @keyframes bump {
   40% {
     transform: scale(1.35);
@@ -164,17 +155,12 @@
   cursor: pointer;
   transition:
     background 0.2s,
-    border-color 0.2s,
-    transform 0.15s;
+    border-color 0.2s;
 }
 
 .icon-button:hover {
   border-color: var(--accent);
   color: var(--accent);
-}
-
-.icon-button:active {
-  transform: scale(0.94);
 }
 
 .icon-button:disabled {
@@ -211,7 +197,6 @@
     background 0.2s,
     border-color 0.2s,
     color 0.2s,
-    transform 0.15s,
     box-shadow 0.2s;
 }
 
@@ -220,14 +205,9 @@
   color: var(--accent);
 }
 
-.button:active {
-  transform: scale(0.97);
-}
-
 .button:disabled {
   opacity: 0.45;
   cursor: default;
-  transform: none;
 }
 
 .button--primary {

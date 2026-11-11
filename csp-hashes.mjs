@@ -32,7 +32,7 @@ const cspMetaRe = /<meta\s[^>]*http-equiv\s*=\s*["']?content-security-policy["']
 const executableTypes = ["", "text/javascript", "application/javascript", "module"];
 
 const attr = (attrs, name) =>
-  new RegExp(`\\s${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, "i")
+  new RegExp(String.raw`\s${name}\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))`, "i")
     .exec(attrs)
     ?.slice(1)
     .find((v) => v !== undefined);
@@ -83,12 +83,19 @@ for (const file of files) {
 
   // A meta CSP only governs what comes after it in the document.
   const head = html.slice(0, meta.index);
-  const early = /<(script|style|base)[\s>]|<link\s[^>]*rel\s*=\s*["']?[^"'>]*(stylesheet|preload|modulepreload)/i.exec(
-    head,
-  );
+  const earlyTag = /<(script|style|base)[\s>]/i.exec(head)?.[1];
+  const earlyLink = [...head.matchAll(/<link\s[^>]*>/gi)]
+    .map((m) => attr(m[0], "rel") ?? "")
+    .find((rel) =>
+      rel
+        .toLowerCase()
+        .split(/\s+/)
+        .some((r) => ["stylesheet", "preload", "modulepreload"].includes(r)),
+    );
+  const early = earlyTag ?? (earlyLink === undefined ? undefined : `link rel="${earlyLink}"`);
   if (early) {
     problems.push(
-      `${file}: <${early[1] ?? `link ${early[2]}`}> appears before the CSP meta tag – move the meta tag directly after <meta charset>`,
+      `${file}: <${early}> appears before the CSP meta tag – move the meta tag directly after <meta charset>`,
     );
   }
 

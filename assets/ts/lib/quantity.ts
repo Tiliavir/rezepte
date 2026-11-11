@@ -92,7 +92,7 @@ export class Quantity {
     }
     const n = Number(t);
     if (!Number.isFinite(n)) {
-      throw new Error(`Menge nicht lesbar: "${text}"`);
+      throw new TypeError(`Menge nicht lesbar: "${text}"`);
     }
     return n;
   }
@@ -151,20 +151,24 @@ export class Quantity {
       const min = amount.min * (info.factor ?? 1);
       const max = amount.max * (info.factor ?? 1);
       const big = max >= 1000;
-      const div = big ? 1000 : 1;
-      const label = big ? (info.base === "g" ? "kg" : "l") : info.base;
+      const bigLabel = info.base === "g" ? "kg" : "l";
+      const label = big ? bigLabel : info.base;
       const fmt = (v: number): string =>
         big
-          ? new Intl.NumberFormat("de-DE", { maximumFractionDigits: 2 }).format(v / div)
+          ? new Intl.NumberFormat("de-DE", { maximumFractionDigits: 2 }).format(v / 1000)
           : Quantity.formatNumber(Quantity.roundMetric(v), true);
-      return `${fmt(min)}${min === max ? "" : `–${fmt(max)}`} ${label}`;
+      return `${Quantity.range(fmt(min), fmt(max))} ${label}`;
     }
-    const num = `${Quantity.formatNumber(amount.min, false)}${amount.min === amount.max ? "" : `–${Quantity.formatNumber(amount.max, false)}`}`;
+    const num = Quantity.range(Quantity.formatNumber(amount.min, false), Quantity.formatNumber(amount.max, false));
     if (!info) {
       return num;
     }
     const label = info.plural && amount.max > 1 ? info.plural : info.canonical;
     return `${num} ${label}`;
+  }
+
+  public static range(min: string, max: string): string {
+    return min === max ? min : `${min}–${max}`;
   }
 
   public static scale(amount: Amount, factor: number): Amount {
@@ -175,10 +179,9 @@ export class Quantity {
     if (factor === 1) {
       return text;
     }
-    return text.replace(new RegExp(`(${NUM})(?:\\s*[-–]\\s*(${NUM}))?`, "u"), (_all, a: string, b?: string) => {
-      const min = Quantity.parseNumber(a) * factor;
-      const fmt = (v: number): string => Quantity.formatNumber(v, false);
-      return b ? `${fmt(min)}–${fmt(Quantity.parseNumber(b) * factor)}` : fmt(min);
+    return text.replace(new RegExp(String.raw`(${NUM})(?:\s*[-–]\s*(${NUM}))?`, "u"), (_all, a: string, b?: string) => {
+      const fmt = (v: string): string => Quantity.formatNumber(Quantity.parseNumber(v) * factor, false);
+      return Quantity.range(fmt(a), fmt(b ?? a));
     });
   }
 

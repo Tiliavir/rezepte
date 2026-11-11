@@ -72,7 +72,6 @@
   background: var(--accent-soft);
   font-size: 0.88rem;
   font-weight: 600;
-  animation: card-in 0.35s var(--ease);
 }
 
 .selected a {
@@ -143,15 +142,13 @@
   list-style: none;
 }
 
-.items li {
-  animation: card-in 0.3s var(--ease);
-}
-
 .items li + li {
   border-top: 1px solid var(--line);
 }
 
 .items label {
+  flex: 1;
+  min-width: 0;
   display: flex;
   gap: 0.85rem;
   align-items: flex-start;
@@ -353,8 +350,7 @@
   transition:
     background 0.2s,
     color 0.2s,
-    border-color 0.2s,
-    rotate 0.3s var(--ease);
+    border-color 0.2s;
 }
 
 .pick[aria-pressed="true"] {
@@ -380,7 +376,6 @@
   color: var(--bg);
   font-weight: 600;
   box-shadow: var(--shadow-l);
-  animation: toast 2.6s var(--ease) forwards;
 }
 
 @keyframes toast {
@@ -409,11 +404,6 @@
 .items li {
   display: flex;
   align-items: center;
-}
-
-.items label {
-  flex: 1;
-  min-width: 0;
 }
 
 .aisle {
