@@ -35,7 +35,15 @@ ingredients:
 - 100ml Öl
 
 components:
-- "Kürbiskuchen: Frischkäse-Topping"
+- title: "Frischkäse-Topping"
+  ingredients:
+  - 200g veganer Frischkäse
+  - 50g Puderzucker
+  - Pekannüsse oder Walnüsse
+  directions:
+  - Frischkäse mit Puderzucker cremig mixen.
+  - Auf dem ausgekühlten Kuchen verteilen.
+  - Nach Belieben mit Nüssen dekorieren.
 
 directions:
 - Ofen auf 180°C Ober-/Unterhitze vorheizen, eine 20cm Backform vorbereiten.

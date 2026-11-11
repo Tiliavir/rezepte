@@ -29,8 +29,38 @@ directions:
   - Sahnehaube auf den Kuchen streichen und mit Kakaopulver bestäuben.
 
 components:
-  - "Feuerwehrkuchen Mürbeteig"
-  - "Feuerwehrkuchen Belag"
-  - "Feuerwehrkuchen Streusel"
-  - "Feuerwehrkuchen Sahnehaube"
+- title: "Mürbeteig"
+  ingredients:
+    - 200 g Mehl
+    - 100 g Zucker
+    - 100 g Margarine
+    - 1 Ei
+    - 1 Msp. Backpulver
+  directions:
+    - Alle Zutaten miteinander verkneten und kühl stellen.
+- title: "Belag"
+  ingredients:
+    - 2 Gläser Schattenmorellen à 720 ml
+    - 1 Pck. Vanillepuddingpulver
+    - 1 EL Zucker
+  directions:
+    - Schattenmorellen durch ein Sieb abschütten und 1/4 l vom Saft auffangen.
+    - Puddingpulver mit 3 - 4 EL vom Kirschsaft verrühren, den Rest von 1/4 l Kirschsaft dazugeben und Pudding nach Anweisung aufkochen.
+    - Unter den heißen Pudding die abgetropften Kirschen mischen.
+- title: "Streusel"
+  ingredients:
+    - 110 g Mehl
+    - 100 g Zucker
+    - 90 g Margarine
+    - 100 g Mandeln
+    - ½ TL Zimt
+  directions:
+    - Aus den Zutaten Streusel fertigen.
+- title: "Sahnehaube"
+  ingredients:
+    - 2 Becher Sahne
+    - 2 Pck. Vanillezucker
+    - 2 Pck. Sahnesteif
+  directions:
+    - Sahne, Sahnesteif und Vanillezucker steif schlagen.
 ---

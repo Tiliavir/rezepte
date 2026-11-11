@@ -19,7 +19,16 @@ prepTime: 30
 cookTime: 5
 
 components:
-- Honig-Senf Dip
+- title: "Honig-Senf Dip"
+  ingredients:
+  - 200g Ziegenfrischkäse
+  - 1.5 EL Zitronensaft
+  - 1 EL Senf, mittelscharf
+  - 1 TL Currygewürz
+  - 2 TL Honig
+  - 1 Prise Salz
+  directions:
+  - Alle Zutaten verrühren und abschmecken
 
 ingredients:
 - 500g Brokkoli
