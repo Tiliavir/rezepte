@@ -227,11 +227,24 @@ export const AISLE_ORDER = [...AISLES.map((a) => a.name), OTHER];
 const IGNORE = new Set(["wasser", "lauwarmes", "kaltes", "warmes"]);
 
 export class Aisles {
+  private static withoutParentheses(text: string): string {
+    let depth = 0;
+    let out = "";
+    for (const char of text) {
+      if (char === "(") {
+        depth++;
+      } else if (char === ")") {
+        depth = Math.max(0, depth - 1);
+      } else if (depth === 0) {
+        out += char;
+      }
+    }
+    return out;
+  }
+
   public static of(name: string): string | null {
-    const words = name
-      .toLowerCase()
-      .replace(/\([^)]*\)/g, "")
-      .split(/[^\p{L}]+/u)
+    const words = Aisles.withoutParentheses(name.toLowerCase())
+      .split(/\P{L}+/u)
       .filter(Boolean);
     if (words.every((w) => IGNORE.has(w))) {
       return null;
