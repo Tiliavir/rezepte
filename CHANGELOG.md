@@ -4,6 +4,12 @@ Wichtige Änderungen an der Seite. Format: [Keep a Changelog](https://keepachang
 Versionen nach Datum (`JJJJ.M.T`, ohne führende Nullen). Veröffentlichen: siehe [README](README.md#veröffentlichen).
 Ältere Versionen ohne Changelog: Git-Tags `2024.06.16` bis `2026.10.13`.
 
+## [2026.11.13] - 2026-11-13
+
+### Neu
+
+- Als App installierbar (Web-App-Manifest und App-Icons): auf Android über „App installieren“ im Chrome-Menü.
+
 ## [2026.11.11] - 2026-11-11
 
 ### Neu

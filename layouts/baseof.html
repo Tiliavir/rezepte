@@ -14,6 +14,7 @@
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+  <link rel="manifest" href="{{ "manifest.webmanifest" | relURL }}">
   <link rel="preload" href="{{ "fonts/instrument-serif.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   {{ $css := resources.Match "css/*.css" | resources.Concat "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
