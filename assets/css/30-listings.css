@@ -221,33 +221,33 @@
 }
 
 .ph--0 {
-  --ph-a: #f7b08a;
-  --ph-b: #d24f1c;
+  --ph-a: #f2a7bb;
+  --ph-b: #b3204a;
 }
 
 .ph--1 {
-  --ph-a: #f6d488;
-  --ph-b: #d98e1f;
+  --ph-a: #c6d9c4;
+  --ph-b: #4f6f58;
 }
 
 .ph--2 {
-  --ph-a: #b6d8ad;
-  --ph-b: #457f51;
+  --ph-a: #dcb6d2;
+  --ph-b: #7a3a68;
 }
 
 .ph--3 {
-  --ph-a: #e6b4c7;
-  --ph-b: #9a456b;
+  --ph-a: #f4c3bd;
+  --ph-b: #b9474f;
 }
 
 .ph--4 {
-  --ph-a: #b2d3de;
-  --ph-b: #387b93;
+  --ph-a: #b9d1d0;
+  --ph-b: #3f6b6e;
 }
 
 .ph--5 {
-  --ph-a: #e5c4a3;
-  --ph-b: #865534;
+  --ph-a: #e3cfbb;
+  --ph-b: #8a6249;
 }
 
 .empty {

@@ -12,18 +12,20 @@
 
 .shopping__actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
 .shopping__grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
 
 @media (min-width: 56rem) {
   .shopping__grid {
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   }
 
   .picker {
@@ -65,6 +67,7 @@
 
 .selected li {
   display: flex;
+  max-width: 100%;
   align-items: center;
   gap: 0.25rem;
   padding: 0.25rem 0.3rem 0.25rem 0.85rem;
@@ -77,6 +80,7 @@
 .selected a {
   color: var(--accent-strong);
   text-decoration: none;
+  min-width: 0;
   max-width: 14rem;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -172,6 +176,7 @@
 
 .item__name {
   font-size: 1.05rem;
+  overflow-wrap: anywhere;
 }
 
 .item__amount {

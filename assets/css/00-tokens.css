@@ -17,21 +17,21 @@
 :root {
   color-scheme: light dark;
 
-  --bg: light-dark(#f7f1e8, #161210);
-  --bg-glow: light-dark(#fde2cc, #3a1f12);
-  --surface: light-dark(#fffcf8, #201a16);
-  --surface-2: light-dark(#f1e8dc, #2a221d);
-  --surface-glass: light-dark(rgb(255 252 248 / 0.78), rgb(32 26 22 / 0.78));
+  --bg: light-dark(#f5f2ec, #121413);
+  --bg-glow: light-dark(#f9d9e1, #2f1520);
+  --surface: light-dark(#fefcf9, #201a1b);
+  --surface-2: light-dark(#ece8df, #2a2123);
+  --surface-glass: light-dark(rgb(254 252 249 / 0.78), rgb(32 26 27 / 0.78));
   --ink: light-dark(#231b15, #f4ece2);
   --muted: light-dark(#73655a, #b2a496);
   --line: light-dark(#e6dbcc, #3a3029);
-  --accent: light-dark(#c2410c, #f2894a);
-  --accent-strong: light-dark(#9a3209, #ffa66e);
-  --accent-ink: light-dark(#ffffff, #1b110a);
-  --accent-soft: light-dark(#fde6d6, #3b2215);
-  --herb: light-dark(#3d6b4c, #93c7a3);
-  --herb-soft: light-dark(#e3efe5, #1f3326);
-  --shadow-color: light-dark(rgb(74 44 20 / 0.12), rgb(0 0 0 / 0.45));
+  --accent: light-dark(#b3204a, #ee7898);
+  --accent-strong: light-dark(#8c1838, #ffa3ba);
+  --accent-ink: light-dark(#ffffff, #1b0a10);
+  --accent-soft: light-dark(#f8dfe6, #38171f);
+  --herb: light-dark(#4f6f58, #a5c7ad);
+  --herb-soft: light-dark(#e4ece4, #1f2b23);
+  --shadow-color: light-dark(rgb(70 30 40 / 0.12), rgb(0 0 0 / 0.45));
 
   --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
