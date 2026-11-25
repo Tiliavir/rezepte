@@ -4,6 +4,12 @@ Wichtige Änderungen an der Seite. Format: [Keep a Changelog](https://keepachang
 Versionen nach Datum (`JJJJ.M.T`, ohne führende Nullen). Veröffentlichen: siehe [README](README.md#veröffentlichen).
 Ältere Versionen ohne Changelog: Git-Tags `2024.06.16` bis `2026.10.13`.
 
+## [2026.11.25] - 2026-11-25
+
+### Neu
+
+- Rezeptseite: Button „Teilen“ – teilt Titel und Link übers Teilen-Menü, sonst wird der Link kopiert.
+
 ## [2026.11.14] - 2026-11-14
 
 ### Geändert
