@@ -1,4 +1,5 @@
 import { type Amount, Quantity } from "./lib/quantity";
+import { Share } from "./lib/share";
 import { Store } from "./lib/store";
 import { Toast } from "./lib/toast";
 
@@ -29,6 +30,7 @@ export class Recipe {
     Recipe.initScaler(article);
     Recipe.initAddToList(article);
     Recipe.initWakeLock(article);
+    Recipe.initShare(article);
     Recipe.initPrint(article);
     Recipe.initStepsDone(article);
   }
@@ -188,6 +190,17 @@ export class Recipe {
         acquire().catch(Toast.error);
       }
     });
+    button.hidden = false;
+  }
+
+  private static initShare(article: HTMLElement): void {
+    const button = article.querySelector<HTMLButtonElement>("[data-share]");
+    const url = button?.dataset.shareUrl;
+    if (!button || !url) {
+      return;
+    }
+    const title = article.querySelector("h1")?.textContent?.trim() ?? document.title;
+    button.addEventListener("click", () => Share.share({ title, url }, "Link in die Zwischenablage kopiert"));
     button.hidden = false;
   }
 
