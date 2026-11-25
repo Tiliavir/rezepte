@@ -1,5 +1,6 @@
 import { AISLE_ORDER, Aisles, OTHER } from "./lib/aisles";
 import { type Amount, Quantity } from "./lib/quantity";
+import { Share } from "./lib/share";
 import { type Extra, type ShoppingState, Store } from "./lib/store";
 import { Toast } from "./lib/toast";
 
@@ -154,18 +155,7 @@ export class ShoppingList {
           return group.length ? ["", `${aisle}:`, ...group.map((i) => `☐ ${ShoppingList.label(i)}`)] : [];
         }),
       ].join("\n");
-      if (navigator.share) {
-        navigator.share({ title: "Einkaufsliste", text }).catch((error: unknown) => {
-          if (!(error instanceof DOMException && error.name === "AbortError")) {
-            Toast.error(error);
-          }
-        });
-      } else {
-        navigator.clipboard
-          .writeText(text)
-          .then(() => Toast.show("Liste in die Zwischenablage kopiert"))
-          .catch(Toast.error);
-      }
+      Share.share({ title: "Einkaufsliste", text }, "Liste in die Zwischenablage kopiert");
     });
   }
 
