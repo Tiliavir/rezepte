@@ -24,7 +24,7 @@
     "lunr-languages": "1.24.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.8",
+    "@biomejs/biome": "2.6.9",
     "@types/lunr": "2.3.7",
     "mvw-search-index": "3.0.3",
     "typescript": "7.0.2",
